@@ -1,0 +1,12 @@
+*.egg-info
+*.pyc
+.coverage
+.eggs
+.idea
+.tox
+.vscode
+build
+dist
+env
+htmlcov
+venv
