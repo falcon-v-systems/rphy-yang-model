@@ -35,12 +35,10 @@ module channel-selector-module {
 
     // --- definitions -----------------------------------
 
-    grouping ChannelSelector-grouping {
+    grouping g-ChannelSelector {
         tlv:id 2;
         description
-            "Attribute of `Object` type.
-             TLV [58.3.11.2]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.ChannelSelector";
-
+            "TLV [58.3.11.2]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.ChannelSelector";
         leaf RfPortIndex {
             tlv:id 1;
             type uint8;
@@ -69,6 +67,6 @@ module channel-selector-module {
                 "TLV [58.3.11.2.3]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.ChannelSelector.ChannelIndex";
         }
 
-    }  // ChannelSelector-grouping
+    }  // g-ChannelSelector grouping
 
 }

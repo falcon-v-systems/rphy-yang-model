@@ -42,17 +42,15 @@ module us-rf-port-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsRfPort-grouping {
+    grouping g-UsRfPort {
         tlv:id 98;
-        description
-            "Attribute of `Object` type.
-             TLV [98]: UsRfPort";
-
+        description "TLV [98]: UsRfPort";
         leaf PortIndex {
             // no tlv:id given
             type uint16;
             description
-                "TLV [98.None]: UsRfPort.PortIndex";
+                "TLV [98.X]: UsRfPort.PortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -64,23 +62,21 @@ module us-rf-port-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [98.1]: UsRfPort.AdminState";
+            description "TLV [98.1]: UsRfPort.AdminState";
         }
 
         container BwReqAggrControl {
-            uses "p-bw-req-aggr-control:BwReqAggrControl-grouping";
-            description
-                "TLV [98.2]: UsRfPort.BwReqAggrControl";
+            tlv:id 2;
+            description "TLV [98.2]: UsRfPort.BwReqAggrControl";
+            uses "p-bw-req-aggr-control:g-BwReqAggrControl";
         }
 
         leaf BaseTargetRxPower {
             tlv:id 3;
             type int16;
-            description
-                "TLV [98.3]: UsRfPort.BaseTargetRxPower";
+            description "TLV [98.3]: UsRfPort.BaseTargetRxPower";
         }
 
-    }  // UsRfPort-grouping
+    }  // g-UsRfPort grouping
 
 }

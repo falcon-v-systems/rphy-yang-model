@@ -35,12 +35,11 @@ module ds-ofdm-profile-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmProfilePerf-grouping {
+    grouping g-DsOfdmProfilePerf {
         tlv:id 3;
         description
-            "Attribute of `Object` type.
-             TLV [73.3]: DsOfdmChannelPerf.DsOfdmProfilePerf";
-
+            "TLV [73.3]: DsOfdmChannelPerf.DsOfdmProfilePerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf ProfileIndex {
             tlv:id 1;
             type uint8;
@@ -52,9 +51,10 @@ module ds-ofdm-profile-perf-module {
             tlv:id 2;
             type uint64;
             description
-                "TLV [73.3.2]: DsOfdmChannelPerf.DsOfdmProfilePerf.outCodewords";
+                "TLV [73.3.2]: DsOfdmChannelPerf.DsOfdmProfilePerf.outCodewords
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsOfdmProfilePerf-grouping
+    }  // g-DsOfdmProfilePerf grouping
 
 }

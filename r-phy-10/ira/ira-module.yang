@@ -8,13 +8,6 @@ module ira-module {
 
     // --- imports ---------------------------------------
 
-    import sequence-module {
-        prefix "p-sequence";
-        description 
-            "File path: ira/sequence/sequence-module.yang
-            https://github.com/falcon-v-systems/rphy-yang-model/blob/master/r-phy-10/ira/sequence/sequence-module.yang";
-    }
-
     import tlv-ext {
         prefix "tlv";
         description 
@@ -42,18 +35,24 @@ module ira-module {
 
     // --- definitions -----------------------------------
 
-    grouping IRA-grouping {
+    grouping g-IRA {
         tlv:id 1;
-        description
-            "Attribute of `Object` type.
-             TLV [1]: IRA";
-
-        container Sequence {
-            uses "p-sequence:Sequence-grouping";
+        description "TLV [1]: IRA";
+        list Sequence {
+            tlv:id 9;
+            key SequenceNumber;
             description
-                "TLV [9]: Sequence";
-        }
+                "TLV [9]: Sequence
+                 non-defaults: [no_ext_def: True]
+                 No external definition.";
+            leaf SequenceNumber {
+                tlv:id 10;
+                type uint16;
+                description "TLV [10]: SequenceNumber";
+            }
 
-    }  // IRA-grouping
+        }  // Sequence list
+
+    }  // g-IRA grouping
 
 }

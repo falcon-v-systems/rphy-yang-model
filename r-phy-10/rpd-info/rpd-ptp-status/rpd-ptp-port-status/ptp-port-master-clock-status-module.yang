@@ -35,17 +35,16 @@ module ptp-port-master-clock-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping PtpPortMasterClockStatus-grouping {
+    grouping g-PtpPortMasterClockStatus {
         tlv:id 6;
         description
-            "Attribute of `Object` type.
-             TLV [100.24.4.6]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus";
-
+            "TLV [100.24.4.6]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus";
         leaf MasterPriority {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.24.4.6.1]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus.MasterPriority";
+                "TLV [100.24.4.6.1]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus.MasterPriority
+                 non-defaults: [is_key: True]";
         }
 
         leaf PacketsSent {
@@ -167,6 +166,6 @@ module ptp-port-master-clock-status-module {
                 "TLV [100.24.4.6.18]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus.GmStepsRemoved";
         }
 
-    }  // PtpPortMasterClockStatus-grouping
+    }  // g-PtpPortMasterClockStatus grouping
 
 }

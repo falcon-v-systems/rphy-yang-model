@@ -35,12 +35,9 @@ module ip-interface-grp-module {
 
     // --- definitions -----------------------------------
 
-    grouping IpInterfaceGrp-grouping {
+    grouping g-IpInterfaceGrp {
         tlv:id 11;
-        description
-            "Attribute of `Object` type.
-             TLV [100.11]: RpdInfo.IpInterfaceGrp";
-
+        description "TLV [100.11]: RpdInfo.IpInterfaceGrp";
         leaf Ipv4InterfaceTableLastChange {
             tlv:id 1;
             type uint32;
@@ -65,17 +62,15 @@ module ip-interface-grp-module {
         leaf Ipv4DefaultTTL {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [100.11.5]: RpdInfo.IpInterfaceGrp.Ipv4DefaultTTL";
+            description "TLV [100.11.5]: RpdInfo.IpInterfaceGrp.Ipv4DefaultTTL";
         }
 
         leaf Ipv6DefaultHopLimit {
             tlv:id 8;
             type uint32;
-            description
-                "TLV [100.11.8]: RpdInfo.IpInterfaceGrp.Ipv6DefaultHopLimit";
+            description "TLV [100.11.8]: RpdInfo.IpInterfaceGrp.Ipv6DefaultHopLimit";
         }
 
-    }  // IpInterfaceGrp-grouping
+    }  // g-IpInterfaceGrp grouping
 
 }

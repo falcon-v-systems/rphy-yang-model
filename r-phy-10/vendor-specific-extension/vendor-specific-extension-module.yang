@@ -35,19 +35,15 @@ module vendor-specific-extension-module {
 
     // --- definitions -----------------------------------
 
-    grouping VendorSpecificExtension-grouping {
+    grouping g-VendorSpecificExtension {
         tlv:id 21;
-        description
-            "Attribute of `Object` type.
-             TLV [21]: VendorSpecificExtension";
-
+        description "TLV [21]: VendorSpecificExtension";
         leaf VendorId {
             tlv:id 1;
             type uint16;
-            description
-                "TLV [21.1]: VendorSpecificExtension.VendorId";
+            description "TLV [21.1]: VendorSpecificExtension.VendorId";
         }
 
-    }  // VendorSpecificExtension-grouping
+    }  // g-VendorSpecificExtension grouping
 
 }

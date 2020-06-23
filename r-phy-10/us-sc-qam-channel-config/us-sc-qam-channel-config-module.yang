@@ -48,24 +48,21 @@ module us-sc-qam-channel-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsScQamChannelConfig-grouping {
+    grouping g-UsScQamChannelConfig {
         tlv:id 65;
-        description
-            "Attribute of `Object` type.
-             TLV [65]: UsScQamChannelConfig";
-
+        description "TLV [65]: UsScQamChannelConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [65.None]: UsScQamChannelConfig.Index";
+                "TLV [65.X]: UsScQamChannelConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf ModulationProfileIndex {
             // no tlv:id given
             type uint32;
-            description
-                "TLV [65.None]: UsScQamChannelConfig.ModulationProfileIndex";
+            description "TLV [65.X]: UsScQamChannelConfig.ModulationProfileIndex";
         }
 
         leaf AdminState {
@@ -77,15 +74,13 @@ module us-sc-qam-channel-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [65.1]: UsScQamChannelConfig.AdminState";
+            description "TLV [65.1]: UsScQamChannelConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [65.2]: UsScQamChannelConfig.CcapCoreOwner";
+            description "TLV [65.2]: UsScQamChannelConfig.CcapCoreOwner";
         }
 
         leaf ChannelType {
@@ -99,7 +94,8 @@ module us-sc-qam-channel-config-module {
                 enum TDMAandATDMA     { value  4; description ""; }
             }
             description
-                "TLV [65.3]: UsScQamChannelConfig.ChannelType";
+                "TLV [65.3]: UsScQamChannelConfig.ChannelType
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf CenterFrequency {
@@ -107,7 +103,8 @@ module us-sc-qam-channel-config-module {
             type uint32;
             units "Hz";
             description
-                "TLV [65.4]: UsScQamChannelConfig.CenterFrequency";
+                "TLV [65.4]: UsScQamChannelConfig.CenterFrequency
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf Width {
@@ -123,7 +120,8 @@ module us-sc-qam-channel-config-module {
             }
             units "Hz";
             description
-                "TLV [65.5]: UsScQamChannelConfig.Width";
+                "TLV [65.5]: UsScQamChannelConfig.Width
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf SlotSize {
@@ -140,72 +138,76 @@ module us-sc-qam-channel-config-module {
                 enum 128  { value 128; description ""; }
             }
             description
-                "TLV [65.6]: UsScQamChannelConfig.SlotSize";
+                "TLV [65.6]: UsScQamChannelConfig.SlotSize
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf StartingMinislot {
             tlv:id 7;
             type uint32;
             description
-                "TLV [65.7]: UsScQamChannelConfig.StartingMinislot";
+                "TLV [65.7]: UsScQamChannelConfig.StartingMinislot
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf PreambleString {
             tlv:id 8;
             type binary;
             description
-                "TLV [65.8]: UsScQamChannelConfig.PreambleString";
+                "TLV [65.8]: UsScQamChannelConfig.PreambleString
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf TargetRxPowerAdjust {
             tlv:id 9;
             type int16;
             units "TenthdBmV";
-            description
-                "TLV [65.9]: UsScQamChannelConfig.TargetRxPowerAdjust";
+            description "TLV [65.9]: UsScQamChannelConfig.TargetRxPowerAdjust";
         }
 
-        container IntervalUsageCode {
-            uses "p-interval-usage-code:IntervalUsageCode-grouping";
-            description
-                "TLV [65.10]: UsScQamChannelConfig.IntervalUsageCode";
+        list IntervalUsageCode {
+            tlv:id 10;
+            key Code;
+            description "TLV [65.10]: UsScQamChannelConfig.IntervalUsageCode";
+            uses "p-interval-usage-code:g-IntervalUsageCode";
         }
 
         leaf EqualizationCoeffEnable {
             tlv:id 11;
             type boolean;
-            description
-                "TLV [65.11]: UsScQamChannelConfig.EqualizationCoeffEnable";
+            description "TLV [65.11]: UsScQamChannelConfig.EqualizationCoeffEnable";
         }
 
         leaf IngressNoiseCancelEnable {
             tlv:id 12;
             type boolean;
-            description
-                "TLV [65.12]: UsScQamChannelConfig.IngressNoiseCancelEnable";
+            description "TLV [65.12]: UsScQamChannelConfig.IngressNoiseCancelEnable";
         }
 
         leaf UsChanId {
             tlv:id 13;
             type uint8;
             description
-                "TLV [65.13]: UsScQamChannelConfig.UsChanId";
+                "TLV [65.13]: UsScQamChannelConfig.UsChanId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ConfigChangeCount {
             tlv:id 14;
             type uint8;
             description
-                "TLV [65.14]: UsScQamChannelConfig.ConfigChangeCount";
+                "TLV [65.14]: UsScQamChannelConfig.ConfigChangeCount
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DsChanId {
             tlv:id 15;
             type uint8;
             description
-                "TLV [65.15]: UsScQamChannelConfig.DsChanId";
+                "TLV [65.15]: UsScQamChannelConfig.DsChanId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsScQamChannelConfig-grouping
+    }  // g-UsScQamChannelConfig grouping
 
 }

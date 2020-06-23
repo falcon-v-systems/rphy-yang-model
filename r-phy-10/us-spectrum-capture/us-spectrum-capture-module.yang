@@ -42,17 +42,13 @@ module us-spectrum-capture-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsSpectrumCapture-grouping {
+    grouping g-UsSpectrumCapture {
         tlv:id 41;
-        description
-            "Attribute of `Object` type.
-             TLV [41]: UsSpectrumCapture";
-
+        description "TLV [41]: UsSpectrumCapture";
         leaf UscSacIndex {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [41.1]: UsSpectrumCapture.UscSacIndex";
+            description "TLV [41.1]: UsSpectrumCapture.UscSacIndex";
         }
 
         leaf UscCommand {
@@ -62,8 +58,7 @@ module us-spectrum-capture-module {
                 enum StartCapture     { value  1; description ""; }
                 enum StopCapture      { value  2; description ""; }
             }
-            description
-                "TLV [41.2]: UsSpectrumCapture.UscCommand";
+            description "TLV [41.2]: UsSpectrumCapture.UscCommand";
         }
 
         leaf UscStatus {
@@ -78,16 +73,15 @@ module us-spectrum-capture-module {
                 enum resourceUnavailable  { value  6; description ""; }
                 enum sampleTruncated      { value  7; description ""; }
             }
-            description
-                "TLV [41.3]: UsSpectrumCapture.UscStatus";
+            description "TLV [41.3]: UsSpectrumCapture.UscStatus";
         }
 
         container UscConfig {
-            uses "p-usc-config:UscConfig-grouping";
-            description
-                "TLV [41.4]: UsSpectrumCapture.UscConfig";
+            tlv:id 4;
+            description "TLV [41.4]: UsSpectrumCapture.UscConfig";
+            uses "p-usc-config:g-UscConfig";
         }
 
-    }  // UsSpectrumCapture-grouping
+    }  // g-UsSpectrumCapture grouping
 
 }

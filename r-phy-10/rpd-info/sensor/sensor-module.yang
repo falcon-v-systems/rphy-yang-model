@@ -35,17 +35,15 @@ module sensor-module {
 
     // --- definitions -----------------------------------
 
-    grouping Sensor-grouping {
+    grouping g-Sensor {
         tlv:id 7;
-        description
-            "Attribute of `Object` type.
-             TLV [100.7]: RpdInfo.Sensor";
-
+        description "TLV [100.7]: RpdInfo.Sensor";
         leaf EntityIndex {
             tlv:id 1;
             type uint32;
             description
-                "TLV [100.7.1]: RpdInfo.Sensor.EntityIndex";
+                "TLV [100.7.1]: RpdInfo.Sensor.EntityIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf SensorType {
@@ -65,8 +63,7 @@ module sensor-module {
                 enum cmm          { value 11; description ""; }
                 enum truthvalue   { value 12; description ""; }
             }
-            description
-                "TLV [100.7.2]: RpdInfo.Sensor.SensorType";
+            description "TLV [100.7.2]: RpdInfo.Sensor.SensorType";
         }
 
         leaf Scale {
@@ -91,22 +88,19 @@ module sensor-module {
                 enum zetta    { value 16; description ""; }
                 enum yotta    { value 17; description ""; }
             }
-            description
-                "TLV [100.7.3]: RpdInfo.Sensor.Scale";
+            description "TLV [100.7.3]: RpdInfo.Sensor.Scale";
         }
 
         leaf Precision {
             tlv:id 4;
             type int8;
-            description
-                "TLV [100.7.4]: RpdInfo.Sensor.Precision";
+            description "TLV [100.7.4]: RpdInfo.Sensor.Precision";
         }
 
         leaf Value {
             tlv:id 5;
             type int32;
-            description
-                "TLV [100.7.5]: RpdInfo.Sensor.Value";
+            description "TLV [100.7.5]: RpdInfo.Sensor.Value";
         }
 
         leaf OperStatus {
@@ -117,31 +111,27 @@ module sensor-module {
                 enum unavailable      { value  2; description ""; }
                 enum nonoperational   { value  3; description ""; }
             }
-            description
-                "TLV [100.7.6]: RpdInfo.Sensor.OperStatus";
+            description "TLV [100.7.6]: RpdInfo.Sensor.OperStatus";
         }
 
         leaf UnitsDisplay {
             tlv:id 7;
             type string;
-            description
-                "TLV [100.7.7]: RpdInfo.Sensor.UnitsDisplay";
+            description "TLV [100.7.7]: RpdInfo.Sensor.UnitsDisplay";
         }
 
         leaf ValueTimeStamp {
             tlv:id 8;
             type uint32;
-            description
-                "TLV [100.7.8]: RpdInfo.Sensor.ValueTimeStamp";
+            description "TLV [100.7.8]: RpdInfo.Sensor.ValueTimeStamp";
         }
 
         leaf ValueUpdateRate {
             tlv:id 9;
             type uint32;
-            description
-                "TLV [100.7.9]: RpdInfo.Sensor.ValueUpdateRate";
+            description "TLV [100.7.9]: RpdInfo.Sensor.ValueUpdateRate";
         }
 
-    }  // Sensor-grouping
+    }  // g-Sensor grouping
 
 }

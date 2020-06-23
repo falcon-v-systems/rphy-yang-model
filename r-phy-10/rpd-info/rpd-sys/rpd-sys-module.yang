@@ -35,26 +35,21 @@ module rpd-sys-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdSys-grouping {
+    grouping g-RpdSys {
         tlv:id 1;
-        description
-            "Attribute of `Object` type.
-             TLV [100.1]: RpdInfo.RpdSys";
-
+        description "TLV [100.1]: RpdInfo.RpdSys";
         leaf RpdSysUpTime {
             tlv:id 1;
             type uint32;
-            description
-                "TLV [100.1.1]: RpdInfo.RpdSys.RpdSysUpTime";
+            description "TLV [100.1.1]: RpdInfo.RpdSys.RpdSysUpTime";
         }
 
         leaf NumCrashFilesAvail {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [100.1.2]: RpdInfo.RpdSys.NumCrashFilesAvail";
+            description "TLV [100.1.2]: RpdInfo.RpdSys.NumCrashFilesAvail";
         }
 
-    }  // RpdSys-grouping
+    }  // g-RpdSys grouping
 
 }

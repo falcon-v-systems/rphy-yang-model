@@ -41,12 +41,9 @@ module gcp-handover-control-module {
 
     // --- definitions -----------------------------------
 
-    grouping GcpHandoverControl-grouping {
+    grouping g-GcpHandoverControl {
         tlv:id 109;
-        description
-            "Attribute of `Object` type.
-             TLV [109]: GcpHandoverControl";
-
+        description "TLV [109]: GcpHandoverControl";
         leaf GcpHandoverControlAction {
             tlv:id 1;
             tlv:repr uint8;
@@ -54,22 +51,19 @@ module gcp-handover-control-module {
                 enum noAction             { value  0; description ""; }
                 enum InitiateHandover     { value  1; description ""; }
             }
-            description
-                "TLV [109.1]: GcpHandoverControl.GcpHandoverControlAction";
+            description "TLV [109.1]: GcpHandoverControl.GcpHandoverControlAction";
         }
 
         leaf OosCore {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [109.2]: GcpHandoverControl.OosCore";
+            description "TLV [109.2]: GcpHandoverControl.OosCore";
         }
 
         leaf NewActiveCore {
             tlv:id 3;
             type yang:mac-address;
-            description
-                "TLV [109.3]: GcpHandoverControl.NewActiveCore";
+            description "TLV [109.3]: GcpHandoverControl.NewActiveCore";
         }
 
         leaf L2TPv3 {
@@ -80,10 +74,9 @@ module gcp-handover-control-module {
                 enum tearDown     { value  1; description ""; }
                 enum keepActive   { value  2; description ""; }
             }
-            description
-                "TLV [109.4]: GcpHandoverControl.L2TPv3";
+            description "TLV [109.4]: GcpHandoverControl.L2TPv3";
         }
 
-    }  // GcpHandoverControl-grouping
+    }  // g-GcpHandoverControl grouping
 
 }

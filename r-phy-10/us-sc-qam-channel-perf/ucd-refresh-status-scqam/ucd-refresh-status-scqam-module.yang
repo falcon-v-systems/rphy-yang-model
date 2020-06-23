@@ -35,26 +35,27 @@ module ucd-refresh-status-scqam-module {
 
     // --- definitions -----------------------------------
 
-    grouping UcdRefreshStatusScqam-grouping {
+    grouping g-UcdRefreshStatusScqam {
         tlv:id 10;
         description
-            "Attribute of `Object` type.
-             TLV [78.10]: UsScQamChannelPerf.UcdRefreshStatusScqam";
-
+            "TLV [78.10]: UsScQamChannelPerf.UcdRefreshStatusScqam
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf UcdRefreshRequestScqam {
             tlv:id 1;
             type boolean;
             description
-                "TLV [78.10.1]: UsScQamChannelPerf.UcdRefreshStatusScqam.UcdRefreshRequestScqam";
+                "TLV [78.10.1]: UsScQamChannelPerf.UcdRefreshStatusScqam.UcdRefreshRequestScqam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UcdRefreshReasonScqam {
             tlv:id 2;
             type string;
             description
-                "TLV [78.10.2]: UsScQamChannelPerf.UcdRefreshStatusScqam.UcdRefreshReasonScqam";
+                "TLV [78.10.2]: UsScQamChannelPerf.UcdRefreshStatusScqam.UcdRefreshReasonScqam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UcdRefreshStatusScqam-grouping
+    }  // g-UcdRefreshStatusScqam grouping
 
 }

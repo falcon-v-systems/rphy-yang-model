@@ -41,26 +41,25 @@ module configured-core-table-module {
 
     // --- definitions -----------------------------------
 
-    grouping ConfiguredCoreTable-grouping {
+    grouping g-ConfiguredCoreTable {
         tlv:id 1;
         description
-            "Attribute of `Object` type.
-             TLV [88.1]: MultiCore.ConfiguredCoreTable";
-
+            "TLV [88.1]: MultiCore.ConfiguredCoreTable
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [88.1.1]: MultiCore.ConfiguredCoreTable.Index";
+            description "TLV [88.1.1]: MultiCore.ConfiguredCoreTable.Index";
         }
 
         leaf ConfiguredCoreIp {
             tlv:id 2;
             type inet:ip-address;
             description
-                "TLV [88.1.2]: MultiCore.ConfiguredCoreTable.ConfiguredCoreIp";
+                "TLV [88.1.2]: MultiCore.ConfiguredCoreTable.ConfiguredCoreIp
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // ConfiguredCoreTable-grouping
+    }  // g-ConfiguredCoreTable grouping
 
 }

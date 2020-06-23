@@ -35,12 +35,9 @@ module ip-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping IpConfig-grouping {
+    grouping g-IpConfig {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [15.3]: RpdGlobal.IpConfig";
-
+        description "TLV [15.3]: RpdGlobal.IpConfig";
         leaf IpStackControl {
             tlv:id 1;
             tlv:repr uint8;
@@ -49,10 +46,9 @@ module ip-config-module {
                 enum IPv4Only     { value  1; description ""; }
                 enum IPv6Only     { value  2; description ""; }
             }
-            description
-                "TLV [15.3.1]: RpdGlobal.IpConfig.IpStackControl";
+            description "TLV [15.3.1]: RpdGlobal.IpConfig.IpStackControl";
         }
 
-    }  // IpConfig-grouping
+    }  // g-IpConfig grouping
 
 }

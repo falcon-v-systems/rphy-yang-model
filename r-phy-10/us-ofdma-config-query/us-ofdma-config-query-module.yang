@@ -35,47 +35,39 @@ module us-ofdma-config-query-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaConfigQuery-grouping {
+    grouping g-UsOfdmaConfigQuery {
         tlv:id 152;
-        description
-            "Attribute of `Object` type.
-             TLV [152]: UsOfdmaConfigQuery";
-
+        description "TLV [152]: UsOfdmaConfigQuery";
         leaf QueryOfdmaRollOffPeriod {
             tlv:id 1;
             type uint16;
-            description
-                "TLV [152.1]: UsOfdmaConfigQuery.QueryOfdmaRollOffPeriod";
+            description "TLV [152.1]: UsOfdmaConfigQuery.QueryOfdmaRollOffPeriod";
         }
 
         leaf QueryOfdmaCyclicPrefix {
             tlv:id 2;
             type uint16;
-            description
-                "TLV [152.2]: UsOfdmaConfigQuery.QueryOfdmaCyclicPrefix";
+            description "TLV [152.2]: UsOfdmaConfigQuery.QueryOfdmaCyclicPrefix";
         }
 
         leaf QueryOfdmaSubcarrierSpacing {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [152.3]: UsOfdmaConfigQuery.QueryOfdmaSubcarrierSpacing";
+            description "TLV [152.3]: UsOfdmaConfigQuery.QueryOfdmaSubcarrierSpacing";
         }
 
         leaf QueryNumSymbolsPerFrame {
             tlv:id 4;
             type uint8;
-            description
-                "TLV [152.4]: UsOfdmaConfigQuery.QueryNumSymbolsPerFrame";
+            description "TLV [152.4]: UsOfdmaConfigQuery.QueryNumSymbolsPerFrame";
         }
 
         leaf QueryOfdmaScramblerSeed {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [152.5]: UsOfdmaConfigQuery.QueryOfdmaScramblerSeed";
+            description "TLV [152.5]: UsOfdmaConfigQuery.QueryOfdmaScramblerSeed";
         }
 
-    }  // UsOfdmaConfigQuery-grouping
+    }  // g-UsOfdmaConfigQuery grouping
 
 }

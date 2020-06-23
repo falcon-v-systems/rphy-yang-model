@@ -47,17 +47,15 @@ module ds-sc-qam-channel-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsScQamChannelConfig-grouping {
+    grouping g-DsScQamChannelConfig {
         tlv:id 62;
-        description
-            "Attribute of `Object` type.
-             TLV [62]: DsScQamChannelConfig";
-
+        description "TLV [62]: DsScQamChannelConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [62.None]: DsScQamChannelConfig.Index";
+                "TLV [62.X]: DsScQamChannelConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -69,37 +67,32 @@ module ds-sc-qam-channel-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [62.1]: DsScQamChannelConfig.AdminState";
+            description "TLV [62.1]: DsScQamChannelConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [62.2]: DsScQamChannelConfig.CcapCoreOwner";
+            description "TLV [62.2]: DsScQamChannelConfig.CcapCoreOwner";
         }
 
         leaf RfMute {
             tlv:id 3;
             type boolean;
-            description
-                "TLV [62.3]: DsScQamChannelConfig.RfMute";
+            description "TLV [62.3]: DsScQamChannelConfig.RfMute";
         }
 
         leaf TSID {
             tlv:id 4;
             type uint16;
-            description
-                "TLV [62.4]: DsScQamChannelConfig.TSID";
+            description "TLV [62.4]: DsScQamChannelConfig.TSID";
         }
 
         leaf CenterFrequency {
             tlv:id 5;
             type uint32;
             units "Hz";
-            description
-                "TLV [62.5]: DsScQamChannelConfig.CenterFrequency";
+            description "TLV [62.5]: DsScQamChannelConfig.CenterFrequency";
         }
 
         leaf OperationalMode {
@@ -112,8 +105,7 @@ module ds-sc-qam-channel-config-module {
                 enum Async_MPEG   { value  4; description ""; }
                 enum CW_carrier   { value  5; description ""; }
             }
-            description
-                "TLV [62.6]: DsScQamChannelConfig.OperationalMode";
+            description "TLV [62.6]: DsScQamChannelConfig.OperationalMode";
         }
 
         leaf Modulation {
@@ -125,8 +117,7 @@ module ds-sc-qam-channel-config-module {
                 enum QAM_64   { value  3; description ""; }
                 enum QAM_256  { value  4; description ""; }
             }
-            description
-                "TLV [62.7]: DsScQamChannelConfig.Modulation";
+            description "TLV [62.7]: DsScQamChannelConfig.Modulation";
         }
 
         leaf InterleaverDepth {
@@ -142,8 +133,7 @@ module ds-sc-qam-channel-config-module {
                 enum taps128Increment1    { value  7; description ""; }
                 enum taps12Increment17    { value  8; description ""; }
             }
-            description
-                "TLV [62.8]: DsScQamChannelConfig.InterleaverDepth";
+            description "TLV [62.8]: DsScQamChannelConfig.InterleaverDepth";
         }
 
         leaf Annex {
@@ -156,82 +146,71 @@ module ds-sc-qam-channel-config-module {
                 enum B        { value  4; description ""; }
                 enum C        { value  5; description ""; }
             }
-            description
-                "TLV [62.9]: DsScQamChannelConfig.Annex";
+            description "TLV [62.9]: DsScQamChannelConfig.Annex";
         }
 
         leaf SyncInterval {
             tlv:id 10;
             type uint8;
             units "Miliseconds";
-            description
-                "TLV [62.10]: DsScQamChannelConfig.SyncInterval";
+            description "TLV [62.10]: DsScQamChannelConfig.SyncInterval";
         }
 
         leaf SyncMacAddress {
             tlv:id 11;
             type yang:mac-address;
-            description
-                "TLV [62.11]: DsScQamChannelConfig.SyncMacAddress";
+            description "TLV [62.11]: DsScQamChannelConfig.SyncMacAddress";
         }
 
         leaf SymbolFrequencyDenominator {
             tlv:id 12;
             type uint16;
-            description
-                "TLV [62.12]: DsScQamChannelConfig.SymbolFrequencyDenominator";
+            description "TLV [62.12]: DsScQamChannelConfig.SymbolFrequencyDenominator";
         }
 
         leaf SymbolFrequencyNumerator {
             tlv:id 13;
             type uint16;
-            description
-                "TLV [62.13]: DsScQamChannelConfig.SymbolFrequencyNumerator";
+            description "TLV [62.13]: DsScQamChannelConfig.SymbolFrequencyNumerator";
         }
 
         leaf SymbolRateOverride {
             tlv:id 14;
             type uint32;
-            description
-                "TLV [62.14]: DsScQamChannelConfig.SymbolRateOverride";
+            description "TLV [62.14]: DsScQamChannelConfig.SymbolRateOverride";
         }
 
         leaf SpectrumInversionEnabled {
             tlv:id 15;
             type boolean;
-            description
-                "TLV [62.15]: DsScQamChannelConfig.SpectrumInversionEnabled";
+            description "TLV [62.15]: DsScQamChannelConfig.SpectrumInversionEnabled";
         }
 
         leaf PowerAdjust {
             tlv:id 16;
             type int16;
             units "TenthdB";
-            description
-                "TLV [62.16]: DsScQamChannelConfig.PowerAdjust";
+            description "TLV [62.16]: DsScQamChannelConfig.PowerAdjust";
         }
 
         leaf MulticastIp {
             // no tlv:id given
             type inet:ip-address;
-            description
-                "TLV [62.None]: DsScQamChannelConfig.MulticastIp";
+            description "TLV [62.X]: DsScQamChannelConfig.MulticastIp";
         }
 
         leaf MulticastPort {
             // no tlv:id given
             type uint16;
-            description
-                "TLV [62.None]: DsScQamChannelConfig.MulticastPort";
+            description "TLV [62.X]: DsScQamChannelConfig.MulticastPort";
         }
 
         leaf VideoFile {
             // no tlv:id given
             type binary;
-            description
-                "TLV [62.None]: DsScQamChannelConfig.VideoFile";
+            description "TLV [62.X]: DsScQamChannelConfig.VideoFile";
         }
 
-    }  // DsScQamChannelConfig-grouping
+    }  // g-DsScQamChannelConfig grouping
 
 }

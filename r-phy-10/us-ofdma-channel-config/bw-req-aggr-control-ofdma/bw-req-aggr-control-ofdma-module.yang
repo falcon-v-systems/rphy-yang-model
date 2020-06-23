@@ -35,12 +35,9 @@ module bw-req-aggr-control-ofdma-module {
 
     // --- definitions -----------------------------------
 
-    grouping BwReqAggrControlOfdma-grouping {
+    grouping g-BwReqAggrControlOfdma {
         tlv:id 17;
-        description
-            "Attribute of `Object` type.
-             TLV [66.17]: UsOfdmaChannelConfig.BwReqAggrControlOfdma";
-
+        description "TLV [66.17]: UsOfdmaChannelConfig.BwReqAggrControlOfdma";
         leaf MaxReqBlockEnqTimeout {
             tlv:id 1;
             type uint16;
@@ -56,6 +53,6 @@ module bw-req-aggr-control-ofdma-module {
                 "TLV [66.17.2]: UsOfdmaChannelConfig.BwReqAggrControlOfdma.MaxReqBlockEnqNumber";
         }
 
-    }  // BwReqAggrControlOfdma-grouping
+    }  // g-BwReqAggrControlOfdma grouping
 
 }

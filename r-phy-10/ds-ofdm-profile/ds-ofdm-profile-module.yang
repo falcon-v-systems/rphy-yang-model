@@ -42,25 +42,24 @@ module ds-ofdm-profile-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmProfile-grouping {
+    grouping g-DsOfdmProfile {
         tlv:id 64;
-        description
-            "Attribute of `Object` type.
-             TLV [64]: DsOfdmProfile";
-
+        description "TLV [64]: DsOfdmProfile";
         leaf ProfileId {
             tlv:id 1;
             type uint8;
             description
-                "TLV [64.1]: DsOfdmProfile.ProfileId";
+                "TLV [64.1]: DsOfdmProfile.ProfileId
+                 non-defaults: [is_key: True]";
         }
 
-        container DsOfdmSubcarrierModulation {
-            uses "p-ds-ofdm-subcarrier-modulation:DsOfdmSubcarrierModulation-grouping";
-            description
-                "TLV [64.2]: DsOfdmProfile.DsOfdmSubcarrierModulation";
+        list DsOfdmSubcarrierModulation {
+            tlv:id 2;
+            key StartSubcarrierId;
+            description "TLV [64.2]: DsOfdmProfile.DsOfdmSubcarrierModulation";
+            uses "p-ds-ofdm-subcarrier-modulation:g-DsOfdmSubcarrierModulation";
         }
 
-    }  // DsOfdmProfile-grouping
+    }  // g-DsOfdmProfile grouping
 
 }

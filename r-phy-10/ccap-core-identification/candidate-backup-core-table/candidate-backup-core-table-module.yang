@@ -41,12 +41,9 @@ module candidate-backup-core-table-module {
 
     // --- definitions -----------------------------------
 
-    grouping CandidateBackupCoreTable-grouping {
+    grouping g-CandidateBackupCoreTable {
         tlv:id 14;
-        description
-            "Attribute of `Object` type.
-             TLV [60.14]: CcapCoreIdentification.CandidateBackupCoreTable";
-
+        description "TLV [60.14]: CcapCoreIdentification.CandidateBackupCoreTable";
         leaf Index {
             tlv:id 1;
             type uint8;
@@ -61,6 +58,6 @@ module candidate-backup-core-table-module {
                 "TLV [60.14.2]: CcapCoreIdentification.CandidateBackupCoreTable.BackupCoreIpAddress";
         }
 
-    }  // CandidateBackupCoreTable-grouping
+    }  // g-CandidateBackupCoreTable grouping
 
 }

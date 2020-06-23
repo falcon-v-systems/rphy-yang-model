@@ -35,33 +35,35 @@ module reset-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping ResetCapabilities-grouping {
+    grouping g-ResetCapabilities {
         tlv:id 55;
         description
-            "Attribute of `Object` type.
-             TLV [50.55]: RpdCapabilities.ResetCapabilities";
-
+            "TLV [50.55]: RpdCapabilities.ResetCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf SoftResetSupported {
             tlv:id 1;
             type boolean;
             description
-                "TLV [50.55.1]: RpdCapabilities.ResetCapabilities.SoftResetSupported";
+                "TLV [50.55.1]: RpdCapabilities.ResetCapabilities.SoftResetSupported
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NvResetSupported {
             tlv:id 2;
             type boolean;
             description
-                "TLV [50.55.2]: RpdCapabilities.ResetCapabilities.NvResetSupported";
+                "TLV [50.55.2]: RpdCapabilities.ResetCapabilities.NvResetSupported
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf FactoryResetSupported {
             tlv:id 3;
             type boolean;
             description
-                "TLV [50.55.3]: RpdCapabilities.ResetCapabilities.FactoryResetSupported";
+                "TLV [50.55.3]: RpdCapabilities.ResetCapabilities.FactoryResetSupported
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // ResetCapabilities-grouping
+    }  // g-ResetCapabilities grouping
 
 }

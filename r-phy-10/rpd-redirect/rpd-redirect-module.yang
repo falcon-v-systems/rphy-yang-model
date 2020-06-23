@@ -41,19 +41,15 @@ module rpd-redirect-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdRedirect-grouping {
+    grouping g-RpdRedirect {
         tlv:id 25;
-        description
-            "Attribute of `Object` type.
-             TLV [25]: RpdRedirect";
-
+        description "TLV [25]: RpdRedirect";
         leaf RedirectIpAddress {
             tlv:id 1;
             type inet:ip-address;
-            description
-                "TLV [25.1]: RpdRedirect.RedirectIpAddress";
+            description "TLV [25.1]: RpdRedirect.RedirectIpAddress";
         }
 
-    }  // RpdRedirect-grouping
+    }  // g-RpdRedirect grouping
 
 }

@@ -35,18 +35,18 @@ module us-power-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsPowerCapabilities-grouping {
+    grouping g-UsPowerCapabilities {
         tlv:id 49;
         description
-            "Attribute of `Object` type.
-             TLV [50.49]: RpdCapabilities.UsPowerCapabilities";
-
+            "TLV [50.49]: RpdCapabilities.UsPowerCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf MinBaseUsPowerTargetLevel {
             tlv:id 1;
             type int16;
             units "TenthdBmV";
             description
-                "TLV [50.49.1]: RpdCapabilities.UsPowerCapabilities.MinBaseUsPowerTargetLevel";
+                "TLV [50.49.1]: RpdCapabilities.UsPowerCapabilities.MinBaseUsPowerTargetLevel
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxBaseUsPowerTargetLevel {
@@ -54,7 +54,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdBmV";
             description
-                "TLV [50.49.2]: RpdCapabilities.UsPowerCapabilities.MaxBaseUsPowerTargetLevel";
+                "TLV [50.49.2]: RpdCapabilities.UsPowerCapabilities.MaxBaseUsPowerTargetLevel
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinTargetRxPowerAdjustScqam {
@@ -62,7 +63,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.3]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustScqam";
+                "TLV [50.49.3]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustScqam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxTargetRxPowerAdjustScqam {
@@ -70,7 +72,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.4]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustScqam";
+                "TLV [50.49.4]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustScqam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinTargetRxPowerAdjustOfdma {
@@ -78,7 +81,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.5]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustOfdma";
+                "TLV [50.49.5]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustOfdma
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxTargetRxPowerAdjustOfdma {
@@ -86,7 +90,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.6]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustOfdma";
+                "TLV [50.49.6]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustOfdma
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinTargetRxPowerAdjustNdr {
@@ -94,7 +99,8 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.7]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustNdr";
+                "TLV [50.49.7]: RpdCapabilities.UsPowerCapabilities.MinTargetRxPowerAdjustNdr
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxTargetRxPowerAdjustNdr {
@@ -102,9 +108,10 @@ module us-power-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.49.8]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustNdr";
+                "TLV [50.49.8]: RpdCapabilities.UsPowerCapabilities.MaxTargetRxPowerAdjustNdr
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsPowerCapabilities-grouping
+    }  // g-UsPowerCapabilities grouping
 
 }

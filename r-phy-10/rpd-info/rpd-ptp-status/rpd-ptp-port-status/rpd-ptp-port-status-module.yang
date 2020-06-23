@@ -42,24 +42,23 @@ module rpd-ptp-port-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdPtpPortStatus-grouping {
+    grouping g-RpdPtpPortStatus {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [100.24.4]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus";
-
+        description "TLV [100.24.4]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus";
         leaf RpdEnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.24.4.1]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.RpdEnetPortIndex";
+                "TLV [100.24.4.1]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.RpdEnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf RpdPtpPortIndex {
             tlv:id 2;
             type uint8;
             description
-                "TLV [100.24.4.2]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.RpdPtpPortIndex";
+                "TLV [100.24.4.2]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.RpdPtpPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf PacketsSent {
@@ -83,12 +82,14 @@ module rpd-ptp-port-status-module {
                 "TLV [100.24.4.5]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.CounterDiscontinuityTime";
         }
 
-        container PtpPortMasterClockStatus {
-            uses "p-ptp-port-master-clock-status:PtpPortMasterClockStatus-grouping";
+        list PtpPortMasterClockStatus {
+            tlv:id 6;
+            key MasterPriority;
             description
                 "TLV [100.24.4.6]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus.PtpPortMasterClockStatus";
+            uses "p-ptp-port-master-clock-status:g-PtpPortMasterClockStatus";
         }
 
-    }  // RpdPtpPortStatus-grouping
+    }  // g-RpdPtpPortStatus grouping
 
 }

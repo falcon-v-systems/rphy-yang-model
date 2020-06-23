@@ -35,12 +35,9 @@ module us-ofdma-hi-iuc-stats-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaHiIucStats-grouping {
+    grouping g-UsOfdmaHiIucStats {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [79.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats";
-
+        description "TLV [79.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats";
         leaf UsIuc {
             tlv:id 1;
             tlv:repr uint8;
@@ -54,66 +51,73 @@ module us-ofdma-hi-iuc-stats-module {
                 enum 12   { value 12; description ""; }
                 enum 13   { value 13; description ""; }
             }
-            description
-                "TLV [79.2.1]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.UsIuc";
+            description "TLV [79.2.1]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.UsIuc";
         }
 
         leaf ScheduledGrants {
             tlv:id 2;
             type uint64;
             description
-                "TLV [79.2.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.ScheduledGrants";
+                "TLV [79.2.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.ScheduledGrants
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NoEnergyBursts {
             tlv:id 3;
             type uint64;
             description
-                "TLV [79.2.3]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NoEnergyBursts";
+                "TLV [79.2.3]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NoEnergyBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NoPreambleBursts {
             tlv:id 4;
             type uint64;
             description
-                "TLV [79.2.4]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NoPreambleBursts";
+                "TLV [79.2.4]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NoPreambleBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ErrorBursts {
             tlv:id 5;
             type uint64;
             description
-                "TLV [79.2.5]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.ErrorBursts";
+                "TLV [79.2.5]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.ErrorBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NumPredecodePass {
             tlv:id 6;
             type uint64;
             description
-                "TLV [79.2.6]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPredecodePass";
+                "TLV [79.2.6]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPredecodePass
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NumPostdecodePass {
             tlv:id 7;
             type uint64;
             description
-                "TLV [79.2.7]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPostdecodePass";
+                "TLV [79.2.7]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPostdecodePass
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NumPostdecodeFail {
             tlv:id 8;
             type uint64;
             description
-                "TLV [79.2.8]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPostdecodeFail";
+                "TLV [79.2.8]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.NumPostdecodeFail
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AverageMer {
             tlv:id 9;
             type uint16;
             description
-                "TLV [79.2.9]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.AverageMer";
+                "TLV [79.2.9]: UsOfdmaChannelPerf.UsOfdmaHiIucStats.AverageMer
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsOfdmaHiIucStats-grouping
+    }  // g-UsOfdmaHiIucStats grouping
 
 }

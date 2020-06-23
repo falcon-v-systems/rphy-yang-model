@@ -42,32 +42,27 @@ module us-sc-qam-profile-query-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsScQamProfileQuery-grouping {
+    grouping g-UsScQamProfileQuery {
         tlv:id 150;
-        description
-            "Attribute of `Object` type.
-             TLV [150]: UsScQamProfileQuery";
-
+        description "TLV [150]: UsScQamProfileQuery";
         leaf QueryScQamChannelType {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [150.1]: UsScQamProfileQuery.QueryScQamChannelType";
+            description "TLV [150.1]: UsScQamProfileQuery.QueryScQamChannelType";
         }
 
         leaf QueryScQamWidth {
             tlv:id 2;
             type uint32;
-            description
-                "TLV [150.2]: UsScQamProfileQuery.QueryScQamWidth";
+            description "TLV [150.2]: UsScQamProfileQuery.QueryScQamWidth";
         }
 
         container QueryIucCode {
-            uses "p-query-iuc-code:QueryIucCode-grouping";
-            description
-                "TLV [150.3]: UsScQamProfileQuery.QueryIucCode";
+            tlv:id 3;
+            description "TLV [150.3]: UsScQamProfileQuery.QueryIucCode";
+            uses "p-query-iuc-code:g-QueryIucCode";
         }
 
-    }  // UsScQamProfileQuery-grouping
+    }  // g-UsScQamProfileQuery grouping
 
 }

@@ -35,20 +35,20 @@ module gcp-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping GcpCapabilities-grouping {
+    grouping g-GcpCapabilities {
         tlv:id 52;
         description
-            "Attribute of `Object` type.
-             TLV [50.52]: RpdCapabilities.GcpCapabilities";
-
+            "TLV [50.52]: RpdCapabilities.GcpCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf GcpKaResponseTime {
             tlv:id 1;
             type uint16;
             units "miliseconds";
             description
-                "TLV [50.52.1]: RpdCapabilities.GcpCapabilities.GcpKaResponseTime";
+                "TLV [50.52.1]: RpdCapabilities.GcpCapabilities.GcpKaResponseTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // GcpCapabilities-grouping
+    }  // g-GcpCapabilities grouping
 
 }

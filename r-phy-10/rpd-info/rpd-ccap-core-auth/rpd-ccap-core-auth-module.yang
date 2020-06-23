@@ -35,12 +35,9 @@ module rpd-ccap-core-auth-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdCcapCoreAuth-grouping {
+    grouping g-RpdCcapCoreAuth {
         tlv:id 29;
-        description
-            "Attribute of `Object` type.
-             TLV [100.29]: RpdInfo.RpdCcapCoreAuth";
-
+        description "TLV [100.29]: RpdInfo.RpdCcapCoreAuth";
         leaf Status {
             tlv:id 1;
             tlv:repr uint8;
@@ -49,10 +46,9 @@ module rpd-ccap-core-auth-module {
                 enum authFailed           { value  2; description ""; }
                 enum authNotPerformed     { value  3; description ""; }
             }
-            description
-                "TLV [100.29.1]: RpdInfo.RpdCcapCoreAuth.Status";
+            description "TLV [100.29.1]: RpdInfo.RpdCcapCoreAuth.Status";
         }
 
-    }  // RpdCcapCoreAuth-grouping
+    }  // g-RpdCcapCoreAuth grouping
 
 }

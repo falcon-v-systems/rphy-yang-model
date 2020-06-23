@@ -35,12 +35,9 @@ module rpd-aaa-server-auth-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdAaaServerAuth-grouping {
+    grouping g-RpdAaaServerAuth {
         tlv:id 28;
-        description
-            "Attribute of `Object` type.
-             TLV [100.28]: RpdInfo.RpdAaaServerAuth";
-
+        description "TLV [100.28]: RpdInfo.RpdAaaServerAuth";
         leaf Status {
             tlv:id 1;
             tlv:repr uint8;
@@ -49,10 +46,9 @@ module rpd-aaa-server-auth-module {
                 enum authFailed           { value  2; description ""; }
                 enum authNotPerformed     { value  3; description ""; }
             }
-            description
-                "TLV [100.28.1]: RpdInfo.RpdAaaServerAuth.Status";
+            description "TLV [100.28.1]: RpdInfo.RpdAaaServerAuth.Status";
         }
 
-    }  // RpdAaaServerAuth-grouping
+    }  // g-RpdAaaServerAuth grouping
 
 }

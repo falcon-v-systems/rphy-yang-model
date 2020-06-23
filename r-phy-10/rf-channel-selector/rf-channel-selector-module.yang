@@ -35,17 +35,13 @@ module rf-channel-selector-module {
 
     // --- definitions -----------------------------------
 
-    grouping RfChannelSelector-grouping {
+    grouping g-RfChannelSelector {
         tlv:id 12;
-        description
-            "Attribute of `Object` type.
-             TLV [12]: RfChannelSelector";
-
+        description "TLV [12]: RfChannelSelector";
         leaf RfPortIndex {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [12.1]: RfChannelSelector.RfPortIndex";
+            description "TLV [12.1]: RfChannelSelector.RfPortIndex";
         }
 
         leaf RfChannelType {
@@ -64,31 +60,27 @@ module rf-channel-selector-module {
                 enum DsScto55d2   { value 10; description ""; }
                 enum UsScte55d2   { value 11; description ""; }
             }
-            description
-                "TLV [12.2]: RfChannelSelector.RfChannelType";
+            description "TLV [12.2]: RfChannelSelector.RfChannelType";
         }
 
         leaf RfChannelIndex {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [12.3]: RfChannelSelector.RfChannelIndex";
+            description "TLV [12.3]: RfChannelSelector.RfChannelIndex";
         }
 
         leaf Oob55d2ModuleIndex {
             tlv:id 4;
             type uint8;
-            description
-                "TLV [12.4]: RfChannelSelector.Oob55d2ModuleIndex";
+            description "TLV [12.4]: RfChannelSelector.Oob55d2ModuleIndex";
         }
 
         leaf Oob55d2DemodIndex {
             tlv:id 5;
             type uint8;
-            description
-                "TLV [12.5]: RfChannelSelector.Oob55d2DemodIndex";
+            description "TLV [12.5]: RfChannelSelector.Oob55d2DemodIndex";
         }
 
-    }  // RfChannelSelector-grouping
+    }  // g-RfChannelSelector grouping
 
 }

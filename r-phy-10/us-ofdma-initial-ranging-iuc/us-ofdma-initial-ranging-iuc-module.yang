@@ -35,26 +35,25 @@ module us-ofdma-initial-ranging-iuc-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaInitialRangingIuc-grouping {
+    grouping g-UsOfdmaInitialRangingIuc {
         tlv:id 67;
-        description
-            "Attribute of `Object` type.
-             TLV [67]: UsOfdmaInitialRangingIuc";
-
+        description "TLV [67]: UsOfdmaInitialRangingIuc";
         leaf NumSubcarriers {
             tlv:id 1;
             type uint16;
             description
-                "TLV [67.1]: UsOfdmaInitialRangingIuc.NumSubcarriers";
+                "TLV [67.1]: UsOfdmaInitialRangingIuc.NumSubcarriers
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf Guardband {
             tlv:id 2;
             type uint16;
             description
-                "TLV [67.2]: UsOfdmaInitialRangingIuc.Guardband";
+                "TLV [67.2]: UsOfdmaInitialRangingIuc.Guardband
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // UsOfdmaInitialRangingIuc-grouping
+    }  // g-UsOfdmaInitialRangingIuc grouping
 
 }

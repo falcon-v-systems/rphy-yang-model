@@ -49,12 +49,11 @@ module rpd-state-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdState-grouping {
+    grouping g-RpdState {
         tlv:id 87;
         description
-            "Attribute of `Object` type.
-             TLV [87]: RpdState";
-
+            "TLV [87]: RpdState
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf TopLevelRPDState {
             tlv:id 1;
             tlv:repr uint8;
@@ -68,13 +67,17 @@ module rpd-state-module {
                 enum OperationalPrincipalCore         { value  7; description ""; }
             }
             description
-                "TLV [87.1]: RpdState.TopLevelRPDState";
+                "TLV [87.1]: RpdState.TopLevelRPDState
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-        container NetworkAuthenticationState {
-            uses "p-network-authentication-state:NetworkAuthenticationState-grouping";
+        list NetworkAuthenticationState {
+            tlv:id 2;
+            key NetworkAuthenticationPortIndex;
             description
-                "TLV [87.2]: RpdState.NetworkAuthenticationState";
+                "TLV [87.2]: RpdState.NetworkAuthenticationState
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-network-authentication-state:g-NetworkAuthenticationState";
         }
 
         leaf ConnectPrincipalCoreSubState {
@@ -87,22 +90,25 @@ module rpd-state-module {
                 enum WaitLConfigRexReq        { value  4; description ""; }
             }
             description
-                "TLV [87.3]: RpdState.ConnectPrincipalCoreSubState";
+                "TLV [87.3]: RpdState.ConnectPrincipalCoreSubState
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-        container AuxCoreState {
-            uses "p-aux-core-state:AuxCoreState-grouping";
-            description
-                "TLV [87.4]: RpdState.AuxCoreState";
+        list AuxCoreState {
+            tlv:id 4;
+            key AuxCoreIndex AuxCoreIp;
+            description "TLV [87.4]: RpdState.AuxCoreState";
+            uses "p-aux-core-state:g-AuxCoreState";
         }
 
         leaf LocalPtpSyncStatus {
             tlv:id 5;
             type boolean;
             description
-                "TLV [87.5]: RpdState.LocalPtpSyncStatus";
+                "TLV [87.5]: RpdState.LocalPtpSyncStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // RpdState-grouping
+    }  // g-RpdState grouping
 
 }

@@ -48,41 +48,36 @@ module oob55d2-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping Oob55d2Config-grouping {
+    grouping g-Oob55d2Config {
         tlv:id 93;
-        description
-            "Attribute of `Object` type.
-             TLV [93]: Oob55d2Config";
-
+        description "TLV [93]: Oob55d2Config";
         leaf DsCenterFrequency {
             tlv:id 1;
             type uint32;
             units "Hz";
-            description
-                "TLV [93.1]: Oob55d2Config.DsCenterFrequency";
+            description "TLV [93.1]: Oob55d2Config.DsCenterFrequency";
         }
 
         leaf UsCenterFrequency {
             tlv:id 2;
             type uint32;
             units "Hz";
-            description
-                "TLV [93.2]: Oob55d2Config.UsCenterFrequency";
+            description "TLV [93.2]: Oob55d2Config.UsCenterFrequency";
         }
 
         leaf CcapCoreOwner {
             tlv:id 3;
             type yang:mac-address;
-            description
-                "TLV [93.3]: Oob55d2Config.CcapCoreOwner";
+            description "TLV [93.3]: Oob55d2Config.CcapCoreOwner";
         }
 
-        container Oob55d2Module {
-            uses "p-oob55d2-module:Oob55d2Module-grouping";
-            description
-                "TLV [93.4]: Oob55d2Config.Oob55d2Module";
+        list Oob55d2Module {
+            tlv:id 4;
+            key ModuleIndex;
+            description "TLV [93.4]: Oob55d2Config.Oob55d2Module";
+            uses "p-oob55d2-module:g-Oob55d2Module";
         }
 
-    }  // Oob55d2Config-grouping
+    }  // g-Oob55d2Config grouping
 
 }

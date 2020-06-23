@@ -35,17 +35,15 @@ module sfp-plus-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping SfpPlusStatus-grouping {
+    grouping g-SfpPlusStatus {
         tlv:id 18;
-        description
-            "Attribute of `Object` type.
-             TLV [100.18]: RpdInfo.SfpPlusStatus";
-
+        description "TLV [100.18]: RpdInfo.SfpPlusStatus";
         leaf EnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.18.1]: RpdInfo.SfpPlusStatus.EnetPortIndex";
+                "TLV [100.18.1]: RpdInfo.SfpPlusStatus.EnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf Status {
@@ -62,8 +60,7 @@ module sfp-plus-status-module {
                 enum invalidCcBase    { value  7; description ""; }
                 enum invalidCcExt     { value  8; description ""; }
             }
-            description
-                "TLV [100.18.2]: RpdInfo.SfpPlusStatus.Status";
+            description "TLV [100.18.2]: RpdInfo.SfpPlusStatus.Status";
         }
 
         leaf Identifier {
@@ -84,15 +81,13 @@ module sfp-plus-status-module {
                 enum dwdmSfp          { value 11; description ""; }
                 enum qsfp             { value 12; description ""; }
             }
-            description
-                "TLV [100.18.3]: RpdInfo.SfpPlusStatus.Identifier";
+            description "TLV [100.18.3]: RpdInfo.SfpPlusStatus.Identifier";
         }
 
         leaf ExtendedIdentifier {
             tlv:id 4;
             type uint8;
-            description
-                "TLV [100.18.4]: RpdInfo.SfpPlusStatus.ExtendedIdentifier";
+            description "TLV [100.18.4]: RpdInfo.SfpPlusStatus.ExtendedIdentifier";
         }
 
         leaf ConnectorType {
@@ -116,8 +111,7 @@ module sfp-plus-status-module {
                 enum copperPigtail    { value 33; description ""; }
                 enum rj45             { value 34; description ""; }
             }
-            description
-                "TLV [100.18.5]: RpdInfo.SfpPlusStatus.ConnectorType";
+            description "TLV [100.18.5]: RpdInfo.SfpPlusStatus.ConnectorType";
         }
 
         leaf TransceiverComplianceCodes {
@@ -146,15 +140,13 @@ module sfp-plus-status-module {
                 enum sonetScrambled       { value  5; description ""; }
                 enum sixtyFourSixtySixB   { value  6; description ""; }
             }
-            description
-                "TLV [100.18.8]: RpdInfo.SfpPlusStatus.Encoding";
+            description "TLV [100.18.8]: RpdInfo.SfpPlusStatus.Encoding";
         }
 
         leaf BitRateNominal {
             tlv:id 9;
             type uint8;
-            description
-                "TLV [100.18.9]: RpdInfo.SfpPlusStatus.BitRateNominal";
+            description "TLV [100.18.9]: RpdInfo.SfpPlusStatus.BitRateNominal";
         }
 
         leaf RateIdentifier {
@@ -173,92 +165,79 @@ module sfp-plus-status-module {
                 enum unspecified9         { value  9; description ""; }
                 enum fcpi5Tx              { value 10; description ""; }
             }
-            description
-                "TLV [100.18.10]: RpdInfo.SfpPlusStatus.RateIdentifier";
+            description "TLV [100.18.10]: RpdInfo.SfpPlusStatus.RateIdentifier";
         }
 
         leaf LengthKm {
             tlv:id 11;
             type uint8;
-            description
-                "TLV [100.18.11]: RpdInfo.SfpPlusStatus.LengthKm";
+            description "TLV [100.18.11]: RpdInfo.SfpPlusStatus.LengthKm";
         }
 
         leaf Length100M {
             tlv:id 12;
             type uint8;
-            description
-                "TLV [100.18.12]: RpdInfo.SfpPlusStatus.Length100M";
+            description "TLV [100.18.12]: RpdInfo.SfpPlusStatus.Length100M";
         }
 
         leaf Length50Mi10M {
             tlv:id 13;
             type uint8;
-            description
-                "TLV [100.18.13]: RpdInfo.SfpPlusStatus.Length50Mi10M";
+            description "TLV [100.18.13]: RpdInfo.SfpPlusStatus.Length50Mi10M";
         }
 
         leaf Length62Pt5Mi10M {
             tlv:id 14;
             type uint8;
-            description
-                "TLV [100.18.14]: RpdInfo.SfpPlusStatus.Length62Pt5Mi10M";
+            description "TLV [100.18.14]: RpdInfo.SfpPlusStatus.Length62Pt5Mi10M";
         }
 
         leaf LengthCopperM {
             tlv:id 15;
             type uint8;
-            description
-                "TLV [100.18.15]: RpdInfo.SfpPlusStatus.LengthCopperM";
+            description "TLV [100.18.15]: RpdInfo.SfpPlusStatus.LengthCopperM";
         }
 
         leaf Length50MiOm3 {
             tlv:id 16;
             type uint8;
-            description
-                "TLV [100.18.16]: RpdInfo.SfpPlusStatus.Length50MiOm3";
+            description "TLV [100.18.16]: RpdInfo.SfpPlusStatus.Length50MiOm3";
         }
 
         leaf VendorName {
             tlv:id 17;
             type string;
-            description
-                "TLV [100.18.17]: RpdInfo.SfpPlusStatus.VendorName";
+            description "TLV [100.18.17]: RpdInfo.SfpPlusStatus.VendorName";
         }
 
         leaf VendorOui {
             tlv:id 18;
             type binary;
-            description
-                "TLV [100.18.18]: RpdInfo.SfpPlusStatus.VendorOui";
+            description "TLV [100.18.18]: RpdInfo.SfpPlusStatus.VendorOui";
         }
 
         leaf VendorPartNum {
             tlv:id 19;
             type string;
-            description
-                "TLV [100.18.19]: RpdInfo.SfpPlusStatus.VendorPartNum";
+            description "TLV [100.18.19]: RpdInfo.SfpPlusStatus.VendorPartNum";
         }
 
         leaf VendorSerialNum {
             tlv:id 20;
             type string;
-            description
-                "TLV [100.18.20]: RpdInfo.SfpPlusStatus.VendorSerialNum";
+            description "TLV [100.18.20]: RpdInfo.SfpPlusStatus.VendorSerialNum";
         }
 
         leaf VendorRev {
             tlv:id 21;
             type string;
-            description
-                "TLV [100.18.21]: RpdInfo.SfpPlusStatus.VendorRev";
+            description "TLV [100.18.21]: RpdInfo.SfpPlusStatus.VendorRev";
         }
 
         leaf LaserWavelength {
             tlv:id 22;
             type uint16;
-            description
-                "TLV [100.18.22]: RpdInfo.SfpPlusStatus.LaserWavelength";
+            description "TLV [100.18.22]: RpdInfo.SfpPlusStatus.LaserWavelength";
         }
 
         leaf Options {
@@ -277,36 +256,31 @@ module sfp-plus-status-module {
                 enum powerLevel           { value  9; description ""; }
                 enum cooledTransceiver    { value 10; description ""; }
             }
-            description
-                "TLV [100.18.23]: RpdInfo.SfpPlusStatus.Options";
+            description "TLV [100.18.23]: RpdInfo.SfpPlusStatus.Options";
         }
 
         leaf BitRateMax {
             tlv:id 24;
             type uint8;
-            description
-                "TLV [100.18.24]: RpdInfo.SfpPlusStatus.BitRateMax";
+            description "TLV [100.18.24]: RpdInfo.SfpPlusStatus.BitRateMax";
         }
 
         leaf BitRateMin {
             tlv:id 25;
             type uint8;
-            description
-                "TLV [100.18.25]: RpdInfo.SfpPlusStatus.BitRateMin";
+            description "TLV [100.18.25]: RpdInfo.SfpPlusStatus.BitRateMin";
         }
 
         leaf VendorDate {
             tlv:id 26;
             type string;
-            description
-                "TLV [100.18.26]: RpdInfo.SfpPlusStatus.VendorDate";
+            description "TLV [100.18.26]: RpdInfo.SfpPlusStatus.VendorDate";
         }
 
         leaf VendorSpecificLotCode {
             tlv:id 27;
             type string;
-            description
-                "TLV [100.18.27]: RpdInfo.SfpPlusStatus.VendorSpecificLotCode";
+            description "TLV [100.18.27]: RpdInfo.SfpPlusStatus.VendorSpecificLotCode";
         }
 
         leaf DiagMonitorType {
@@ -322,8 +296,7 @@ module sfp-plus-status-module {
                 enum digDiagImpl          { value  6; description ""; }
                 enum legacyImpl           { value  7; description ""; }
             }
-            description
-                "TLV [100.18.28]: RpdInfo.SfpPlusStatus.DiagMonitorType";
+            description "TLV [100.18.28]: RpdInfo.SfpPlusStatus.DiagMonitorType";
         }
 
         leaf EnhancedOptions {
@@ -339,45 +312,39 @@ module sfp-plus-status-module {
                 enum txDisableMonImpl     { value  6; description ""; }
                 enum allAlarmsImpl        { value  7; description ""; }
             }
-            description
-                "TLV [100.18.29]: RpdInfo.SfpPlusStatus.EnhancedOptions";
+            description "TLV [100.18.29]: RpdInfo.SfpPlusStatus.EnhancedOptions";
         }
 
         leaf Sff8472Compliance {
             tlv:id 30;
             type uint8;
-            description
-                "TLV [100.18.30]: RpdInfo.SfpPlusStatus.Sff8472Compliance";
+            description "TLV [100.18.30]: RpdInfo.SfpPlusStatus.Sff8472Compliance";
         }
 
         leaf VendorSpecificData {
             tlv:id 31;
             type binary;
-            description
-                "TLV [100.18.31]: RpdInfo.SfpPlusStatus.VendorSpecificData";
+            description "TLV [100.18.31]: RpdInfo.SfpPlusStatus.VendorSpecificData";
         }
 
         leaf MeasuredTxOutputPwr {
             tlv:id 32;
             type uint16;
-            description
-                "TLV [100.18.32]: RpdInfo.SfpPlusStatus.MeasuredTxOutputPwr";
+            description "TLV [100.18.32]: RpdInfo.SfpPlusStatus.MeasuredTxOutputPwr";
         }
 
         leaf MeasuredRxInputPwr {
             tlv:id 33;
             type uint16;
-            description
-                "TLV [100.18.33]: RpdInfo.SfpPlusStatus.MeasuredRxInputPwr";
+            description "TLV [100.18.33]: RpdInfo.SfpPlusStatus.MeasuredRxInputPwr";
         }
 
         leaf DigitalDiagA2Info {
             tlv:id 34;
             type binary;
-            description
-                "TLV [100.18.34]: RpdInfo.SfpPlusStatus.DigitalDiagA2Info";
+            description "TLV [100.18.34]: RpdInfo.SfpPlusStatus.DigitalDiagA2Info";
         }
 
-    }  // SfpPlusStatus-grouping
+    }  // g-SfpPlusStatus grouping
 
 }

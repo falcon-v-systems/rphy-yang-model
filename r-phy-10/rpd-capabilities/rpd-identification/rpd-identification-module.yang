@@ -47,66 +47,71 @@ module rpd-identification-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdIdentification-grouping {
+    grouping g-RpdIdentification {
         tlv:id 19;
         description
-            "Attribute of `Object` type.
-             TLV [50.19]: RpdCapabilities.RpdIdentification";
-
+            "TLV [50.19]: RpdCapabilities.RpdIdentification
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf VendorName {
             tlv:id 1;
             type string;
             description
-                "TLV [50.19.1]: RpdCapabilities.RpdIdentification.VendorName";
+                "TLV [50.19.1]: RpdCapabilities.RpdIdentification.VendorName
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf VendorId {
             tlv:id 2;
             type uint16;
             description
-                "TLV [50.19.2]: RpdCapabilities.RpdIdentification.VendorId";
+                "TLV [50.19.2]: RpdCapabilities.RpdIdentification.VendorId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ModelNumber {
             tlv:id 3;
             type string;
             description
-                "TLV [50.19.3]: RpdCapabilities.RpdIdentification.ModelNumber";
+                "TLV [50.19.3]: RpdCapabilities.RpdIdentification.ModelNumber
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DeviceMacAddress {
             tlv:id 4;
             type yang:mac-address;
             description
-                "TLV [50.19.4]: RpdCapabilities.RpdIdentification.DeviceMacAddress";
+                "TLV [50.19.4]: RpdCapabilities.RpdIdentification.DeviceMacAddress
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CurrentSwVersion {
             tlv:id 5;
             type string;
             description
-                "TLV [50.19.5]: RpdCapabilities.RpdIdentification.CurrentSwVersion";
+                "TLV [50.19.5]: RpdCapabilities.RpdIdentification.CurrentSwVersion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf BootRomVersion {
             tlv:id 6;
             type string;
             description
-                "TLV [50.19.6]: RpdCapabilities.RpdIdentification.BootRomVersion";
+                "TLV [50.19.6]: RpdCapabilities.RpdIdentification.BootRomVersion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DeviceDescription {
             tlv:id 7;
             type string;
             description
-                "TLV [50.19.7]: RpdCapabilities.RpdIdentification.DeviceDescription";
+                "TLV [50.19.7]: RpdCapabilities.RpdIdentification.DeviceDescription
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DeviceAlias {
             tlv:id 8;
             type string;
-            description
-                "TLV [50.19.8]: RpdCapabilities.RpdIdentification.DeviceAlias";
+            description "TLV [50.19.8]: RpdCapabilities.RpdIdentification.DeviceAlias";
         }
 
         leaf SerialNumber {
@@ -120,93 +125,104 @@ module rpd-identification-module {
             tlv:id 10;
             type uint16;
             description
-                "TLV [50.19.10]: RpdCapabilities.RpdIdentification.UsBurstReceiverVendorId";
+                "TLV [50.19.10]: RpdCapabilities.RpdIdentification.UsBurstReceiverVendorId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UsBurstReceiverModelNumber {
             tlv:id 11;
             type string;
             description
-                "TLV [50.19.11]: RpdCapabilities.RpdIdentification.UsBurstReceiverModelNumber";
+                "TLV [50.19.11]: RpdCapabilities.RpdIdentification.UsBurstReceiverModelNumber
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UsBurstReceiverDriverVersion {
             tlv:id 12;
             type string;
             description
-                "TLV [50.19.12]: RpdCapabilities.RpdIdentification.UsBurstReceiverDriverVersion";
+                "TLV [50.19.12]: RpdCapabilities.RpdIdentification.UsBurstReceiverDriverVersion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UsBurstReceiverSerialNumber {
             tlv:id 13;
             type string;
             description
-                "TLV [50.19.13]: RpdCapabilities.RpdIdentification.UsBurstReceiverSerialNumber";
+                "TLV [50.19.13]: RpdCapabilities.RpdIdentification.UsBurstReceiverSerialNumber
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RpdRcpProtocolVersion {
             tlv:id 14;
             type string;
             description
-                "TLV [50.19.14]: RpdCapabilities.RpdIdentification.RpdRcpProtocolVersion";
+                "TLV [50.19.14]: RpdCapabilities.RpdIdentification.RpdRcpProtocolVersion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RpdRcpSchemaVersion {
             tlv:id 15;
             type string;
             description
-                "TLV [50.19.15]: RpdCapabilities.RpdIdentification.RpdRcpSchemaVersion";
+                "TLV [50.19.15]: RpdCapabilities.RpdIdentification.RpdRcpSchemaVersion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf HwRevision {
             tlv:id 16;
             type string;
             description
-                "TLV [50.19.16]: RpdCapabilities.RpdIdentification.HwRevision";
+                "TLV [50.19.16]: RpdCapabilities.RpdIdentification.HwRevision
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AssetId {
             tlv:id 17;
             type string;
-            description
-                "TLV [50.19.17]: RpdCapabilities.RpdIdentification.AssetId";
+            description "TLV [50.19.17]: RpdCapabilities.RpdIdentification.AssetId";
         }
 
         leaf VspSelector {
             tlv:id 18;
             type string;
             description
-                "TLV [50.19.18]: RpdCapabilities.RpdIdentification.VspSelector";
+                "TLV [50.19.18]: RpdCapabilities.RpdIdentification.VspSelector
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CurrentSwImageLastUpdate {
             tlv:id 19;
             type binary;
             description
-                "TLV [50.19.19]: RpdCapabilities.RpdIdentification.CurrentSwImageLastUpdate";
+                "TLV [50.19.19]: RpdCapabilities.RpdIdentification.CurrentSwImageLastUpdate
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CurrentSwImageName {
             tlv:id 20;
             type string;
             description
-                "TLV [50.19.20]: RpdCapabilities.RpdIdentification.CurrentSwImageName";
+                "TLV [50.19.20]: RpdCapabilities.RpdIdentification.CurrentSwImageName
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CurrentSwImageServer {
             tlv:id 21;
             type inet:ip-address;
             description
-                "TLV [50.19.21]: RpdCapabilities.RpdIdentification.CurrentSwImageServer";
+                "TLV [50.19.21]: RpdCapabilities.RpdIdentification.CurrentSwImageServer
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CurrentSwImageIndex {
             tlv:id 22;
             type uint8;
             description
-                "TLV [50.19.22]: RpdCapabilities.RpdIdentification.CurrentSwImageIndex";
+                "TLV [50.19.22]: RpdCapabilities.RpdIdentification.CurrentSwImageIndex
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // RpdIdentification-grouping
+    }  // g-RpdIdentification grouping
 
 }

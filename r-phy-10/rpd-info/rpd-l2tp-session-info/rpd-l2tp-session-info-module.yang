@@ -54,12 +54,9 @@ module rpd-l2tp-session-info-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdL2tpSessionInfo-grouping {
+    grouping g-RpdL2tpSessionInfo {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [100.2]: RpdInfo.RpdL2tpSessionInfo";
-
+        description "TLV [100.2]: RpdInfo.RpdL2tpSessionInfo";
         leaf SessionIpAddrType {
             tlv:id 1;
             tlv:repr int32;
@@ -72,21 +69,24 @@ module rpd-l2tp-session-info-module {
                 enum dns      { value 16; description ""; }
             }
             description
-                "TLV [100.2.1]: RpdInfo.RpdL2tpSessionInfo.SessionIpAddrType";
+                "TLV [100.2.1]: RpdInfo.RpdL2tpSessionInfo.SessionIpAddrType
+                 non-defaults: [is_key: True]";
         }
 
         leaf CcapLcceIpAddress {
             tlv:id 2;
             type inet:ip-address;
             description
-                "TLV [100.2.2]: RpdInfo.RpdL2tpSessionInfo.CcapLcceIpAddress";
+                "TLV [100.2.2]: RpdInfo.RpdL2tpSessionInfo.CcapLcceIpAddress
+                 non-defaults: [is_key: True]";
         }
 
         leaf RpdLcceIpAddr {
             tlv:id 3;
             type inet:ip-address;
             description
-                "TLV [100.2.3]: RpdInfo.RpdL2tpSessionInfo.RpdLcceIpAddr";
+                "TLV [100.2.3]: RpdInfo.RpdL2tpSessionInfo.RpdLcceIpAddr
+                 non-defaults: [is_key: True]";
         }
 
         leaf Direction {
@@ -97,42 +97,40 @@ module rpd-l2tp-session-info-module {
                 enum return   { value  1; description ""; }
             }
             description
-                "TLV [100.2.4]: RpdInfo.RpdL2tpSessionInfo.Direction";
+                "TLV [100.2.4]: RpdInfo.RpdL2tpSessionInfo.Direction
+                 non-defaults: [is_key: True]";
         }
 
         leaf L2tpSessionId {
             tlv:id 5;
             type uint32;
             description
-                "TLV [100.2.5]: RpdInfo.RpdL2tpSessionInfo.L2tpSessionId";
+                "TLV [100.2.5]: RpdInfo.RpdL2tpSessionInfo.L2tpSessionId
+                 non-defaults: [is_key: True]";
         }
 
         leaf CoreId {
             tlv:id 6;
             type yang:mac-address;
-            description
-                "TLV [100.2.6]: RpdInfo.RpdL2tpSessionInfo.CoreId";
+            description "TLV [100.2.6]: RpdInfo.RpdL2tpSessionInfo.CoreId";
         }
 
         leaf ConnCtrlId {
             tlv:id 7;
             type uint32;
-            description
-                "TLV [100.2.7]: RpdInfo.RpdL2tpSessionInfo.ConnCtrlId";
+            description "TLV [100.2.7]: RpdInfo.RpdL2tpSessionInfo.ConnCtrlId";
         }
 
         leaf UdpPort {
             tlv:id 8;
             type uint16;
-            description
-                "TLV [100.2.8]: RpdInfo.RpdL2tpSessionInfo.UdpPort";
+            description "TLV [100.2.8]: RpdInfo.RpdL2tpSessionInfo.UdpPort";
         }
 
         leaf Description {
             tlv:id 9;
             type string;
-            description
-                "TLV [100.2.9]: RpdInfo.RpdL2tpSessionInfo.Description";
+            description "TLV [100.2.9]: RpdInfo.RpdL2tpSessionInfo.Description";
         }
 
         leaf SessionType {
@@ -142,8 +140,7 @@ module rpd-l2tp-session-info-module {
                 enum psp  { value  1; description ""; }
                 enum mpt  { value  2; description ""; }
             }
-            description
-                "TLV [100.2.10]: RpdInfo.RpdL2tpSessionInfo.SessionType";
+            description "TLV [100.2.10]: RpdInfo.RpdL2tpSessionInfo.SessionType";
         }
 
         leaf SessionSubType {
@@ -172,36 +169,31 @@ module rpd-l2tp-session-info-module {
                 enum pspNdf               { value 20; description ""; }
                 enum pspNdr               { value 21; description ""; }
             }
-            description
-                "TLV [100.2.11]: RpdInfo.RpdL2tpSessionInfo.SessionSubType";
+            description "TLV [100.2.11]: RpdInfo.RpdL2tpSessionInfo.SessionSubType";
         }
 
         leaf MaxPayload {
             tlv:id 12;
             type uint32;
-            description
-                "TLV [100.2.12]: RpdInfo.RpdL2tpSessionInfo.MaxPayload";
+            description "TLV [100.2.12]: RpdInfo.RpdL2tpSessionInfo.MaxPayload";
         }
 
         leaf PathPayload {
             tlv:id 13;
             type uint32;
-            description
-                "TLV [100.2.13]: RpdInfo.RpdL2tpSessionInfo.PathPayload";
+            description "TLV [100.2.13]: RpdInfo.RpdL2tpSessionInfo.PathPayload";
         }
 
         leaf RpdIfMtu {
             tlv:id 14;
             type uint32;
-            description
-                "TLV [100.2.14]: RpdInfo.RpdL2tpSessionInfo.RpdIfMtu";
+            description "TLV [100.2.14]: RpdInfo.RpdL2tpSessionInfo.RpdIfMtu";
         }
 
         leaf CoreIfMtu {
             tlv:id 15;
             type uint32;
-            description
-                "TLV [100.2.15]: RpdInfo.RpdL2tpSessionInfo.CoreIfMtu";
+            description "TLV [100.2.15]: RpdInfo.RpdL2tpSessionInfo.CoreIfMtu";
         }
 
         leaf ErrorCode {
@@ -215,22 +207,19 @@ module rpd-l2tp-session-info-module {
                 enum l2tpv3Error                      { value  5; description ""; }
                 enum ifAdminStatusSetToDown           { value  6; description ""; }
             }
-            description
-                "TLV [100.2.16]: RpdInfo.RpdL2tpSessionInfo.ErrorCode";
+            description "TLV [100.2.16]: RpdInfo.RpdL2tpSessionInfo.ErrorCode";
         }
 
         leaf CreationTime {
             tlv:id 17;
             type uint32;
-            description
-                "TLV [100.2.17]: RpdInfo.RpdL2tpSessionInfo.CreationTime";
+            description "TLV [100.2.17]: RpdInfo.RpdL2tpSessionInfo.CreationTime";
         }
 
         leaf OperStatus {
             tlv:id 18;
             type uint8;
-            description
-                "TLV [100.2.18]: RpdInfo.RpdL2tpSessionInfo.OperStatus";
+            description "TLV [100.2.18]: RpdInfo.RpdL2tpSessionInfo.OperStatus";
         }
 
         leaf LocalStatus {
@@ -244,23 +233,21 @@ module rpd-l2tp-session-info-module {
                 enum psnPwRxFault         { value  4; description ""; }
                 enum psnPwTxFault         { value  5; description ""; }
             }
-            description
-                "TLV [100.2.19]: RpdInfo.RpdL2tpSessionInfo.LocalStatus";
+            description "TLV [100.2.19]: RpdInfo.RpdL2tpSessionInfo.LocalStatus";
         }
 
         leaf LastChange {
             tlv:id 20;
             type uint32;
-            description
-                "TLV [100.2.20]: RpdInfo.RpdL2tpSessionInfo.LastChange";
+            description "TLV [100.2.20]: RpdInfo.RpdL2tpSessionInfo.LastChange";
         }
 
         container RpdSessionStats {
-            uses "p-rpd-session-stats:RpdSessionStats-grouping";
-            description
-                "TLV [100.2.21]: RpdInfo.RpdL2tpSessionInfo.RpdSessionStats";
+            tlv:id 21;
+            description "TLV [100.2.21]: RpdInfo.RpdL2tpSessionInfo.RpdSessionStats";
+            uses "p-rpd-session-stats:g-RpdSessionStats";
         }
 
-    }  // RpdL2tpSessionInfo-grouping
+    }  // g-RpdL2tpSessionInfo grouping
 
 }

@@ -35,12 +35,11 @@ module device-location-module {
 
     // --- definitions -----------------------------------
 
-    grouping DeviceLocation-grouping {
+    grouping g-DeviceLocation {
         tlv:id 24;
         description
-            "Attribute of `Object` type.
-             TLV [50.24]: RpdCapabilities.DeviceLocation";
-
+            "TLV [50.24]: RpdCapabilities.DeviceLocation
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf DeviceLocationDescription {
             tlv:id 1;
             type string;
@@ -62,6 +61,6 @@ module device-location-module {
                 "TLV [50.24.3]: RpdCapabilities.DeviceLocation.GeoLocationLongitude";
         }
 
-    }  // DeviceLocation-grouping
+    }  // g-DeviceLocation grouping
 
 }

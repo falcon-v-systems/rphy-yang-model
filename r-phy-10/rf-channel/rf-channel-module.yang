@@ -35,12 +35,9 @@ module rf-channel-module {
 
     // --- definitions -----------------------------------
 
-    grouping RfChannel-grouping {
+    grouping g-RfChannel {
         tlv:id 16;
-        description
-            "Attribute of `Object` type.
-             TLV [16]: RfChannel";
-
-    }  // RfChannel-grouping
+        description "TLV [16]: RfChannel";
+    }  // g-RfChannel grouping
 
 }

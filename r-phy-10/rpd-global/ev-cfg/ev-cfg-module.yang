@@ -42,16 +42,14 @@ module ev-cfg-module {
 
     // --- definitions -----------------------------------
 
-    grouping EvCfg-grouping {
+    grouping g-EvCfg {
         tlv:id 1;
-        description
-            "Attribute of `Object` type.
-             TLV [15.1]: RpdGlobal.EvCfg";
-
-        container EvControl {
-            uses "p-ev-control:EvControl-grouping";
-            description
-                "TLV [15.1.1]: RpdGlobal.EvCfg.EvControl";
+        description "TLV [15.1]: RpdGlobal.EvCfg";
+        list EvControl {
+            tlv:id 1;
+            key EvPriority;
+            description "TLV [15.1.1]: RpdGlobal.EvCfg.EvControl";
+            uses "p-ev-control:g-EvControl";
         }
 
         leaf EvThrottleAdminStatus {
@@ -63,32 +61,28 @@ module ev-cfg-module {
                 enum stopAtThreshold          { value  3; description ""; }
                 enum inhibited                { value  4; description ""; }
             }
-            description
-                "TLV [15.1.2]: RpdGlobal.EvCfg.EvThrottleAdminStatus";
+            description "TLV [15.1.2]: RpdGlobal.EvCfg.EvThrottleAdminStatus";
         }
 
         leaf EvThrottleThreshold {
             tlv:id 3;
             type uint32;
-            description
-                "TLV [15.1.3]: RpdGlobal.EvCfg.EvThrottleThreshold";
+            description "TLV [15.1.3]: RpdGlobal.EvCfg.EvThrottleThreshold";
         }
 
         leaf EvThrottleInterval {
             tlv:id 4;
             type uint32;
             units "Seconds";
-            description
-                "TLV [15.1.4]: RpdGlobal.EvCfg.EvThrottleInterval";
+            description "TLV [15.1.4]: RpdGlobal.EvCfg.EvThrottleInterval";
         }
 
         leaf NotifyEnable {
             tlv:id 5;
             type boolean;
-            description
-                "TLV [15.1.5]: RpdGlobal.EvCfg.NotifyEnable";
+            description "TLV [15.1.5]: RpdGlobal.EvCfg.NotifyEnable";
         }
 
-    }  // EvCfg-grouping
+    }  // g-EvCfg grouping
 
 }

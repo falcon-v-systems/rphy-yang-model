@@ -56,71 +56,77 @@ module us-sc-qam-channel-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsScQamChannelPerf-grouping {
+    grouping g-UsScQamChannelPerf {
         tlv:id 78;
         description
-            "Attribute of `Object` type.
-             TLV [78]: UsScQamChannelPerf";
-
+            "TLV [78]: UsScQamChannelPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [78.None]: UsScQamChannelPerf.Index";
+                "TLV [78.X]: UsScQamChannelPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         container UsScChanLowIucStats {
-            uses "p-us-sc-chan-low-iuc-stats:UsScChanLowIucStats-grouping";
-            description
-                "TLV [78.1]: UsScQamChannelPerf.UsScChanLowIucStats";
+            tlv:id 1;
+            description "TLV [78.1]: UsScQamChannelPerf.UsScChanLowIucStats";
+            uses "p-us-sc-chan-low-iuc-stats:g-UsScChanLowIucStats";
         }
 
         container UsScChanHiIucStats {
-            uses "p-us-sc-chan-hi-iuc-stats:UsScChanHiIucStats-grouping";
-            description
-                "TLV [78.2]: UsScQamChannelPerf.UsScChanHiIucStats";
+            tlv:id 2;
+            description "TLV [78.2]: UsScQamChannelPerf.UsScChanHiIucStats";
+            uses "p-us-sc-chan-hi-iuc-stats:g-UsScChanHiIucStats";
         }
 
         leaf HcsErrors {
             tlv:id 3;
             type uint64;
             description
-                "TLV [78.3]: UsScQamChannelPerf.HcsErrors";
+                "TLV [78.3]: UsScQamChannelPerf.HcsErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf LateMaps {
             tlv:id 4;
             type uint64;
             description
-                "TLV [78.4]: UsScQamChannelPerf.LateMaps";
+                "TLV [78.4]: UsScQamChannelPerf.LateMaps
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf IllegalMaps {
             tlv:id 5;
             type uint64;
             description
-                "TLV [78.5]: UsScQamChannelPerf.IllegalMaps";
+                "TLV [78.5]: UsScQamChannelPerf.IllegalMaps
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DiscardedRequests {
             tlv:id 6;
             type uint64;
             description
-                "TLV [78.6]: UsScQamChannelPerf.DiscardedRequests";
+                "TLV [78.6]: UsScQamChannelPerf.DiscardedRequests
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ChannelSnr {
             tlv:id 7;
             type uint16;
             description
-                "TLV [78.7]: UsScQamChannelPerf.ChannelSnr";
+                "TLV [78.7]: UsScQamChannelPerf.ChannelSnr
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 8;
             type binary;
             description
-                "TLV [78.8]: UsScQamChannelPerf.discontinuityTime";
+                "TLV [78.8]: UsScQamChannelPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf operStatusUsScQam {
@@ -131,15 +137,18 @@ module us-sc-qam-channel-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [78.9]: UsScQamChannelPerf.operStatusUsScQam";
+                "TLV [78.9]: UsScQamChannelPerf.operStatusUsScQam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         container UcdRefreshStatusScqam {
-            uses "p-ucd-refresh-status-scqam:UcdRefreshStatusScqam-grouping";
+            tlv:id 10;
             description
-                "TLV [78.10]: UsScQamChannelPerf.UcdRefreshStatusScqam";
+                "TLV [78.10]: UsScQamChannelPerf.UcdRefreshStatusScqam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-ucd-refresh-status-scqam:g-UcdRefreshStatusScqam";
         }
 
-    }  // UsScQamChannelPerf-grouping
+    }  // g-UsScQamChannelPerf grouping
 
 }

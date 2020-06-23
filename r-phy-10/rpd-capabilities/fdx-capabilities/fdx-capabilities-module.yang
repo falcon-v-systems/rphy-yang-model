@@ -35,24 +35,25 @@ module fdx-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping FdxCapabilities-grouping {
+    grouping g-FdxCapabilities {
         tlv:id 57;
         description
-            "Attribute of `Object` type.
-             TLV [50.57]: RpdCapabilities.FdxCapabilities";
-
+            "TLV [50.57]: RpdCapabilities.FdxCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf SupportFdx {
             tlv:id 1;
             type boolean;
             description
-                "TLV [50.57.1]: RpdCapabilities.FdxCapabilities.SupportFdx";
+                "TLV [50.57.1]: RpdCapabilities.FdxCapabilities.SupportFdx
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SupportZblInsertion {
             tlv:id 2;
             type boolean;
             description
-                "TLV [50.57.2]: RpdCapabilities.FdxCapabilities.SupportZblInsertion";
+                "TLV [50.57.2]: RpdCapabilities.FdxCapabilities.SupportZblInsertion
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ZblInsMsgLeadTime {
@@ -60,9 +61,10 @@ module fdx-capabilities-module {
             type uint16;
             units "microseconds";
             description
-                "TLV [50.57.3]: RpdCapabilities.FdxCapabilities.ZblInsMsgLeadTime";
+                "TLV [50.57.3]: RpdCapabilities.FdxCapabilities.ZblInsMsgLeadTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // FdxCapabilities-grouping
+    }  // g-FdxCapabilities grouping
 
 }

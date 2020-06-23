@@ -41,17 +41,15 @@ module us-oob55d1-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOob55d1-grouping {
+    grouping g-UsOob55d1 {
         tlv:id 92;
-        description
-            "Attribute of `Object` type.
-             TLV [92]: UsOob55d1";
-
+        description "TLV [92]: UsOob55d1";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [92.None]: UsOob55d1.Index";
+                "TLV [92.X]: UsOob55d1.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -63,54 +61,47 @@ module us-oob55d1-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [92.1]: UsOob55d1.AdminState";
+            description "TLV [92.1]: UsOob55d1.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [92.2]: UsOob55d1.CcapCoreOwner";
+            description "TLV [92.2]: UsOob55d1.CcapCoreOwner";
         }
 
         leaf Frequency {
             tlv:id 3;
             type uint32;
             units "Hz";
-            description
-                "TLV [92.3]: UsOob55d1.Frequency";
+            description "TLV [92.3]: UsOob55d1.Frequency";
         }
 
         leaf VarpdDeviceId {
             tlv:id 4;
             type uint32;
-            description
-                "TLV [92.4]: UsOob55d1.VarpdDeviceId";
+            description "TLV [92.4]: UsOob55d1.VarpdDeviceId";
         }
 
         leaf VarpdRfPortId {
             tlv:id 5;
             type uint8;
-            description
-                "TLV [92.5]: UsOob55d1.VarpdRfPortId";
+            description "TLV [92.5]: UsOob55d1.VarpdRfPortId";
         }
 
         leaf VarpdDemodId {
             tlv:id 6;
             type uint8;
-            description
-                "TLV [92.6]: UsOob55d1.VarpdDemodId";
+            description "TLV [92.6]: UsOob55d1.VarpdDemodId";
         }
 
         leaf TargetRxPowerAdjust {
             tlv:id 7;
             type int16;
             units "TenthDb";
-            description
-                "TLV [92.7]: UsOob55d1.TargetRxPowerAdjust";
+            description "TLV [92.7]: UsOob55d1.TargetRxPowerAdjust";
         }
 
-    }  // UsOob55d1-grouping
+    }  // g-UsOob55d1 grouping
 
 }

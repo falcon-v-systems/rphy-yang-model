@@ -35,25 +35,20 @@ module gcp-conn-verification-module {
 
     // --- definitions -----------------------------------
 
-    grouping GcpConnVerification-grouping {
+    grouping g-GcpConnVerification {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [15.2]: RpdGlobal.GcpConnVerification";
-
+        description "TLV [15.2]: RpdGlobal.GcpConnVerification";
         leaf CoreId {
             tlv:id 1;
             type binary;
-            description
-                "TLV [15.2.1]: RpdGlobal.GcpConnVerification.CoreId";
+            description "TLV [15.2.1]: RpdGlobal.GcpConnVerification.CoreId";
         }
 
         leaf MaxGcpIdleTime {
             tlv:id 2;
             type uint16;
             units "seconds";
-            description
-                "TLV [15.2.2]: RpdGlobal.GcpConnVerification.MaxGcpIdleTime";
+            description "TLV [15.2.2]: RpdGlobal.GcpConnVerification.MaxGcpIdleTime";
         }
 
         leaf GcpRecoveryAction {
@@ -100,6 +95,6 @@ module gcp-conn-verification-module {
                 "TLV [15.2.7]: RpdGlobal.GcpConnVerification.GcpHandoverTimeout";
         }
 
-    }  // GcpConnVerification-grouping
+    }  // g-GcpConnVerification grouping
 
 }

@@ -35,17 +35,17 @@ module us-rf-port-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsRfPortPerf-grouping {
+    grouping g-UsRfPortPerf {
         tlv:id 77;
         description
-            "Attribute of `Object` type.
-             TLV [77]: UsRfPortPerf";
-
+            "TLV [77]: UsRfPortPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf PortIndex {
             // no tlv:id given
             type uint16;
             description
-                "TLV [77.None]: UsRfPortPerf.PortIndex";
+                "TLV [77.X]: UsRfPortPerf.PortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf operStatusUsRfPort {
@@ -56,9 +56,10 @@ module us-rf-port-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [77.1]: UsRfPortPerf.operStatusUsRfPort";
+                "TLV [77.1]: UsRfPortPerf.operStatusUsRfPort
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsRfPortPerf-grouping
+    }  // g-UsRfPortPerf grouping
 
 }

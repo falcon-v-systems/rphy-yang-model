@@ -35,40 +35,43 @@ module down-channel-constraint-table-module {
 
     // --- definitions -----------------------------------
 
-    grouping DownChannelConstraintTable-grouping {
+    grouping g-DownChannelConstraintTable {
         tlv:id 4;
         description
-            "Attribute of `Object` type.
-             TLV [88.4]: MultiCore.DownChannelConstraintTable";
-
+            "TLV [88.4]: MultiCore.DownChannelConstraintTable
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             tlv:id 1;
             type uint32;
             description
-                "TLV [88.4.1]: MultiCore.DownChannelConstraintTable.Index";
+                "TLV [88.4.1]: MultiCore.DownChannelConstraintTable.Index
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DownChanIndexStart {
             tlv:id 2;
             type uint32;
             description
-                "TLV [88.4.2]: MultiCore.DownChannelConstraintTable.DownChanIndexStart";
+                "TLV [88.4.2]: MultiCore.DownChannelConstraintTable.DownChanIndexStart
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DownChanIndexEnd {
             tlv:id 3;
             type uint32;
             description
-                "TLV [88.4.3]: MultiCore.DownChannelConstraintTable.DownChanIndexEnd";
+                "TLV [88.4.3]: MultiCore.DownChannelConstraintTable.DownChanIndexEnd
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf LockParameters {
             tlv:id 4;
             type binary;
             description
-                "TLV [88.4.4]: MultiCore.DownChannelConstraintTable.LockParameters";
+                "TLV [88.4.4]: MultiCore.DownChannelConstraintTable.LockParameters
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DownChannelConstraintTable-grouping
+    }  // g-DownChannelConstraintTable grouping
 
 }

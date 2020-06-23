@@ -41,24 +41,19 @@ module crash-data-server-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping CrashDataServerCtrl-grouping {
+    grouping g-CrashDataServerCtrl {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [40.4]: RpdCtrl.CrashDataServerCtrl";
-
+        description "TLV [40.4]: RpdCtrl.CrashDataServerCtrl";
         leaf DestIpAddress {
             tlv:id 1;
             type inet:ip-address;
-            description
-                "TLV [40.4.1]: RpdCtrl.CrashDataServerCtrl.DestIpAddress";
+            description "TLV [40.4.1]: RpdCtrl.CrashDataServerCtrl.DestIpAddress";
         }
 
         leaf DestPath {
             tlv:id 2;
             type string;
-            description
-                "TLV [40.4.2]: RpdCtrl.CrashDataServerCtrl.DestPath";
+            description "TLV [40.4.2]: RpdCtrl.CrashDataServerCtrl.DestPath";
         }
 
         leaf Protocol {
@@ -68,10 +63,9 @@ module crash-data-server-ctrl-module {
                 enum tftp     { value  2; description ""; }
                 enum http     { value  3; description ""; }
             }
-            description
-                "TLV [40.4.3]: RpdCtrl.CrashDataServerCtrl.Protocol";
+            description "TLV [40.4.3]: RpdCtrl.CrashDataServerCtrl.Protocol";
         }
 
-    }  // CrashDataServerCtrl-grouping
+    }  // g-CrashDataServerCtrl grouping
 
 }

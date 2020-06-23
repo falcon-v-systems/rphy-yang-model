@@ -35,27 +35,22 @@ module reboot-disable-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping RebootDisableCtrl-grouping {
+    grouping g-RebootDisableCtrl {
         tlv:id 5;
-        description
-            "Attribute of `Object` type.
-             TLV [40.5]: RpdCtrl.RebootDisableCtrl";
-
+        description "TLV [40.5]: RpdCtrl.RebootDisableCtrl";
         leaf RebootDisable {
             tlv:id 1;
             type boolean;
-            description
-                "TLV [40.5.1]: RpdCtrl.RebootDisableCtrl.RebootDisable";
+            description "TLV [40.5.1]: RpdCtrl.RebootDisableCtrl.RebootDisable";
         }
 
         leaf DisableTimeout {
             tlv:id 2;
             type uint32;
             units "seconds";
-            description
-                "TLV [40.5.2]: RpdCtrl.RebootDisableCtrl.DisableTimeout";
+            description "TLV [40.5.2]: RpdCtrl.RebootDisableCtrl.DisableTimeout";
         }
 
-    }  // RebootDisableCtrl-grouping
+    }  // g-RebootDisableCtrl grouping
 
 }

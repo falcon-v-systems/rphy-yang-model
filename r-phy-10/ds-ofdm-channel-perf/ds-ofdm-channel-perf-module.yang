@@ -49,17 +49,17 @@ module ds-ofdm-channel-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmChannelPerf-grouping {
+    grouping g-DsOfdmChannelPerf {
         tlv:id 73;
         description
-            "Attribute of `Object` type.
-             TLV [73]: DsOfdmChannelPerf";
-
+            "TLV [73]: DsOfdmChannelPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [73.None]: DsOfdmChannelPerf.Index";
+                "TLV [73.X]: DsOfdmChannelPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf outDiscards {
@@ -67,7 +67,8 @@ module ds-ofdm-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [73.1]: DsOfdmChannelPerf.outDiscards";
+                "TLV [73.1]: DsOfdmChannelPerf.outDiscards
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outErrors {
@@ -75,13 +76,16 @@ module ds-ofdm-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [73.2]: DsOfdmChannelPerf.outErrors";
+                "TLV [73.2]: DsOfdmChannelPerf.outErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         container DsOfdmProfilePerf {
-            uses "p-ds-ofdm-profile-perf:DsOfdmProfilePerf-grouping";
+            tlv:id 3;
             description
-                "TLV [73.3]: DsOfdmChannelPerf.DsOfdmProfilePerf";
+                "TLV [73.3]: DsOfdmChannelPerf.DsOfdmProfilePerf
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-ds-ofdm-profile-perf:g-DsOfdmProfilePerf";
         }
 
         leaf outPackets {
@@ -89,20 +93,24 @@ module ds-ofdm-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [73.4]: DsOfdmChannelPerf.outPackets";
+                "TLV [73.4]: DsOfdmChannelPerf.outPackets
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 5;
             type binary;
             description
-                "TLV [73.5]: DsOfdmChannelPerf.discontinuityTime";
+                "TLV [73.5]: DsOfdmChannelPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         container DsOfdmPlcPerf {
-            uses "p-ds-ofdm-plc-perf:DsOfdmPlcPerf-grouping";
+            tlv:id 6;
             description
-                "TLV [73.6]: DsOfdmChannelPerf.DsOfdmPlcPerf";
+                "TLV [73.6]: DsOfdmChannelPerf.DsOfdmPlcPerf
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-ds-ofdm-plc-perf:g-DsOfdmPlcPerf";
         }
 
         leaf operStatusDsOfdm {
@@ -113,16 +121,18 @@ module ds-ofdm-channel-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [73.7]: DsOfdmChannelPerf.operStatusDsOfdm";
+                "TLV [73.7]: DsOfdmChannelPerf.operStatusDsOfdm
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf PlcFrameTimeAlignment {
             tlv:id 8;
             type uint64;
             description
-                "TLV [73.8]: DsOfdmChannelPerf.PlcFrameTimeAlignment";
+                "TLV [73.8]: DsOfdmChannelPerf.PlcFrameTimeAlignment
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsOfdmChannelPerf-grouping
+    }  // g-DsOfdmChannelPerf grouping
 
 }

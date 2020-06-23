@@ -70,42 +70,39 @@ module rpd-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdCtrl-grouping {
+    grouping g-RpdCtrl {
         tlv:id 40;
-        description
-            "Attribute of `Object` type.
-             TLV [40]: RpdCtrl";
-
+        description "TLV [40]: RpdCtrl";
         container ResetCtrl {
-            uses "p-reset-ctrl:ResetCtrl-grouping";
-            description
-                "TLV [40.1]: RpdCtrl.ResetCtrl";
+            tlv:id 1;
+            description "TLV [40.1]: RpdCtrl.ResetCtrl";
+            uses "p-reset-ctrl:g-ResetCtrl";
         }
 
         container LogCtrl {
-            uses "p-log-ctrl:LogCtrl-grouping";
-            description
-                "TLV [40.2]: RpdCtrl.LogCtrl";
+            tlv:id 2;
+            description "TLV [40.2]: RpdCtrl.LogCtrl";
+            uses "p-log-ctrl:g-LogCtrl";
         }
 
         container CrashDataFileCtrl {
-            uses "p-crash-data-file-ctrl:CrashDataFileCtrl-grouping";
-            description
-                "TLV [40.3]: RpdCtrl.CrashDataFileCtrl";
+            tlv:id 3;
+            description "TLV [40.3]: RpdCtrl.CrashDataFileCtrl";
+            uses "p-crash-data-file-ctrl:g-CrashDataFileCtrl";
         }
 
         container CrashDataServerCtrl {
-            uses "p-crash-data-server-ctrl:CrashDataServerCtrl-grouping";
-            description
-                "TLV [40.4]: RpdCtrl.CrashDataServerCtrl";
+            tlv:id 4;
+            description "TLV [40.4]: RpdCtrl.CrashDataServerCtrl";
+            uses "p-crash-data-server-ctrl:g-CrashDataServerCtrl";
         }
 
         container RebootDisableCtrl {
-            uses "p-reboot-disable-ctrl:RebootDisableCtrl-grouping";
-            description
-                "TLV [40.5]: RpdCtrl.RebootDisableCtrl";
+            tlv:id 5;
+            description "TLV [40.5]: RpdCtrl.RebootDisableCtrl";
+            uses "p-reboot-disable-ctrl:g-RebootDisableCtrl";
         }
 
-    }  // RpdCtrl-grouping
+    }  // g-RpdCtrl grouping
 
 }

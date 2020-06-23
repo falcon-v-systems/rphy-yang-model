@@ -35,17 +35,17 @@ module ds-sc-qam-channel-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsScQamChannelPerf-grouping {
+    grouping g-DsScQamChannelPerf {
         tlv:id 72;
         description
-            "Attribute of `Object` type.
-             TLV [72]: DsScQamChannelPerf";
-
+            "TLV [72]: DsScQamChannelPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [72.None]: DsScQamChannelPerf.Index";
+                "TLV [72.X]: DsScQamChannelPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf outDiscards {
@@ -53,7 +53,8 @@ module ds-sc-qam-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [72.1]: DsScQamChannelPerf.outDiscards";
+                "TLV [72.1]: DsScQamChannelPerf.outDiscards
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outErrors {
@@ -61,7 +62,8 @@ module ds-sc-qam-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [72.2]: DsScQamChannelPerf.outErrors";
+                "TLV [72.2]: DsScQamChannelPerf.outErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outPackets {
@@ -69,14 +71,16 @@ module ds-sc-qam-channel-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [72.3]: DsScQamChannelPerf.outPackets";
+                "TLV [72.3]: DsScQamChannelPerf.outPackets
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 4;
             type binary;
             description
-                "TLV [72.4]: DsScQamChannelPerf.discontinuityTime";
+                "TLV [72.4]: DsScQamChannelPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf operStatusDsScQam {
@@ -87,9 +91,10 @@ module ds-sc-qam-channel-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [72.5]: DsScQamChannelPerf.operStatusDsScQam";
+                "TLV [72.5]: DsScQamChannelPerf.operStatusDsScQam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsScQamChannelPerf-grouping
+    }  // g-DsScQamChannelPerf grouping
 
 }

@@ -48,17 +48,15 @@ module us-ofdma-channel-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaChannelConfig-grouping {
+    grouping g-UsOfdmaChannelConfig {
         tlv:id 66;
-        description
-            "Attribute of `Object` type.
-             TLV [66]: UsOfdmaChannelConfig";
-
+        description "TLV [66]: UsOfdmaChannelConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [66.None]: UsOfdmaChannelConfig.Index";
+                "TLV [66.X]: UsOfdmaChannelConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -70,15 +68,13 @@ module us-ofdma-channel-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [66.1]: UsOfdmaChannelConfig.AdminState";
+            description "TLV [66.1]: UsOfdmaChannelConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [66.2]: UsOfdmaChannelConfig.CcapCoreOwner";
+            description "TLV [66.2]: UsOfdmaChannelConfig.CcapCoreOwner";
         }
 
         leaf SubcarrierZeroFreq {
@@ -86,21 +82,24 @@ module us-ofdma-channel-config-module {
             type uint32;
             units "Hz";
             description
-                "TLV [66.3]: UsOfdmaChannelConfig.SubcarrierZeroFreq";
+                "TLV [66.3]: UsOfdmaChannelConfig.SubcarrierZeroFreq
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf FirstActiveSubcarrierNum {
             tlv:id 4;
             type uint16;
             description
-                "TLV [66.4]: UsOfdmaChannelConfig.FirstActiveSubcarrierNum";
+                "TLV [66.4]: UsOfdmaChannelConfig.FirstActiveSubcarrierNum
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf LastActiveSubcarrierNum {
             tlv:id 5;
             type uint16;
             description
-                "TLV [66.5]: UsOfdmaChannelConfig.LastActiveSubcarrierNum";
+                "TLV [66.5]: UsOfdmaChannelConfig.LastActiveSubcarrierNum
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf RollOffPeriod {
@@ -117,7 +116,8 @@ module us-ofdma-channel-config-module {
                 enum 224  { value  8; description ""; }
             }
             description
-                "TLV [66.6]: UsOfdmaChannelConfig.RollOffPeriod";
+                "TLV [66.6]: UsOfdmaChannelConfig.RollOffPeriod
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf CyclicPrefix {
@@ -137,7 +137,8 @@ module us-ofdma-channel-config-module {
                 enum 640  { value 11; description ""; }
             }
             description
-                "TLV [66.7]: UsOfdmaChannelConfig.CyclicPrefix";
+                "TLV [66.7]: UsOfdmaChannelConfig.CyclicPrefix
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf SubcarrierSpacing {
@@ -148,57 +149,59 @@ module us-ofdma-channel-config-module {
                 enum 50KHz    { value  2; description ""; }
             }
             description
-                "TLV [66.8]: UsOfdmaChannelConfig.SubcarrierSpacing";
+                "TLV [66.8]: UsOfdmaChannelConfig.SubcarrierSpacing
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf NumSymbolsPerFrame {
             tlv:id 9;
             type uint8;
             description
-                "TLV [66.9]: UsOfdmaChannelConfig.NumSymbolsPerFrame";
+                "TLV [66.9]: UsOfdmaChannelConfig.NumSymbolsPerFrame
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf NumActiveSubcarriers {
             tlv:id 10;
             type uint16;
             description
-                "TLV [66.10]: UsOfdmaChannelConfig.NumActiveSubcarriers";
+                "TLV [66.10]: UsOfdmaChannelConfig.NumActiveSubcarriers
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf StartingMinislot {
             tlv:id 11;
             type uint32;
-            description
-                "TLV [66.11]: UsOfdmaChannelConfig.StartingMinislot";
+            description "TLV [66.11]: UsOfdmaChannelConfig.StartingMinislot";
         }
 
         leaf PreambleString {
             tlv:id 12;
             type binary;
             description
-                "TLV [66.12]: UsOfdmaChannelConfig.PreambleString";
+                "TLV [66.12]: UsOfdmaChannelConfig.PreambleString
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf TargetRxPowerAdjust {
             tlv:id 13;
             type uint16;
             units "TenthdBmV";
-            description
-                "TLV [66.13]: UsOfdmaChannelConfig.TargetRxPowerAdjust";
+            description "TLV [66.13]: UsOfdmaChannelConfig.TargetRxPowerAdjust";
         }
 
         leaf EnableFlowTags {
             tlv:id 14;
             type boolean;
-            description
-                "TLV [66.14]: UsOfdmaChannelConfig.EnableFlowTags";
+            description "TLV [66.14]: UsOfdmaChannelConfig.EnableFlowTags";
         }
 
         leaf ScramblerSeed {
             tlv:id 15;
             type uint32;
             description
-                "TLV [66.15]: UsOfdmaChannelConfig.ScramblerSeed";
+                "TLV [66.15]: UsOfdmaChannelConfig.ScramblerSeed
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ConfigMultiSectionTimingMer {
@@ -209,46 +212,47 @@ module us-ofdma-channel-config-module {
         }
 
         container BwReqAggrControlOfdma {
-            uses "p-bw-req-aggr-control-ofdma:BwReqAggrControlOfdma-grouping";
-            description
-                "TLV [66.17]: UsOfdmaChannelConfig.BwReqAggrControlOfdma";
+            tlv:id 17;
+            description "TLV [66.17]: UsOfdmaChannelConfig.BwReqAggrControlOfdma";
+            uses "p-bw-req-aggr-control-ofdma:g-BwReqAggrControlOfdma";
         }
 
         leaf UsChanId {
             tlv:id 18;
             type uint8;
             description
-                "TLV [66.18]: UsOfdmaChannelConfig.UsChanId";
+                "TLV [66.18]: UsOfdmaChannelConfig.UsChanId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ConfigChangeCount {
             tlv:id 19;
             type uint8;
             description
-                "TLV [66.19]: UsOfdmaChannelConfig.ConfigChangeCount";
+                "TLV [66.19]: UsOfdmaChannelConfig.ConfigChangeCount
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DsChanId {
             tlv:id 20;
             type uint8;
             description
-                "TLV [66.20]: UsOfdmaChannelConfig.DsChanId";
+                "TLV [66.20]: UsOfdmaChannelConfig.DsChanId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf BroadcastImRegionDuration {
             tlv:id 21;
             type uint8;
-            description
-                "TLV [66.21]: UsOfdmaChannelConfig.BroadcastImRegionDuration";
+            description "TLV [66.21]: UsOfdmaChannelConfig.BroadcastImRegionDuration";
         }
 
         leaf UnicastImRegionDuration {
             tlv:id 22;
             type uint8;
-            description
-                "TLV [66.22]: UsOfdmaChannelConfig.UnicastImRegionDuration";
+            description "TLV [66.22]: UsOfdmaChannelConfig.UnicastImRegionDuration";
         }
 
-    }  // UsOfdmaChannelConfig-grouping
+    }  // g-UsOfdmaChannelConfig grouping
 
 }

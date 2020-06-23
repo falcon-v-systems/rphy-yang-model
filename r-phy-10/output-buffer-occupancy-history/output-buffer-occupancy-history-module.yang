@@ -35,40 +35,35 @@ module output-buffer-occupancy-history-module {
 
     // --- definitions -----------------------------------
 
-    grouping OutputBufferOccupancyHistory-grouping {
+    grouping g-OutputBufferOccupancyHistory {
         tlv:id 83;
-        description
-            "Attribute of `Object` type.
-             TLV [83]: OutputBufferOccupancyHistory";
-
+        description "TLV [83]: OutputBufferOccupancyHistory";
         leaf MaximumBufferDepth {
             tlv:id 1;
             type uint32;
             units "bytes";
             description
-                "TLV [83.1]: OutputBufferOccupancyHistory.MaximumBufferDepth";
+                "TLV [83.1]: OutputBufferOccupancyHistory.MaximumBufferDepth
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf BufferDepth {
             tlv:id 2;
             type uint32;
             units "bytes";
-            description
-                "TLV [83.2]: OutputBufferOccupancyHistory.BufferDepth";
+            description "TLV [83.2]: OutputBufferOccupancyHistory.BufferDepth";
         }
 
         leaf EnableMonitor {
             tlv:id 3;
             type boolean;
-            description
-                "TLV [83.3]: OutputBufferOccupancyHistory.EnableMonitor";
+            description "TLV [83.3]: OutputBufferOccupancyHistory.EnableMonitor";
         }
 
         leaf NormalizationFactor {
             tlv:id 4;
             type uint32;
-            description
-                "TLV [83.4]: OutputBufferOccupancyHistory.NormalizationFactor";
+            description "TLV [83.4]: OutputBufferOccupancyHistory.NormalizationFactor";
         }
 
         leaf FirstSampleTimestamp {
@@ -82,9 +77,10 @@ module output-buffer-occupancy-history-module {
             tlv:id 6;
             type binary;
             description
-                "TLV [83.6]: OutputBufferOccupancyHistory.SampledBufferOccupancy";
+                "TLV [83.6]: OutputBufferOccupancyHistory.SampledBufferOccupancy
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // OutputBufferOccupancyHistory-grouping
+    }  // g-OutputBufferOccupancyHistory grouping
 
 }

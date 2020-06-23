@@ -35,19 +35,15 @@ module host-resources-system-module {
 
     // --- definitions -----------------------------------
 
-    grouping HostResourcesSystem-grouping {
+    grouping g-HostResourcesSystem {
         tlv:id 21;
-        description
-            "Attribute of `Object` type.
-             TLV [100.21]: RpdInfo.HostResourcesSystem";
-
+        description "TLV [100.21]: RpdInfo.HostResourcesSystem";
         leaf Date {
             tlv:id 1;
             type binary;
-            description
-                "TLV [100.21.1]: RpdInfo.HostResourcesSystem.Date";
+            description "TLV [100.21.1]: RpdInfo.HostResourcesSystem.Date";
         }
 
-    }  // HostResourcesSystem-grouping
+    }  // g-HostResourcesSystem grouping
 
 }

@@ -35,12 +35,9 @@ module pnm-us-histogram-module {
 
     // --- definitions -----------------------------------
 
-    grouping PnmUsHistogram-grouping {
+    grouping g-PnmUsHistogram {
         tlv:id 131;
-        description
-            "Attribute of `Object` type.
-             TLV [131]: PnmUsHistogram";
-
+        description "TLV [131]: PnmUsHistogram";
         leaf UsHsgRpdStatus {
             tlv:id 1;
             tlv:repr uint8;
@@ -50,8 +47,7 @@ module pnm-us-histogram-module {
                 enum ResultsReady     { value  3; description ""; }
                 enum Error            { value  4; description ""; }
             }
-            description
-                "TLV [131.1]: PnmUsHistogram.UsHsgRpdStatus";
+            description "TLV [131.1]: PnmUsHistogram.UsHsgRpdStatus";
         }
 
         leaf UsHsgCommand {
@@ -63,59 +59,51 @@ module pnm-us-histogram-module {
                 enum Reset        { value  3; description ""; }
                 enum Abort        { value  4; description ""; }
             }
-            description
-                "TLV [131.2]: PnmUsHistogram.UsHsgCommand";
+            description "TLV [131.2]: PnmUsHistogram.UsHsgCommand";
         }
 
         leaf UsHsgRfPortId {
             tlv:id 3;
             type uint16;
-            description
-                "TLV [131.3]: PnmUsHistogram.UsHsgRfPortId";
+            description "TLV [131.3]: PnmUsHistogram.UsHsgRfPortId";
         }
 
         leaf UsHsgTimeout {
             tlv:id 4;
             type uint16;
-            description
-                "TLV [131.4]: PnmUsHistogram.UsHsgTimeout";
+            description "TLV [131.4]: PnmUsHistogram.UsHsgTimeout";
         }
 
         leaf UsHsgEvenSymmetry {
             tlv:id 5;
             type boolean;
-            description
-                "TLV [131.5]: PnmUsHistogram.UsHsgEvenSymmetry";
+            description "TLV [131.5]: PnmUsHistogram.UsHsgEvenSymmetry";
         }
 
         leaf UsHsgStartTime {
             tlv:id 6;
             type uint64;
-            description
-                "TLV [131.6]: PnmUsHistogram.UsHsgStartTime";
+            description "TLV [131.6]: PnmUsHistogram.UsHsgStartTime";
         }
 
         leaf UsHsgEndTime {
             tlv:id 7;
             type uint64;
-            description
-                "TLV [131.7]: PnmUsHistogram.UsHsgEndTime";
+            description "TLV [131.7]: PnmUsHistogram.UsHsgEndTime";
         }
 
         leaf UsHsgDwellCounts {
             tlv:id 8;
             type binary;
-            description
-                "TLV [131.8]: PnmUsHistogram.UsHsgDwellCounts";
+            description "TLV [131.8]: PnmUsHistogram.UsHsgDwellCounts";
         }
 
         leaf UsHsgHitCounts {
             tlv:id 9;
             type binary;
-            description
-                "TLV [131.9]: PnmUsHistogram.UsHsgHitCounts";
+            description "TLV [131.9]: PnmUsHistogram.UsHsgHitCounts";
         }
 
-    }  // PnmUsHistogram-grouping
+    }  // g-PnmUsHistogram grouping
 
 }

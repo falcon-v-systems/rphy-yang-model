@@ -47,31 +47,31 @@ module aux-core-state-module {
 
     // --- definitions -----------------------------------
 
-    grouping AuxCoreState-grouping {
+    grouping g-AuxCoreState {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [87.4]: RpdState.AuxCoreState";
-
+        description "TLV [87.4]: RpdState.AuxCoreState";
         leaf AuxCoreIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [87.4.1]: RpdState.AuxCoreState.AuxCoreIndex";
+                "TLV [87.4.1]: RpdState.AuxCoreState.AuxCoreIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf AuxCoreId {
             tlv:id 2;
             type yang:mac-address;
             description
-                "TLV [87.4.2]: RpdState.AuxCoreState.AuxCoreId";
+                "TLV [87.4.2]: RpdState.AuxCoreState.AuxCoreId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreIp {
             tlv:id 3;
             type inet:ip-address;
             description
-                "TLV [87.4.3]: RpdState.AuxCoreState.AuxCoreIp";
+                "TLV [87.4.3]: RpdState.AuxCoreState.AuxCoreIp
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreRPDState {
@@ -86,9 +86,10 @@ module aux-core-state-module {
                 enum OperationalAuxCore       { value  6; description ""; }
             }
             description
-                "TLV [87.4.4]: RpdState.AuxCoreState.AuxCoreRPDState";
+                "TLV [87.4.4]: RpdState.AuxCoreState.AuxCoreRPDState
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // AuxCoreState-grouping
+    }  // g-AuxCoreState grouping
 
 }

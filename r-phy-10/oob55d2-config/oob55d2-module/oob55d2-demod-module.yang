@@ -35,17 +35,15 @@ module oob55d2-demod-module {
 
     // --- definitions -----------------------------------
 
-    grouping Oob55d2Demod-grouping {
+    grouping g-Oob55d2Demod {
         tlv:id 10;
-        description
-            "Attribute of `Object` type.
-             TLV [93.4.10]: Oob55d2Config.Oob55d2Module.Oob55d2Demod";
-
+        description "TLV [93.4.10]: Oob55d2Config.Oob55d2Module.Oob55d2Demod";
         leaf DemodIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [93.4.10.1]: Oob55d2Config.Oob55d2Module.Oob55d2Demod.DemodIndex";
+                "TLV [93.4.10.1]: Oob55d2Config.Oob55d2Module.Oob55d2Demod.DemodIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf UpstreamGroupId {
@@ -67,9 +65,10 @@ module oob55d2-demod-module {
             tlv:id 4;
             type uint8;
             description
-                "TLV [93.4.10.4]: Oob55d2Config.Oob55d2Module.Oob55d2Demod.UsPortAssociation";
+                "TLV [93.4.10.4]: Oob55d2Config.Oob55d2Module.Oob55d2Demod.UsPortAssociation
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // Oob55d2Demod-grouping
+    }  // g-Oob55d2Demod grouping
 
 }

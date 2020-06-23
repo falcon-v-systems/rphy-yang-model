@@ -42,12 +42,9 @@ module common-static-pw-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping CommonStaticPwConfig-grouping {
+    grouping g-CommonStaticPwConfig {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [58.3]: StaticPwConfig.CommonStaticPwConfig";
-
+        description "TLV [58.3]: StaticPwConfig.CommonStaticPwConfig";
         leaf Direction {
             tlv:id 1;
             tlv:repr uint8;
@@ -55,15 +52,15 @@ module common-static-pw-config-module {
                 enum ForwardDirPseudowire     { value  0; description ""; }
                 enum ReturnDirPseudowire      { value  1; description ""; }
             }
-            description
-                "TLV [58.3.1]: StaticPwConfig.CommonStaticPwConfig.Direction";
+            description "TLV [58.3.1]: StaticPwConfig.CommonStaticPwConfig.Direction";
         }
 
         leaf Index {
             tlv:id 2;
             type uint16;
             description
-                "TLV [58.3.2]: StaticPwConfig.CommonStaticPwConfig.Index";
+                "TLV [58.3.2]: StaticPwConfig.CommonStaticPwConfig.Index
+                 non-defaults: [is_readonly: True]";
         }
 
         leaf PwType {
@@ -73,8 +70,7 @@ module common-static-pw-config-module {
                 enum MPT  { value 12; description ""; }
                 enum PSP  { value 13; description ""; }
             }
-            description
-                "TLV [58.3.4]: StaticPwConfig.CommonStaticPwConfig.PwType";
+            description "TLV [58.3.4]: StaticPwConfig.CommonStaticPwConfig.PwType";
         }
 
         leaf DepiPwSubtype {
@@ -150,7 +146,8 @@ module common-static-pw-config-module {
             tlv:id 8;
             type uint32;
             description
-                "TLV [58.3.8]: StaticPwConfig.CommonStaticPwConfig.SessionId";
+                "TLV [58.3.8]: StaticPwConfig.CommonStaticPwConfig.SessionId
+                 non-defaults: [is_key: True]";
         }
 
         leaf CircuitStatus {
@@ -167,10 +164,12 @@ module common-static-pw-config-module {
                 "TLV [58.3.10]: StaticPwConfig.CommonStaticPwConfig.RpdEnetPortIndex";
         }
 
-        container PwAssociation {
-            uses "p-pw-association:PwAssociation-grouping";
+        list PwAssociation {
+            tlv:id 11;
+            key Index;
             description
                 "TLV [58.3.11]: StaticPwConfig.CommonStaticPwConfig.PwAssociation";
+            uses "p-pw-association:g-PwAssociation";
         }
 
         leaf EnableStatusNotification {
@@ -180,6 +179,6 @@ module common-static-pw-config-module {
                 "TLV [58.3.12]: StaticPwConfig.CommonStaticPwConfig.EnableStatusNotification";
         }
 
-    }  // CommonStaticPwConfig-grouping
+    }  // g-CommonStaticPwConfig grouping
 
 }

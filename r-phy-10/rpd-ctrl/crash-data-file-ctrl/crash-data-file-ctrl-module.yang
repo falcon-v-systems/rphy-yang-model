@@ -35,17 +35,13 @@ module crash-data-file-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping CrashDataFileCtrl-grouping {
+    grouping g-CrashDataFileCtrl {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [40.3]: RpdCtrl.CrashDataFileCtrl";
-
+        description "TLV [40.3]: RpdCtrl.CrashDataFileCtrl";
         leaf Index {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [40.3.1]: RpdCtrl.CrashDataFileCtrl.Index";
+            description "TLV [40.3.1]: RpdCtrl.CrashDataFileCtrl.Index";
         }
 
         leaf FileControl {
@@ -58,10 +54,9 @@ module crash-data-file-ctrl-module {
                 enum deleteFile       { value  4; description ""; }
                 enum uploadAndDelete  { value  5; description ""; }
             }
-            description
-                "TLV [40.3.2]: RpdCtrl.CrashDataFileCtrl.FileControl";
+            description "TLV [40.3.2]: RpdCtrl.CrashDataFileCtrl.FileControl";
         }
 
-    }  // CrashDataFileCtrl-grouping
+    }  // g-CrashDataFileCtrl grouping
 
 }

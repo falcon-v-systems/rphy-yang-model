@@ -35,17 +35,15 @@ module host-resources-sw-run-module {
 
     // --- definitions -----------------------------------
 
-    grouping HostResourcesSwRun-grouping {
+    grouping g-HostResourcesSwRun {
         tlv:id 23;
-        description
-            "Attribute of `Object` type.
-             TLV [100.23]: RpdInfo.HostResourcesSwRun";
-
+        description "TLV [100.23]: RpdInfo.HostResourcesSwRun";
         leaf Index {
             tlv:id 1;
             type uint32;
             description
-                "TLV [100.23.1]: RpdInfo.HostResourcesSwRun.Index";
+                "TLV [100.23.1]: RpdInfo.HostResourcesSwRun.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf Type {
@@ -57,8 +55,7 @@ module host-resources-sw-run-module {
                 enum deviceDriver     { value  3; description ""; }
                 enum application      { value  4; description ""; }
             }
-            description
-                "TLV [100.23.2]: RpdInfo.HostResourcesSwRun.Type";
+            description "TLV [100.23.2]: RpdInfo.HostResourcesSwRun.Type";
         }
 
         leaf Status {
@@ -70,31 +67,27 @@ module host-resources-sw-run-module {
                 enum notRunnable  { value  3; description ""; }
                 enum invalid      { value  4; description ""; }
             }
-            description
-                "TLV [100.23.3]: RpdInfo.HostResourcesSwRun.Status";
+            description "TLV [100.23.3]: RpdInfo.HostResourcesSwRun.Status";
         }
 
         leaf PerfCpu {
             tlv:id 4;
             type uint32;
-            description
-                "TLV [100.23.4]: RpdInfo.HostResourcesSwRun.PerfCpu";
+            description "TLV [100.23.4]: RpdInfo.HostResourcesSwRun.PerfCpu";
         }
 
         leaf PerfMem {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [100.23.5]: RpdInfo.HostResourcesSwRun.PerfMem";
+            description "TLV [100.23.5]: RpdInfo.HostResourcesSwRun.PerfMem";
         }
 
         leaf Name {
             tlv:id 6;
             type string;
-            description
-                "TLV [100.23.6]: RpdInfo.HostResourcesSwRun.Name";
+            description "TLV [100.23.6]: RpdInfo.HostResourcesSwRun.Name";
         }
 
-    }  // HostResourcesSwRun-grouping
+    }  // g-HostResourcesSwRun grouping
 
 }

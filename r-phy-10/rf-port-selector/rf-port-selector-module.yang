@@ -35,17 +35,13 @@ module rf-port-selector-module {
 
     // --- definitions -----------------------------------
 
-    grouping RfPortSelector-grouping {
+    grouping g-RfPortSelector {
         tlv:id 13;
-        description
-            "Attribute of `Object` type.
-             TLV [13]: RfPortSelector";
-
+        description "TLV [13]: RfPortSelector";
         leaf RfPortIndex2 {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [13.1]: RfPortSelector.RfPortIndex2";
+            description "TLV [13.1]: RfPortSelector.RfPortIndex2";
         }
 
         leaf RfPortType {
@@ -55,10 +51,9 @@ module rf-port-selector-module {
                 enum DsRfPort     { value  1; description ""; }
                 enum UsRfPort     { value  2; description ""; }
             }
-            description
-                "TLV [13.2]: RfPortSelector.RfPortType";
+            description "TLV [13.2]: RfPortSelector.RfPortType";
         }
 
-    }  // RfPortSelector-grouping
+    }  // g-RfPortSelector grouping
 
 }

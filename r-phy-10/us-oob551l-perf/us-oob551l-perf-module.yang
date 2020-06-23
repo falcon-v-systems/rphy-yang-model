@@ -35,12 +35,11 @@ module us-oob551l-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOob551lPerf-grouping {
+    grouping g-UsOob551lPerf {
         tlv:id 80;
         description
-            "Attribute of `Object` type.
-             TLV [80]: UsOob551lPerf";
-
+            "TLV [80]: UsOob551lPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf operStatusUsOob551 {
             tlv:id 1;
             tlv:repr uint8;
@@ -49,9 +48,10 @@ module us-oob551l-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [80.1]: UsOob551lPerf.operStatusUsOob551";
+                "TLV [80.1]: UsOob551lPerf.operStatusUsOob551
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsOob551lPerf-grouping
+    }  // g-UsOob551lPerf grouping
 
 }

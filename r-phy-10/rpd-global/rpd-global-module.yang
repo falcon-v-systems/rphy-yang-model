@@ -63,43 +63,39 @@ module rpd-global-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdGlobal-grouping {
+    grouping g-RpdGlobal {
         tlv:id 15;
-        description
-            "Attribute of `Object` type.
-             TLV [15]: RpdGlobal";
-
+        description "TLV [15]: RpdGlobal";
         container EvCfg {
-            uses "p-ev-cfg:EvCfg-grouping";
-            description
-                "TLV [15.1]: RpdGlobal.EvCfg";
+            tlv:id 1;
+            description "TLV [15.1]: RpdGlobal.EvCfg";
+            uses "p-ev-cfg:g-EvCfg";
         }
 
         container GcpConnVerification {
-            uses "p-gcp-conn-verification:GcpConnVerification-grouping";
-            description
-                "TLV [15.2]: RpdGlobal.GcpConnVerification";
+            tlv:id 2;
+            description "TLV [15.2]: RpdGlobal.GcpConnVerification";
+            uses "p-gcp-conn-verification:g-GcpConnVerification";
         }
 
         container IpConfig {
-            uses "p-ip-config:IpConfig-grouping";
-            description
-                "TLV [15.3]: RpdGlobal.IpConfig";
+            tlv:id 3;
+            description "TLV [15.3]: RpdGlobal.IpConfig";
+            uses "p-ip-config:g-IpConfig";
         }
 
         container UepiControl {
-            uses "p-uepi-control:UepiControl-grouping";
-            description
-                "TLV [15.4]: RpdGlobal.UepiControl";
+            tlv:id 4;
+            description "TLV [15.4]: RpdGlobal.UepiControl";
+            uses "p-uepi-control:g-UepiControl";
         }
 
         leaf GcpDscp {
             tlv:id 5;
             type uint8;
-            description
-                "TLV [15.5]: RpdGlobal.GcpDscp";
+            description "TLV [15.5]: RpdGlobal.GcpDscp";
         }
 
-    }  // RpdGlobal-grouping
+    }  // g-RpdGlobal grouping
 
 }

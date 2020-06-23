@@ -35,17 +35,15 @@ module ptp-port-dataset-module {
 
     // --- definitions -----------------------------------
 
-    grouping PtpPortDataset-grouping {
+    grouping g-PtpPortDataset {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [100.24.3]: RpdInfo.RpdPtpStatus.PtpPortDataset";
-
+        description "TLV [100.24.3]: RpdInfo.RpdPtpStatus.PtpPortDataset";
         leaf PortNumber {
             tlv:id 1;
             type uint16;
             description
-                "TLV [100.24.3.1]: RpdInfo.RpdPtpStatus.PtpPortDataset.PortNumber";
+                "TLV [100.24.3.1]: RpdInfo.RpdPtpStatus.PtpPortDataset.PortNumber
+                 non-defaults: [is_key: True]";
         }
 
         leaf PortState {
@@ -73,6 +71,6 @@ module ptp-port-dataset-module {
                 "TLV [100.24.3.3]: RpdInfo.RpdPtpStatus.PtpPortDataset.MeanPathDelay";
         }
 
-    }  // PtpPortDataset-grouping
+    }  // g-PtpPortDataset grouping
 
 }

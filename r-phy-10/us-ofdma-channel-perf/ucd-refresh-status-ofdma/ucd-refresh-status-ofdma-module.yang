@@ -35,26 +35,27 @@ module ucd-refresh-status-ofdma-module {
 
     // --- definitions -----------------------------------
 
-    grouping UcdRefreshStatusOfdma-grouping {
+    grouping g-UcdRefreshStatusOfdma {
         tlv:id 10;
         description
-            "Attribute of `Object` type.
-             TLV [79.10]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma";
-
+            "TLV [79.10]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf UcdRefreshRequestOfdma {
             tlv:id 1;
             type boolean;
             description
-                "TLV [79.10.1]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma.UcdRefreshRequestOfdma";
+                "TLV [79.10.1]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma.UcdRefreshRequestOfdma
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UcdRefreshReasonOfdma {
             tlv:id 2;
             type string;
             description
-                "TLV [79.10.2]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma.UcdRefreshReasonOfdma";
+                "TLV [79.10.2]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma.UcdRefreshReasonOfdma
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UcdRefreshStatusOfdma-grouping
+    }  // g-UcdRefreshStatusOfdma grouping
 
 }

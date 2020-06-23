@@ -35,33 +35,35 @@ module ds-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsCapabilities-grouping {
+    grouping g-DsCapabilities {
         tlv:id 51;
         description
-            "Attribute of `Object` type.
-             TLV [50.51]: RpdCapabilities.DsCapabilities";
-
+            "TLV [50.51]: RpdCapabilities.DsCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf DsScqamInterleverSupport {
             tlv:id 1;
             type uint32;
             description
-                "TLV [50.51.1]: RpdCapabilities.DsCapabilities.DsScqamInterleverSupport";
+                "TLV [50.51.1]: RpdCapabilities.DsCapabilities.DsScqamInterleverSupport
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DsMaxDocsisScQamChannels {
             tlv:id 2;
             type uint16;
             description
-                "TLV [50.51.2]: RpdCapabilities.DsCapabilities.DsMaxDocsisScQamChannels";
+                "TLV [50.51.2]: RpdCapabilities.DsCapabilities.DsMaxDocsisScQamChannels
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DsMaxMultipleScQamPspSessions {
             tlv:id 3;
             type uint16;
             description
-                "TLV [50.51.3]: RpdCapabilities.DsCapabilities.DsMaxMultipleScQamPspSessions";
+                "TLV [50.51.3]: RpdCapabilities.DsCapabilities.DsMaxMultipleScQamPspSessions
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsCapabilities-grouping
+    }  // g-DsCapabilities grouping
 
 }

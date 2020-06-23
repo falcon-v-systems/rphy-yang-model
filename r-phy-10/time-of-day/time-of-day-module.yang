@@ -35,12 +35,9 @@ module time-of-day-module {
 
     // --- definitions -----------------------------------
 
-    grouping TimeOfDay-grouping {
+    grouping g-TimeOfDay {
         tlv:id 104;
-        description
-            "Attribute of `Object` type.
-             TLV [104]: TimeOfDay";
-
+        description "TLV [104]: TimeOfDay";
         leaf TimeOfDayUpdate {
             tlv:id 1;
             tlv:repr uint8;
@@ -49,10 +46,9 @@ module time-of-day-module {
                 enum PTP                      { value  1; description ""; }
                 enum RepeatedTimeProtocol     { value  2; description ""; }
             }
-            description
-                "TLV [104.1]: TimeOfDay.TimeOfDayUpdate";
+            description "TLV [104.1]: TimeOfDay.TimeOfDayUpdate";
         }
 
-    }  // TimeOfDay-grouping
+    }  // g-TimeOfDay grouping
 
 }

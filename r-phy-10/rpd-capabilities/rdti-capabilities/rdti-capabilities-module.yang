@@ -35,19 +35,19 @@ module rdti-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping RdtiCapabilities-grouping {
+    grouping g-RdtiCapabilities {
         tlv:id 34;
         description
-            "Attribute of `Object` type.
-             TLV [50.34]: RpdCapabilities.RdtiCapabilities";
-
+            "TLV [50.34]: RpdCapabilities.RdtiCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf NumPtpPortsPerEnetPort {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.34.1]: RpdCapabilities.RdtiCapabilities.NumPtpPortsPerEnetPort";
+                "TLV [50.34.1]: RpdCapabilities.RdtiCapabilities.NumPtpPortsPerEnetPort
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // RdtiCapabilities-grouping
+    }  // g-RdtiCapabilities grouping
 
 }

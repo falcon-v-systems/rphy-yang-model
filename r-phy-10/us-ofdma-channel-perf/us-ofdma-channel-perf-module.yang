@@ -56,71 +56,75 @@ module us-ofdma-channel-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaChannelPerf-grouping {
+    grouping g-UsOfdmaChannelPerf {
         tlv:id 79;
-        description
-            "Attribute of `Object` type.
-             TLV [79]: UsOfdmaChannelPerf";
-
+        description "TLV [79]: UsOfdmaChannelPerf";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [79.None]: UsOfdmaChannelPerf.Index";
+                "TLV [79.X]: UsOfdmaChannelPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         container UsOfdmaChanLowIucStats {
-            uses "p-us-ofdma-chan-low-iuc-stats:UsOfdmaChanLowIucStats-grouping";
-            description
-                "TLV [79.1]: UsOfdmaChannelPerf.UsOfdmaChanLowIucStats";
+            tlv:id 1;
+            description "TLV [79.1]: UsOfdmaChannelPerf.UsOfdmaChanLowIucStats";
+            uses "p-us-ofdma-chan-low-iuc-stats:g-UsOfdmaChanLowIucStats";
         }
 
         container UsOfdmaHiIucStats {
-            uses "p-us-ofdma-hi-iuc-stats:UsOfdmaHiIucStats-grouping";
-            description
-                "TLV [79.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats";
+            tlv:id 2;
+            description "TLV [79.2]: UsOfdmaChannelPerf.UsOfdmaHiIucStats";
+            uses "p-us-ofdma-hi-iuc-stats:g-UsOfdmaHiIucStats";
         }
 
         leaf HcsErrors {
             tlv:id 3;
             type uint64;
             description
-                "TLV [79.3]: UsOfdmaChannelPerf.HcsErrors";
+                "TLV [79.3]: UsOfdmaChannelPerf.HcsErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf LateMaps {
             tlv:id 4;
             type uint64;
             description
-                "TLV [79.4]: UsOfdmaChannelPerf.LateMaps";
+                "TLV [79.4]: UsOfdmaChannelPerf.LateMaps
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf IllegalMaps {
             tlv:id 5;
             type uint64;
             description
-                "TLV [79.5]: UsOfdmaChannelPerf.IllegalMaps";
+                "TLV [79.5]: UsOfdmaChannelPerf.IllegalMaps
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DiscardedRequests {
             tlv:id 6;
             type uint64;
             description
-                "TLV [79.6]: UsOfdmaChannelPerf.DiscardedRequests";
+                "TLV [79.6]: UsOfdmaChannelPerf.DiscardedRequests
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ProbeGrants {
             tlv:id 7;
             type uint64;
             description
-                "TLV [79.7]: UsOfdmaChannelPerf.ProbeGrants";
+                "TLV [79.7]: UsOfdmaChannelPerf.ProbeGrants
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 8;
             type binary;
             description
-                "TLV [79.8]: UsOfdmaChannelPerf.discontinuityTime";
+                "TLV [79.8]: UsOfdmaChannelPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf operStatusUsScQam {
@@ -131,15 +135,18 @@ module us-ofdma-channel-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [79.9]: UsOfdmaChannelPerf.operStatusUsScQam";
+                "TLV [79.9]: UsOfdmaChannelPerf.operStatusUsScQam
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         container UcdRefreshStatusOfdma {
-            uses "p-ucd-refresh-status-ofdma:UcdRefreshStatusOfdma-grouping";
+            tlv:id 10;
             description
-                "TLV [79.10]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma";
+                "TLV [79.10]: UsOfdmaChannelPerf.UcdRefreshStatusOfdma
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-ucd-refresh-status-ofdma:g-UcdRefreshStatusOfdma";
         }
 
-    }  // UsOfdmaChannelPerf-grouping
+    }  // g-UsOfdmaChannelPerf grouping
 
 }

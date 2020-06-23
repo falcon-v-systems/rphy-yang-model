@@ -35,26 +35,21 @@ module rpd-cert-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdCert-grouping {
+    grouping g-RpdCert {
         tlv:id 26;
-        description
-            "Attribute of `Object` type.
-             TLV [100.26]: RpdInfo.RpdCert";
-
+        description "TLV [100.26]: RpdInfo.RpdCert";
         leaf DeviceCert {
             tlv:id 1;
             type binary;
-            description
-                "TLV [100.26.1]: RpdInfo.RpdCert.DeviceCert";
+            description "TLV [100.26.1]: RpdInfo.RpdCert.DeviceCert";
         }
 
         leaf SigningCaCert {
             tlv:id 2;
             type binary;
-            description
-                "TLV [100.26.2]: RpdInfo.RpdCert.SigningCaCert";
+            description "TLV [100.26.2]: RpdInfo.RpdCert.SigningCaCert";
         }
 
-    }  // RpdCert-grouping
+    }  // g-RpdCert grouping
 
 }

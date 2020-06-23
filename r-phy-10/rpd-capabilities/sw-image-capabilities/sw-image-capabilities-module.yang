@@ -35,26 +35,27 @@ module sw-image-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping SwImageCapabilities-grouping {
+    grouping g-SwImageCapabilities {
         tlv:id 53;
         description
-            "Attribute of `Object` type.
-             TLV [50.53]: RpdCapabilities.SwImageCapabilities";
-
+            "TLV [50.53]: RpdCapabilities.SwImageCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf NumSwImages {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.53.1]: RpdCapabilities.SwImageCapabilities.NumSwImages";
+                "TLV [50.53.1]: RpdCapabilities.SwImageCapabilities.NumSwImages
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ImageUpgradeability {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.53.1]: RpdCapabilities.SwImageCapabilities.ImageUpgradeability";
+                "TLV [50.53.1]: RpdCapabilities.SwImageCapabilities.ImageUpgradeability
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // SwImageCapabilities-grouping
+    }  // g-SwImageCapabilities grouping
 
 }

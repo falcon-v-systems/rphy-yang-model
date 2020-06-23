@@ -35,24 +35,23 @@ module ds-ofdm-subcarrier-type-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmSubcarrierType-grouping {
+    grouping g-DsOfdmSubcarrierType {
         tlv:id 13;
-        description
-            "Attribute of `Object` type.
-             TLV [63.13]: DsOfdmChannelConfig.DsOfdmSubcarrierType";
-
+        description "TLV [63.13]: DsOfdmChannelConfig.DsOfdmSubcarrierType";
         leaf StartSubcarrierId {
             tlv:id 1;
             type uint16;
             description
-                "TLV [63.13.1]: DsOfdmChannelConfig.DsOfdmSubcarrierType.StartSubcarrierId";
+                "TLV [63.13.1]: DsOfdmChannelConfig.DsOfdmSubcarrierType.StartSubcarrierId
+                 non-defaults: [is_key: True]";
         }
 
         leaf EndSubcarrierId {
             tlv:id 2;
             type uint16;
             description
-                "TLV [63.13.2]: DsOfdmChannelConfig.DsOfdmSubcarrierType.EndSubcarrierId";
+                "TLV [63.13.2]: DsOfdmChannelConfig.DsOfdmSubcarrierType.EndSubcarrierId
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf SubcarrierUsage {
@@ -67,9 +66,10 @@ module ds-ofdm-subcarrier-type-module {
                 enum Unused           { value  6; description ""; }
             }
             description
-                "TLV [63.13.3]: DsOfdmChannelConfig.DsOfdmSubcarrierType.SubcarrierUsage";
+                "TLV [63.13.3]: DsOfdmChannelConfig.DsOfdmSubcarrierType.SubcarrierUsage
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // DsOfdmSubcarrierType-grouping
+    }  // g-DsOfdmSubcarrierType grouping
 
 }

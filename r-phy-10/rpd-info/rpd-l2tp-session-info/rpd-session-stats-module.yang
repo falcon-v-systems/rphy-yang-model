@@ -35,12 +35,9 @@ module rpd-session-stats-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdSessionStats-grouping {
+    grouping g-RpdSessionStats {
         tlv:id 21;
-        description
-            "Attribute of `Object` type.
-             TLV [100.2.21]: RpdInfo.RpdL2tpSessionInfo.RpdSessionStats";
-
+        description "TLV [100.2.21]: RpdInfo.RpdL2tpSessionInfo.RpdSessionStats";
         leaf OutOfSequencePackets {
             tlv:id 1;
             type uint32;
@@ -83,6 +80,6 @@ module rpd-session-stats-module {
                 "TLV [100.2.21.6]: RpdInfo.RpdL2tpSessionInfo.RpdSessionStats.CounterDiscontinuityTime";
         }
 
-    }  // RpdSessionStats-grouping
+    }  // g-RpdSessionStats grouping
 
 }

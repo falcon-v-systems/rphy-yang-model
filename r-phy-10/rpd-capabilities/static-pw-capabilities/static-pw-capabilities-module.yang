@@ -35,54 +35,59 @@ module static-pw-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping StaticPwCapabilities-grouping {
+    grouping g-StaticPwCapabilities {
         tlv:id 50;
         description
-            "Attribute of `Object` type.
-             TLV [50.50]: RpdCapabilities.StaticPwCapabilities";
-
+            "TLV [50.50]: RpdCapabilities.StaticPwCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf MaxFwdStaticPws {
             tlv:id 1;
             type uint16;
             description
-                "TLV [50.50.1]: RpdCapabilities.StaticPwCapabilities.MaxFwdStaticPws";
+                "TLV [50.50.1]: RpdCapabilities.StaticPwCapabilities.MaxFwdStaticPws
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxRetStaticPws {
             tlv:id 2;
             type uint16;
             description
-                "TLV [50.50.2]: RpdCapabilities.StaticPwCapabilities.MaxRetStaticPws";
+                "TLV [50.50.2]: RpdCapabilities.StaticPwCapabilities.MaxRetStaticPws
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SupportsMptDepiPw {
             tlv:id 3;
             type boolean;
             description
-                "TLV [50.50.3]: RpdCapabilities.StaticPwCapabilities.SupportsMptDepiPw";
+                "TLV [50.50.3]: RpdCapabilities.StaticPwCapabilities.SupportsMptDepiPw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SupportsMpt55d1RetPw {
             tlv:id 4;
             type boolean;
             description
-                "TLV [50.50.4]: RpdCapabilities.StaticPwCapabilities.SupportsMpt55d1RetPw";
+                "TLV [50.50.4]: RpdCapabilities.StaticPwCapabilities.SupportsMpt55d1RetPw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SupportsPspNdfPw {
             tlv:id 5;
             type boolean;
             description
-                "TLV [50.50.5]: RpdCapabilities.StaticPwCapabilities.SupportsPspNdfPw";
+                "TLV [50.50.5]: RpdCapabilities.StaticPwCapabilities.SupportsPspNdfPw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SupportsPspNdrPw {
             tlv:id 6;
             type boolean;
             description
-                "TLV [50.50.6]: RpdCapabilities.StaticPwCapabilities.SupportsPspNdrPw";
+                "TLV [50.50.6]: RpdCapabilities.StaticPwCapabilities.SupportsPspNdrPw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // StaticPwCapabilities-grouping
+    }  // g-StaticPwCapabilities grouping
 
 }

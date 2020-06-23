@@ -35,12 +35,9 @@ module ntf-module {
 
     // --- definitions -----------------------------------
 
-    grouping NTF-grouping {
+    grouping g-NTF {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [3]: NTF";
-
-    }  // NTF-grouping
+        description "TLV [3]: NTF";
+    }  // g-NTF grouping
 
 }

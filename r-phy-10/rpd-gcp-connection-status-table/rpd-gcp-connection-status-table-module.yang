@@ -41,24 +41,23 @@ module rpd-gcp-connection-status-table-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdGcpConnectionStatusTable-grouping {
+    grouping g-RpdGcpConnectionStatusTable {
         tlv:id 105;
-        description
-            "Attribute of `Object` type.
-             TLV [105]: RpdGcpConnectionStatusTable";
-
+        description "TLV [105]: RpdGcpConnectionStatusTable";
         leaf Index {
             tlv:id 1;
             type uint8;
             description
-                "TLV [105.1]: RpdGcpConnectionStatusTable.Index";
+                "TLV [105.1]: RpdGcpConnectionStatusTable.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf CoreId {
             tlv:id 2;
             type yang:mac-address;
             description
-                "TLV [105.2]: RpdGcpConnectionStatusTable.CoreId";
+                "TLV [105.2]: RpdGcpConnectionStatusTable.CoreId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RpdGcpConnectionStatus {
@@ -71,7 +70,8 @@ module rpd-gcp-connection-status-table-module {
                 enum ReConnecting     { value  4; description ""; }
             }
             description
-                "TLV [105.3]: RpdGcpConnectionStatusTable.RpdGcpConnectionStatus";
+                "TLV [105.3]: RpdGcpConnectionStatusTable.RpdGcpConnectionStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuthenticationStatus {
@@ -84,9 +84,10 @@ module rpd-gcp-connection-status-table-module {
                 enum authNotPerformed     { value  3; description ""; }
             }
             description
-                "TLV [105.4]: RpdGcpConnectionStatusTable.AuthenticationStatus";
+                "TLV [105.4]: RpdGcpConnectionStatusTable.AuthenticationStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // RpdGcpConnectionStatusTable-grouping
+    }  // g-RpdGcpConnectionStatusTable grouping
 
 }

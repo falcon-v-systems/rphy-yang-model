@@ -47,47 +47,39 @@ module ret-static-pw-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping RetStaticPwConfig-grouping {
+    grouping g-RetStaticPwConfig {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [58.2]: StaticPwConfig.RetStaticPwConfig";
-
+        description "TLV [58.2]: StaticPwConfig.RetStaticPwConfig";
         leaf Index {
             tlv:id 1;
             type uint16;
-            description
-                "TLV [58.2.1]: StaticPwConfig.RetStaticPwConfig.Index";
+            description "TLV [58.2.1]: StaticPwConfig.RetStaticPwConfig.Index";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [58.2.2]: StaticPwConfig.RetStaticPwConfig.CcapCoreOwner";
+            description "TLV [58.2.2]: StaticPwConfig.RetStaticPwConfig.CcapCoreOwner";
         }
 
         leaf DestAddress {
             tlv:id 3;
             type inet:ip-address;
-            description
-                "TLV [58.2.3]: StaticPwConfig.RetStaticPwConfig.DestAddress";
+            description "TLV [58.2.3]: StaticPwConfig.RetStaticPwConfig.DestAddress";
         }
 
         leaf MtuSize {
             tlv:id 4;
             type uint16;
-            description
-                "TLV [58.2.4]: StaticPwConfig.RetStaticPwConfig.MtuSize";
+            description "TLV [58.2.4]: StaticPwConfig.RetStaticPwConfig.MtuSize";
         }
 
         leaf UsPhbId {
             tlv:id 5;
             type uint8;
-            description
-                "TLV [58.2.5]: StaticPwConfig.RetStaticPwConfig.UsPhbId";
+            description "TLV [58.2.5]: StaticPwConfig.RetStaticPwConfig.UsPhbId";
         }
 
-    }  // RetStaticPwConfig-grouping
+    }  // g-RetStaticPwConfig grouping
 
 }

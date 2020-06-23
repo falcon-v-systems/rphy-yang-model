@@ -41,24 +41,21 @@ module rpd-backup-core-status-table-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdBackupCoreStatusTable-grouping {
+    grouping g-RpdBackupCoreStatusTable {
         tlv:id 107;
-        description
-            "Attribute of `Object` type.
-             TLV [107]: RpdBackupCoreStatusTable";
-
+        description "TLV [107]: RpdBackupCoreStatusTable";
         leaf Index {
             tlv:id 1;
             type uint8;
             description
-                "TLV [107.1]: RpdBackupCoreStatusTable.Index";
+                "TLV [107.1]: RpdBackupCoreStatusTable.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf CoreId {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [107.2]: RpdBackupCoreStatusTable.CoreId";
+            description "TLV [107.2]: RpdBackupCoreStatusTable.CoreId";
         }
 
         leaf RpdGcpBackupCoreStatus {
@@ -72,10 +69,9 @@ module rpd-backup-core-status-table-module {
                 enum DecisionPending  { value  5; description ""; }
                 enum Handover         { value  6; description ""; }
             }
-            description
-                "TLV [107.3]: RpdBackupCoreStatusTable.RpdGcpBackupCoreStatus";
+            description "TLV [107.3]: RpdBackupCoreStatusTable.RpdGcpBackupCoreStatus";
         }
 
-    }  // RpdBackupCoreStatusTable-grouping
+    }  // g-RpdBackupCoreStatusTable grouping
 
 }

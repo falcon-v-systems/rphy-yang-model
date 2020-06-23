@@ -35,12 +35,9 @@ module log-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping LogCtrl-grouping {
+    grouping g-LogCtrl {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [40.2]: RpdCtrl.LogCtrl";
-
+        description "TLV [40.2]: RpdCtrl.LogCtrl";
         leaf ResetLog {
             tlv:id 1;
             tlv:repr uint8;
@@ -48,10 +45,9 @@ module log-ctrl-module {
                 enum localEventLog        { value  0; description ""; }
                 enum eventPendingQueue    { value  1; description ""; }
             }
-            description
-                "TLV [40.2.1]: RpdCtrl.LogCtrl.ResetLog";
+            description "TLV [40.2.1]: RpdCtrl.LogCtrl.ResetLog";
         }
 
-    }  // LogCtrl-grouping
+    }  // g-LogCtrl grouping
 
 }

@@ -41,17 +41,13 @@ module core-gcp-connection-response-module {
 
     // --- definitions -----------------------------------
 
-    grouping CoreGcpConnectionResponse-grouping {
+    grouping g-CoreGcpConnectionResponse {
         tlv:id 106;
-        description
-            "Attribute of `Object` type.
-             TLV [106]: CoreGcpConnectionResponse";
-
+        description "TLV [106]: CoreGcpConnectionResponse";
         leaf CoreId {
             tlv:id 1;
             type yang:mac-address;
-            description
-                "TLV [106.1]: CoreGcpConnectionResponse.CoreId";
+            description "TLV [106.1]: CoreGcpConnectionResponse.CoreId";
         }
 
         leaf Response {
@@ -62,10 +58,9 @@ module core-gcp-connection-response-module {
                 enum Accept       { value  1; description ""; }
                 enum Reject       { value  2; description ""; }
             }
-            description
-                "TLV [106.2]: CoreGcpConnectionResponse.Response";
+            description "TLV [106.2]: CoreGcpConnectionResponse.Response";
         }
 
-    }  // CoreGcpConnectionResponse-grouping
+    }  // g-CoreGcpConnectionResponse grouping
 
 }

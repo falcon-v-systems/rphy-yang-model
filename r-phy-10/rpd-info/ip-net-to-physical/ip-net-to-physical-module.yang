@@ -47,17 +47,15 @@ module ip-net-to-physical-module {
 
     // --- definitions -----------------------------------
 
-    grouping IpNetToPhysical-grouping {
+    grouping g-IpNetToPhysical {
         tlv:id 16;
-        description
-            "Attribute of `Object` type.
-             TLV [100.16]: RpdInfo.IpNetToPhysical";
-
+        description "TLV [100.16]: RpdInfo.IpNetToPhysical";
         leaf EnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.16.1]: RpdInfo.IpNetToPhysical.EnetPortIndex";
+                "TLV [100.16.1]: RpdInfo.IpNetToPhysical.EnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf AddrType {
@@ -72,28 +70,28 @@ module ip-net-to-physical-module {
                 enum dns      { value 16; description ""; }
             }
             description
-                "TLV [100.16.2]: RpdInfo.IpNetToPhysical.AddrType";
+                "TLV [100.16.2]: RpdInfo.IpNetToPhysical.AddrType
+                 non-defaults: [is_key: True]";
         }
 
         leaf IpAddress {
             tlv:id 3;
             type inet:ip-address;
             description
-                "TLV [100.16.3]: RpdInfo.IpNetToPhysical.IpAddress";
+                "TLV [100.16.3]: RpdInfo.IpNetToPhysical.IpAddress
+                 non-defaults: [is_key: True]";
         }
 
         leaf PhysAddress {
             tlv:id 4;
             type yang:mac-address;
-            description
-                "TLV [100.16.4]: RpdInfo.IpNetToPhysical.PhysAddress";
+            description "TLV [100.16.4]: RpdInfo.IpNetToPhysical.PhysAddress";
         }
 
         leaf LastUpdated {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [100.16.5]: RpdInfo.IpNetToPhysical.LastUpdated";
+            description "TLV [100.16.5]: RpdInfo.IpNetToPhysical.LastUpdated";
         }
 
         leaf Type {
@@ -106,8 +104,7 @@ module ip-net-to-physical-module {
                 enum static   { value  4; description ""; }
                 enum local    { value  5; description ""; }
             }
-            description
-                "TLV [100.16.6]: RpdInfo.IpNetToPhysical.Type";
+            description "TLV [100.16.6]: RpdInfo.IpNetToPhysical.Type";
         }
 
         leaf State {
@@ -122,10 +119,9 @@ module ip-net-to-physical-module {
                 enum unknown      { value  6; description ""; }
                 enum incomplete   { value  7; description ""; }
             }
-            description
-                "TLV [100.16.7]: RpdInfo.IpNetToPhysical.State";
+            description "TLV [100.16.7]: RpdInfo.IpNetToPhysical.State";
         }
 
-    }  // IpNetToPhysical-grouping
+    }  // g-IpNetToPhysical grouping
 
 }

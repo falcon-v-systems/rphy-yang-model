@@ -56,30 +56,28 @@ module static-pw-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping StaticPwConfig-grouping {
+    grouping g-StaticPwConfig {
         tlv:id 58;
-        description
-            "Attribute of `Object` type.
-             TLV [58]: StaticPwConfig";
-
+        description "TLV [58]: StaticPwConfig";
         container FwdStaticPwConfig {
-            uses "p-fwd-static-pw-config:FwdStaticPwConfig-grouping";
-            description
-                "TLV [58.1]: StaticPwConfig.FwdStaticPwConfig";
+            tlv:id 1;
+            description "TLV [58.1]: StaticPwConfig.FwdStaticPwConfig";
+            uses "p-fwd-static-pw-config:g-FwdStaticPwConfig";
         }
 
         container RetStaticPwConfig {
-            uses "p-ret-static-pw-config:RetStaticPwConfig-grouping";
-            description
-                "TLV [58.2]: StaticPwConfig.RetStaticPwConfig";
+            tlv:id 2;
+            description "TLV [58.2]: StaticPwConfig.RetStaticPwConfig";
+            uses "p-ret-static-pw-config:g-RetStaticPwConfig";
         }
 
-        container CommonStaticPwConfig {
-            uses "p-common-static-pw-config:CommonStaticPwConfig-grouping";
-            description
-                "TLV [58.3]: StaticPwConfig.CommonStaticPwConfig";
+        list CommonStaticPwConfig {
+            tlv:id 3;
+            key SessionId;
+            description "TLV [58.3]: StaticPwConfig.CommonStaticPwConfig";
+            uses "p-common-static-pw-config:g-CommonStaticPwConfig";
         }
 
-    }  // StaticPwConfig-grouping
+    }  // g-StaticPwConfig grouping
 
 }

@@ -41,12 +41,9 @@ module ds-oob55d1-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOob55d1-grouping {
+    grouping g-DsOob55d1 {
         tlv:id 91;
-        description
-            "Attribute of `Object` type.
-             TLV [91]: DsOob55d1";
-
+        description "TLV [91]: DsOob55d1";
         leaf AdminState {
             tlv:id 1;
             tlv:repr uint8;
@@ -56,54 +53,47 @@ module ds-oob55d1-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [91.1]: DsOob55d1.AdminState";
+            description "TLV [91.1]: DsOob55d1.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [91.2]: DsOob55d1.CcapCoreOwner";
+            description "TLV [91.2]: DsOob55d1.CcapCoreOwner";
         }
 
         leaf RfMute {
             tlv:id 3;
             type boolean;
-            description
-                "TLV [91.3]: DsOob55d1.RfMute";
+            description "TLV [91.3]: DsOob55d1.RfMute";
         }
 
         leaf Frequency {
             tlv:id 4;
             type uint32;
             units "Hz";
-            description
-                "TLV [91.4]: DsOob55d1.Frequency";
+            description "TLV [91.4]: DsOob55d1.Frequency";
         }
 
         leaf PowerAdjust {
             tlv:id 5;
             type int16;
             units "TenthdB";
-            description
-                "TLV [91.5]: DsOob55d1.PowerAdjust";
+            description "TLV [91.5]: DsOob55d1.PowerAdjust";
         }
 
         leaf SecondFrequency {
             tlv:id 6;
             type uint32;
             units "Hz";
-            description
-                "TLV [91.6]: DsOob55d1.SecondFrequency";
+            description "TLV [91.6]: DsOob55d1.SecondFrequency";
         }
 
         leaf SfPowerAdjust {
             tlv:id 7;
             type int16;
             units "TenthdB";
-            description
-                "TLV [91.7]: DsOob55d1.SfPowerAdjust";
+            description "TLV [91.7]: DsOob55d1.SfPowerAdjust";
         }
 
         leaf SfAdminState {
@@ -115,17 +105,15 @@ module ds-oob55d1-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [91.8]: DsOob55d1.SfAdminState";
+            description "TLV [91.8]: DsOob55d1.SfAdminState";
         }
 
         leaf SfRfMute {
             tlv:id 9;
             type boolean;
-            description
-                "TLV [91.9]: DsOob55d1.SfRfMute";
+            description "TLV [91.9]: DsOob55d1.SfRfMute";
         }
 
-    }  // DsOob55d1-grouping
+    }  // g-DsOob55d1 grouping
 
 }

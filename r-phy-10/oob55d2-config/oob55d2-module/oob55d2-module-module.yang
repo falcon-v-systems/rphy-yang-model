@@ -42,24 +42,21 @@ module oob55d2-module-module {
 
     // --- definitions -----------------------------------
 
-    grouping Oob55d2Module-grouping {
+    grouping g-Oob55d2Module {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [93.4]: Oob55d2Config.Oob55d2Module";
-
+        description "TLV [93.4]: Oob55d2Config.Oob55d2Module";
         leaf ModuleIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [93.4.1]: Oob55d2Config.Oob55d2Module.ModuleIndex";
+                "TLV [93.4.1]: Oob55d2Config.Oob55d2Module.ModuleIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf ModulatorId {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [93.4.2]: Oob55d2Config.Oob55d2Module.ModulatorId";
+            description "TLV [93.4.2]: Oob55d2Config.Oob55d2Module.ModulatorId";
         }
 
         leaf ServiceChannelLastSlot {
@@ -97,38 +94,37 @@ module oob55d2-module-module {
                 enum Polynominal_X6_X_1   { value  0; description ""; }
                 enum Polynominal_X6_X5_1  { value  1; description ""; }
             }
-            description
-                "TLV [93.4.7]: Oob55d2Config.Oob55d2Module.Randomizer";
+            description "TLV [93.4.7]: Oob55d2Config.Oob55d2Module.Randomizer";
         }
 
         leaf DsPowerAdjust {
             tlv:id 8;
             type int16;
             units "TenthdB";
-            description
-                "TLV [93.4.8]: Oob55d2Config.Oob55d2Module.DsPowerAdjust";
+            description "TLV [93.4.8]: Oob55d2Config.Oob55d2Module.DsPowerAdjust";
         }
 
         leaf DsPortAssociation {
             tlv:id 9;
             type uint8;
             description
-                "TLV [93.4.9]: Oob55d2Config.Oob55d2Module.DsPortAssociation";
+                "TLV [93.4.9]: Oob55d2Config.Oob55d2Module.DsPortAssociation
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-        container Oob55d2Demod {
-            uses "p-oob55d2-demod:Oob55d2Demod-grouping";
-            description
-                "TLV [93.4.10]: Oob55d2Config.Oob55d2Module.Oob55d2Demod";
+        list Oob55d2Demod {
+            tlv:id 10;
+            key DemodIndex;
+            description "TLV [93.4.10]: Oob55d2Config.Oob55d2Module.Oob55d2Demod";
+            uses "p-oob55d2-demod:g-Oob55d2Demod";
         }
 
         leaf RfMute {
             tlv:id 11;
             type boolean;
-            description
-                "TLV [93.4.11]: Oob55d2Config.Oob55d2Module.RfMute";
+            description "TLV [93.4.11]: Oob55d2Config.Oob55d2Module.RfMute";
         }
 
-    }  // Oob55d2Module-grouping
+    }  // g-Oob55d2Module grouping
 
 }

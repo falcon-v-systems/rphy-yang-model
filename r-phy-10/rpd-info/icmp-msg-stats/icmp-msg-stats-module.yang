@@ -35,40 +35,37 @@ module icmp-msg-stats-module {
 
     // --- definitions -----------------------------------
 
-    grouping IcmpMsgStats-grouping {
+    grouping g-IcmpMsgStats {
         tlv:id 19;
-        description
-            "Attribute of `Object` type.
-             TLV [100.19]: RpdInfo.IcmpMsgStats";
-
+        description "TLV [100.19]: RpdInfo.IcmpMsgStats";
         leaf IpVersion {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.19.1]: RpdInfo.IcmpMsgStats.IpVersion";
+                "TLV [100.19.1]: RpdInfo.IcmpMsgStats.IpVersion
+                 non-defaults: [is_key: True]";
         }
 
         leaf Type {
             tlv:id 2;
             type uint8;
             description
-                "TLV [100.19.2]: RpdInfo.IcmpMsgStats.Type";
+                "TLV [100.19.2]: RpdInfo.IcmpMsgStats.Type
+                 non-defaults: [is_key: True]";
         }
 
         leaf InPkts {
             tlv:id 3;
             type uint64;
-            description
-                "TLV [100.19.3]: RpdInfo.IcmpMsgStats.InPkts";
+            description "TLV [100.19.3]: RpdInfo.IcmpMsgStats.InPkts";
         }
 
         leaf OutPkts {
             tlv:id 4;
             type uint64;
-            description
-                "TLV [100.19.4]: RpdInfo.IcmpMsgStats.OutPkts";
+            description "TLV [100.19.4]: RpdInfo.IcmpMsgStats.OutPkts";
         }
 
-    }  // IcmpMsgStats-grouping
+    }  // g-IcmpMsgStats grouping
 
 }

@@ -35,12 +35,11 @@ module us-ofdma-config-response-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaConfigResponse-grouping {
+    grouping g-UsOfdmaConfigResponse {
         tlv:id 153;
         description
-            "Attribute of `Object` type.
-             TLV [153]: UsOfdmaConfigResponse";
-
+            "TLV [153]: UsOfdmaConfigResponse
+             non-defaults: [is_rcp_readonly: True]";
         leaf ResponseOfdmaRollOffPeriod {
             tlv:id 1;
             tlv:repr uint8;
@@ -55,7 +54,8 @@ module us-ofdma-config-response-module {
                 enum 224  { value  8; description ""; }
             }
             description
-                "TLV [153.1]: UsOfdmaConfigResponse.ResponseOfdmaRollOffPeriod";
+                "TLV [153.1]: UsOfdmaConfigResponse.ResponseOfdmaRollOffPeriod
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseOfdmaCyclicPrefix {
@@ -75,30 +75,34 @@ module us-ofdma-config-response-module {
                 enum 640  { value 11; description ""; }
             }
             description
-                "TLV [153.2]: UsOfdmaConfigResponse.ResponseOfdmaCyclicPrefix";
+                "TLV [153.2]: UsOfdmaConfigResponse.ResponseOfdmaCyclicPrefix
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseOfdmaPreambleString {
             tlv:id 3;
             type binary;
             description
-                "TLV [153.3]: UsOfdmaConfigResponse.ResponseOfdmaPreambleString";
+                "TLV [153.3]: UsOfdmaConfigResponse.ResponseOfdmaPreambleString
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseNumSymbolsPerFrame {
             tlv:id 4;
             type uint8;
             description
-                "TLV [153.4]: UsOfdmaConfigResponse.ResponseNumSymbolsPerFrame";
+                "TLV [153.4]: UsOfdmaConfigResponse.ResponseNumSymbolsPerFrame
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseOfdmaScramblerSeed {
             tlv:id 5;
             type uint32;
             description
-                "TLV [153.5]: UsOfdmaConfigResponse.ResponseOfdmaScramblerSeed";
+                "TLV [153.5]: UsOfdmaConfigResponse.ResponseOfdmaScramblerSeed
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // UsOfdmaConfigResponse-grouping
+    }  // g-UsOfdmaConfigResponse grouping
 
 }

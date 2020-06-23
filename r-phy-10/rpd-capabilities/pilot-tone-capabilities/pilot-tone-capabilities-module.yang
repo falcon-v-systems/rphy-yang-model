@@ -35,31 +35,33 @@ module pilot-tone-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping PilotToneCapabilities-grouping {
+    grouping g-PilotToneCapabilities {
         tlv:id 21;
         description
-            "Attribute of `Object` type.
-             TLV [50.21]: RpdCapabilities.PilotToneCapabilities";
-
+            "TLV [50.21]: RpdCapabilities.PilotToneCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf NumCwToneGens {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.21.1]: RpdCapabilities.PilotToneCapabilities.NumCwToneGens";
+                "TLV [50.21.1]: RpdCapabilities.PilotToneCapabilities.NumCwToneGens
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf LowestCwToneFreq {
             tlv:id 2;
             type uint32;
             description
-                "TLV [50.21.2]: RpdCapabilities.PilotToneCapabilities.LowestCwToneFreq";
+                "TLV [50.21.2]: RpdCapabilities.PilotToneCapabilities.LowestCwToneFreq
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf HighestCwToneFreq {
             tlv:id 3;
             type uint32;
             description
-                "TLV [50.21.3]: RpdCapabilities.PilotToneCapabilities.HighestCwToneFreq";
+                "TLV [50.21.3]: RpdCapabilities.PilotToneCapabilities.HighestCwToneFreq
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxPowerDedCwTone {
@@ -67,14 +69,16 @@ module pilot-tone-capabilities-module {
             type uint16;
             units "TenthdB";
             description
-                "TLV [50.21.4]: RpdCapabilities.PilotToneCapabilities.MaxPowerDedCwTone";
+                "TLV [50.21.4]: RpdCapabilities.PilotToneCapabilities.MaxPowerDedCwTone
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf QamAsPilot {
             tlv:id 5;
             type boolean;
             description
-                "TLV [50.21.5]: RpdCapabilities.PilotToneCapabilities.QamAsPilot";
+                "TLV [50.21.5]: RpdCapabilities.PilotToneCapabilities.QamAsPilot
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinPowerDedCwTone {
@@ -82,7 +86,8 @@ module pilot-tone-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.21.6]: RpdCapabilities.PilotToneCapabilities.MinPowerDedCwTone";
+                "TLV [50.21.6]: RpdCapabilities.PilotToneCapabilities.MinPowerDedCwTone
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MaxPowerQamCwTone {
@@ -90,7 +95,8 @@ module pilot-tone-capabilities-module {
             type uint16;
             units "TenthdB";
             description
-                "TLV [50.21.7]: RpdCapabilities.PilotToneCapabilities.MaxPowerQamCwTone";
+                "TLV [50.21.7]: RpdCapabilities.PilotToneCapabilities.MaxPowerQamCwTone
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinPowerQamCwTone {
@@ -98,9 +104,10 @@ module pilot-tone-capabilities-module {
             type int16;
             units "TenthdB";
             description
-                "TLV [50.21.8]: RpdCapabilities.PilotToneCapabilities.MinPowerQamCwTone";
+                "TLV [50.21.8]: RpdCapabilities.PilotToneCapabilities.MinPowerQamCwTone
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // PilotToneCapabilities-grouping
+    }  // g-PilotToneCapabilities grouping
 
 }

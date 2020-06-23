@@ -47,12 +47,9 @@ module general-notification-module {
 
     // --- definitions -----------------------------------
 
-    grouping GeneralNotification-grouping {
+    grouping g-GeneralNotification {
         tlv:id 86;
-        description
-            "Attribute of `Object` type.
-             TLV [86]: GeneralNotification";
-
+        description "TLV [86]: GeneralNotification";
         leaf NotificationType {
             tlv:id 1;
             tlv:repr uint8;
@@ -68,7 +65,8 @@ module general-notification-module {
                 enum ChannelUcdRefreshRequest         { value  9; description ""; }
             }
             description
-                "TLV [86.1]: GeneralNotification.NotificationType";
+                "TLV [86.1]: GeneralNotification.NotificationType
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RpdRedirectResult {
@@ -79,21 +77,24 @@ module general-notification-module {
                 enum Fail     { value  1; description ""; }
             }
             description
-                "TLV [86.2]: GeneralNotification.RpdRedirectResult";
+                "TLV [86.2]: GeneralNotification.RpdRedirectResult
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RpdRedirectIpAddress {
             tlv:id 3;
             type inet:ip-address;
             description
-                "TLV [86.3]: GeneralNotification.RpdRedirectIpAddress";
+                "TLV [86.3]: GeneralNotification.RpdRedirectIpAddress
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf PtpRpdEnetPortIndex {
             tlv:id 4;
             type uint8;
             description
-                "TLV [86.4]: GeneralNotification.PtpRpdEnetPortIndex";
+                "TLV [86.4]: GeneralNotification.PtpRpdEnetPortIndex
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf PtpResult {
@@ -107,7 +108,8 @@ module general-notification-module {
                 enum Synchronized         { value  4; description ""; }
             }
             description
-                "TLV [86.5]: GeneralNotification.PtpResult";
+                "TLV [86.5]: GeneralNotification.PtpResult
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreResult {
@@ -119,14 +121,16 @@ module general-notification-module {
                 enum Failure          { value  2; description ""; }
             }
             description
-                "TLV [86.6]: GeneralNotification.AuxCoreResult";
+                "TLV [86.6]: GeneralNotification.AuxCoreResult
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreIpAddress {
             tlv:id 7;
             type inet:ip-address;
             description
-                "TLV [86.7]: GeneralNotification.AuxCoreIpAddress";
+                "TLV [86.7]: GeneralNotification.AuxCoreIpAddress
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreFailureType {
@@ -143,7 +147,8 @@ module general-notification-module {
                 enum WaitOperationalRetriesExceeded   { value  8; description ""; }
             }
             description
-                "TLV [86.8]: GeneralNotification.AuxCoreFailureType";
+                "TLV [86.8]: GeneralNotification.AuxCoreFailureType
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SpecificTimeOut {
@@ -157,21 +162,24 @@ module general-notification-module {
                 enum LocalPtpSync             { value  5; description ""; }
             }
             description
-                "TLV [86.9]: GeneralNotification.SpecificTimeOut";
+                "TLV [86.9]: GeneralNotification.SpecificTimeOut
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CoreTimedOutIpAddress {
             tlv:id 10;
             type inet:ip-address;
             description
-                "TLV [86.10]: GeneralNotification.CoreTimedOutIpAddress";
+                "TLV [86.10]: GeneralNotification.CoreTimedOutIpAddress
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf PtpRpdPtpPortIndex {
             tlv:id 11;
             type uint8;
             description
-                "TLV [86.11]: GeneralNotification.PtpRpdPtpPortIndex";
+                "TLV [86.11]: GeneralNotification.PtpRpdPtpPortIndex
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf PtpClockSource {
@@ -182,7 +190,8 @@ module general-notification-module {
                 enum AlternateClockSource     { value  1; description ""; }
             }
             description
-                "TLV [86.12]: GeneralNotification.PtpClockSource";
+                "TLV [86.12]: GeneralNotification.PtpClockSource
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreGcpConnectionStatus {
@@ -194,23 +203,26 @@ module general-notification-module {
                 enum Reconnecting     { value  2; description ""; }
             }
             description
-                "TLV [86.13]: GeneralNotification.AuxCoreGcpConnectionStatus";
+                "TLV [86.13]: GeneralNotification.AuxCoreGcpConnectionStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AuxCoreId {
             tlv:id 14;
             type yang:mac-address;
             description
-                "TLV [86.14]: GeneralNotification.AuxCoreId";
+                "TLV [86.14]: GeneralNotification.AuxCoreId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf SsdFailureType {
             tlv:id 15;
             type uint32;
             description
-                "TLV [86.15]: GeneralNotification.SsdFailureType";
+                "TLV [86.15]: GeneralNotification.SsdFailureType
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // GeneralNotification-grouping
+    }  // g-GeneralNotification grouping
 
 }

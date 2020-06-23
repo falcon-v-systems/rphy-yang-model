@@ -35,12 +35,9 @@ module ptp-clock-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping PtpClockStatus-grouping {
+    grouping g-PtpClockStatus {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [100.24.2]: RpdInfo.RpdPtpStatus.PtpClockStatus";
-
+        description "TLV [100.24.2]: RpdInfo.RpdPtpStatus.PtpClockStatus";
         leaf ClockState {
             tlv:id 1;
             tlv:repr uint8;
@@ -91,6 +88,6 @@ module ptp-clock-status-module {
                 "TLV [100.24.2.7]: RpdInfo.RpdPtpStatus.PtpClockStatus.ExcessiveHoldover";
         }
 
-    }  // PtpClockStatus-grouping
+    }  // g-PtpClockStatus grouping
 
 }

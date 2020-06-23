@@ -35,47 +35,45 @@ module fft-module {
 
     // --- definitions -----------------------------------
 
-    grouping Fft-grouping {
+    grouping g-Fft {
         tlv:id 99;
         description
-            "Attribute of `Object` type.
-             TLV [99]: Fft";
-
+            "TLV [99]: Fft
+             non-defaults: [is_readonly: True]";
         leaf Sid {
             tlv:id 1;
             type uint16;
             description
-                "TLV [99.1]: Fft.Sid";
+                "TLV [99.1]: Fft.Sid
+                 non-defaults: [is_readonly: True]";
         }
 
         leaf Freq {
             tlv:id 2;
             type uint32;
             description
-                "TLV [99.2]: Fft.Freq";
+                "TLV [99.2]: Fft.Freq
+                 non-defaults: [is_readonly: True]";
         }
 
         leaf Iuc {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [99.3]: Fft.Iuc";
+            description "TLV [99.3]: Fft.Iuc";
         }
 
         leaf Size {
             tlv:id 4;
             type uint32;
-            description
-                "TLV [99.4]: Fft.Size";
+            description "TLV [99.4]: Fft.Size";
         }
 
         leaf Mode {
             tlv:id 5;
             type uint16;
-            description
-                "TLV [99.5]: Fft.Mode";
+            description "TLV [99.5]: Fft.Mode";
         }
 
-    }  // Fft-grouping
+    }  // g-Fft grouping
 
 }

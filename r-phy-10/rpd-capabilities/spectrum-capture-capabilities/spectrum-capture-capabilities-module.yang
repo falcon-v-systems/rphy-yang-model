@@ -42,25 +42,27 @@ module spectrum-capture-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping SpectrumCaptureCapabilities-grouping {
+    grouping g-SpectrumCaptureCapabilities {
         tlv:id 59;
         description
-            "Attribute of `Object` type.
-             TLV [50.59]: RpdCapabilities.SpectrumCaptureCapabilities";
-
+            "TLV [50.59]: RpdCapabilities.SpectrumCaptureCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf NumSacs {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.59.1]: RpdCapabilities.SpectrumCaptureCapabilities.NumSacs";
+                "TLV [50.59.1]: RpdCapabilities.SpectrumCaptureCapabilities.NumSacs
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         container SacCapabilities {
-            uses "p-sac-capabilities:SacCapabilities-grouping";
+            tlv:id 2;
             description
-                "TLV [50.59.2]: RpdCapabilities.SpectrumCaptureCapabilities.SacCapabilities";
+                "TLV [50.59.2]: RpdCapabilities.SpectrumCaptureCapabilities.SacCapabilities
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+            uses "p-sac-capabilities:g-SacCapabilities";
         }
 
-    }  // SpectrumCaptureCapabilities-grouping
+    }  // g-SpectrumCaptureCapabilities grouping
 
 }

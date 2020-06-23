@@ -42,18 +42,15 @@ module static-pw-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping StaticPwStatus-grouping {
+    grouping g-StaticPwStatus {
         tlv:id 59;
-        description
-            "Attribute of `Object` type.
-             TLV [59]: StaticPwStatus";
-
+        description "TLV [59]: StaticPwStatus";
         container CommonStaticPwStatus {
-            uses "p-common-static-pw-status:CommonStaticPwStatus-grouping";
-            description
-                "TLV [59.1]: StaticPwStatus.CommonStaticPwStatus";
+            tlv:id 1;
+            description "TLV [59.1]: StaticPwStatus.CommonStaticPwStatus";
+            uses "p-common-static-pw-status:g-CommonStaticPwStatus";
         }
 
-    }  // StaticPwStatus-grouping
+    }  // g-StaticPwStatus grouping
 
 }

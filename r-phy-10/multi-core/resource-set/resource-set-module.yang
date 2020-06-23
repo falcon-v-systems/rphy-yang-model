@@ -55,66 +55,59 @@ module resource-set-module {
 
     // --- definitions -----------------------------------
 
-    grouping ResourceSet-grouping {
+    grouping g-ResourceSet {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [88.2]: MultiCore.ResourceSet";
-
+        description "TLV [88.2]: MultiCore.ResourceSet";
         leaf ResourceSetIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [88.2.1]: MultiCore.ResourceSet.ResourceSetIndex";
+                "TLV [88.2.1]: MultiCore.ResourceSet.ResourceSetIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [88.2.2]: MultiCore.ResourceSet.CcapCoreOwner";
+            description "TLV [88.2.2]: MultiCore.ResourceSet.CcapCoreOwner";
         }
 
         leaf DsRfPortStart {
             tlv:id 3;
             type uint32;
-            description
-                "TLV [88.2.3]: MultiCore.ResourceSet.DsRfPortStart";
+            description "TLV [88.2.3]: MultiCore.ResourceSet.DsRfPortStart";
         }
 
         leaf DsRfPortEnd {
             tlv:id 4;
             type uint32;
-            description
-                "TLV [88.2.4]: MultiCore.ResourceSet.DsRfPortEnd";
+            description "TLV [88.2.4]: MultiCore.ResourceSet.DsRfPortEnd";
         }
 
         container DsChanGroup {
-            uses "p-ds-chan-group:DsChanGroup-grouping";
-            description
-                "TLV [88.2.5]: MultiCore.ResourceSet.DsChanGroup";
+            tlv:id 5;
+            description "TLV [88.2.5]: MultiCore.ResourceSet.DsChanGroup";
+            uses "p-ds-chan-group:g-DsChanGroup";
         }
 
         leaf UsRfPortStart {
             tlv:id 6;
             type uint32;
-            description
-                "TLV [88.2.6]: MultiCore.ResourceSet.UsRfPortStart";
+            description "TLV [88.2.6]: MultiCore.ResourceSet.UsRfPortStart";
         }
 
         leaf UsRfPortEnd {
             tlv:id 7;
             type uint32;
-            description
-                "TLV [88.2.7]: MultiCore.ResourceSet.UsRfPortEnd";
+            description "TLV [88.2.7]: MultiCore.ResourceSet.UsRfPortEnd";
         }
 
         container UsChanGroup {
-            uses "p-us-chan-group:UsChanGroup-grouping";
-            description
-                "TLV [88.2.8]: MultiCore.ResourceSet.UsChanGroup";
+            tlv:id 8;
+            description "TLV [88.2.8]: MultiCore.ResourceSet.UsChanGroup";
+            uses "p-us-chan-group:g-UsChanGroup";
         }
 
-    }  // ResourceSet-grouping
+    }  // g-ResourceSet grouping
 
 }

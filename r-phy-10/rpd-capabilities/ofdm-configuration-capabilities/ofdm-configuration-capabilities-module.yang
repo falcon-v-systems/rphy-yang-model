@@ -35,19 +35,19 @@ module ofdm-configuration-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping OfdmConfigurationCapabilities-grouping {
+    grouping g-OfdmConfigurationCapabilities {
         tlv:id 54;
         description
-            "Attribute of `Object` type.
-             TLV [50.54]: RpdCapabilities.OfdmConfigurationCapabilities";
-
+            "TLV [50.54]: RpdCapabilities.OfdmConfigurationCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf RequiresOfdmaImDurationConfig {
             tlv:id 1;
             type boolean;
             description
-                "TLV [50.54.1]: RpdCapabilities.OfdmConfigurationCapabilities.RequiresOfdmaImDurationConfig";
+                "TLV [50.54.1]: RpdCapabilities.OfdmConfigurationCapabilities.RequiresOfdmaImDurationConfig
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // OfdmConfigurationCapabilities-grouping
+    }  // g-OfdmConfigurationCapabilities grouping
 
 }

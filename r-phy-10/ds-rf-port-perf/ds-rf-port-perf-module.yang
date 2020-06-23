@@ -35,17 +35,17 @@ module ds-rf-port-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsRfPortPerf-grouping {
+    grouping g-DsRfPortPerf {
         tlv:id 71;
         description
-            "Attribute of `Object` type.
-             TLV [71]: DsRfPortPerf";
-
+            "TLV [71]: DsRfPortPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf PortIndex {
             // no tlv:id given
             type uint16;
             description
-                "TLV [71.None]: DsRfPortPerf.PortIndex";
+                "TLV [71.X]: DsRfPortPerf.PortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf operStatusDsRfPort {
@@ -56,9 +56,10 @@ module ds-rf-port-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [71.1]: DsRfPortPerf.operStatusDsRfPort";
+                "TLV [71.1]: DsRfPortPerf.operStatusDsRfPort
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsRfPortPerf-grouping
+    }  // g-DsRfPortPerf grouping
 
 }

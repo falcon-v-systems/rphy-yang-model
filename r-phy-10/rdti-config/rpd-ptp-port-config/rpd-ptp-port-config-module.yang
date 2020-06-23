@@ -41,24 +41,23 @@ module rpd-ptp-port-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdPtpPortConfig-grouping {
+    grouping g-RpdPtpPortConfig {
         tlv:id 8;
-        description
-            "Attribute of `Object` type.
-             TLV [97.8]: RdtiConfig.RpdPtpPortConfig";
-
+        description "TLV [97.8]: RdtiConfig.RpdPtpPortConfig";
         leaf RpdEnetPortIndex {
             tlv:id 1;
             type uint16;
             description
-                "TLV [97.8.1]: RdtiConfig.RpdPtpPortConfig.RpdEnetPortIndex";
+                "TLV [97.8.1]: RdtiConfig.RpdPtpPortConfig.RpdEnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf RpdPtpPortIndex {
             tlv:id 2;
             type uint16;
             description
-                "TLV [97.8.2]: RdtiConfig.RpdPtpPortConfig.RpdPtpPortIndex";
+                "TLV [97.8.2]: RdtiConfig.RpdPtpPortConfig.RpdPtpPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf RpdPtpPortAdminState {
@@ -179,6 +178,6 @@ module rpd-ptp-port-config-module {
                 "TLV [97.8.17]: RdtiConfig.RpdPtpPortConfig.RpdPtpPortClockAltSrcGw";
         }
 
-    }  // RpdPtpPortConfig-grouping
+    }  // g-RpdPtpPortConfig grouping
 
 }

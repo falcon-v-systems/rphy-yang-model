@@ -35,26 +35,23 @@ module trust-anchor-cert-module {
 
     // --- definitions -----------------------------------
 
-    grouping TrustAnchorCert-grouping {
+    grouping g-TrustAnchorCert {
         tlv:id 27;
-        description
-            "Attribute of `Object` type.
-             TLV [100.27]: RpdInfo.TrustAnchorCert";
-
+        description "TLV [100.27]: RpdInfo.TrustAnchorCert";
         leaf Index {
             tlv:id 1;
             type uint32;
             description
-                "TLV [100.27.1]: RpdInfo.TrustAnchorCert.Index";
+                "TLV [100.27.1]: RpdInfo.TrustAnchorCert.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf CaCert {
             tlv:id 2;
             type binary;
-            description
-                "TLV [100.27.2]: RpdInfo.TrustAnchorCert.CaCert";
+            description "TLV [100.27.2]: RpdInfo.TrustAnchorCert.CaCert";
         }
 
-    }  // TrustAnchorCert-grouping
+    }  // g-TrustAnchorCert grouping
 
 }

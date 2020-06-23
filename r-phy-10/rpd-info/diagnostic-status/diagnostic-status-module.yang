@@ -35,24 +35,19 @@ module diagnostic-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping DiagnosticStatus-grouping {
+    grouping g-DiagnosticStatus {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [100.4]: RpdInfo.DiagnosticStatus";
-
+        description "TLV [100.4]: RpdInfo.DiagnosticStatus";
         leaf ProbableCause {
             tlv:id 1;
             type string;
-            description
-                "TLV [100.4.1]: RpdInfo.DiagnosticStatus.ProbableCause";
+            description "TLV [100.4.1]: RpdInfo.DiagnosticStatus.ProbableCause";
         }
 
         leaf AdditionalText {
             tlv:id 2;
             type string;
-            description
-                "TLV [100.4.2]: RpdInfo.DiagnosticStatus.AdditionalText";
+            description "TLV [100.4.2]: RpdInfo.DiagnosticStatus.AdditionalText";
         }
 
         leaf SeverityLevel {
@@ -68,10 +63,9 @@ module diagnostic-status-module {
                 enum information  { value  6; description ""; }
                 enum debug        { value  7; description ""; }
             }
-            description
-                "TLV [100.4.3]: RpdInfo.DiagnosticStatus.SeverityLevel";
+            description "TLV [100.4.3]: RpdInfo.DiagnosticStatus.SeverityLevel";
         }
 
-    }  // DiagnosticStatus-grouping
+    }  // g-DiagnosticStatus grouping
 
 }

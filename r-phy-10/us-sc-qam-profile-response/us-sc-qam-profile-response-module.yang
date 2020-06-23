@@ -42,25 +42,27 @@ module us-sc-qam-profile-response-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsScQamProfileResponse-grouping {
+    grouping g-UsScQamProfileResponse {
         tlv:id 151;
         description
-            "Attribute of `Object` type.
-             TLV [151]: UsScQamProfileResponse";
-
+            "TLV [151]: UsScQamProfileResponse
+             non-defaults: [is_rcp_readonly: True]";
         leaf ResponseScQamPreambleString {
             tlv:id 1;
             type binary;
             description
-                "TLV [151.1]: UsScQamProfileResponse.ResponseScQamPreambleString";
+                "TLV [151.1]: UsScQamProfileResponse.ResponseScQamPreambleString
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         container ResponseIucCode {
-            uses "p-response-iuc-code:ResponseIucCode-grouping";
+            tlv:id 2;
             description
-                "TLV [151.2]: UsScQamProfileResponse.ResponseIucCode";
+                "TLV [151.2]: UsScQamProfileResponse.ResponseIucCode
+                 non-defaults: [is_rcp_readonly: True]";
+            uses "p-response-iuc-code:g-ResponseIucCode";
         }
 
-    }  // UsScQamProfileResponse-grouping
+    }  // g-UsScQamProfileResponse grouping
 
 }

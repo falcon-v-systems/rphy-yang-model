@@ -35,12 +35,9 @@ module bw-req-aggr-control-module {
 
     // --- definitions -----------------------------------
 
-    grouping BwReqAggrControl-grouping {
+    grouping g-BwReqAggrControl {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [98.2]: UsRfPort.BwReqAggrControl";
-
+        description "TLV [98.2]: UsRfPort.BwReqAggrControl";
         leaf MaxReqBlockEnqTimeout {
             tlv:id 1;
             type uint16;
@@ -52,10 +49,9 @@ module bw-req-aggr-control-module {
         leaf MaxReqBlockEnqNumber {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [98.2.2]: UsRfPort.BwReqAggrControl.MaxReqBlockEnqNumber";
+            description "TLV [98.2.2]: UsRfPort.BwReqAggrControl.MaxReqBlockEnqNumber";
         }
 
-    }  // BwReqAggrControl-grouping
+    }  // g-BwReqAggrControl grouping
 
 }

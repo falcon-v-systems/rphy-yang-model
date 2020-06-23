@@ -35,26 +35,25 @@ module us-ofdma-fine-ranging-iuc-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaFineRangingIuc-grouping {
+    grouping g-UsOfdmaFineRangingIuc {
         tlv:id 68;
-        description
-            "Attribute of `Object` type.
-             TLV [68]: UsOfdmaFineRangingIuc";
-
+        description "TLV [68]: UsOfdmaFineRangingIuc";
         leaf NumSubcarriers {
             tlv:id 1;
             type uint16;
             description
-                "TLV [68.1]: UsOfdmaFineRangingIuc.NumSubcarriers";
+                "TLV [68.1]: UsOfdmaFineRangingIuc.NumSubcarriers
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf Guardband {
             tlv:id 2;
             type uint16;
             description
-                "TLV [68.2]: UsOfdmaFineRangingIuc.Guardband";
+                "TLV [68.2]: UsOfdmaFineRangingIuc.Guardband
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // UsOfdmaFineRangingIuc-grouping
+    }  // g-UsOfdmaFineRangingIuc grouping
 
 }

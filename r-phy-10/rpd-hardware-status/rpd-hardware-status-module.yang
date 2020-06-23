@@ -35,26 +35,21 @@ module rpd-hardware-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdHardwareStatus-grouping {
+    grouping g-RpdHardwareStatus {
         tlv:id 130;
-        description
-            "Attribute of `Object` type.
-             TLV [130]: RpdHardwareStatus";
-
+        description "TLV [130]: RpdHardwareStatus";
         leaf RpdCpuTemperature {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [130.1]: RpdHardwareStatus.RpdCpuTemperature";
+            description "TLV [130.1]: RpdHardwareStatus.RpdCpuTemperature";
         }
 
         leaf RpdMotherboardTemperature {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [130.2]: RpdHardwareStatus.RpdMotherboardTemperature";
+            description "TLV [130.2]: RpdHardwareStatus.RpdMotherboardTemperature";
         }
 
-    }  // RpdHardwareStatus-grouping
+    }  // g-RpdHardwareStatus grouping
 
 }

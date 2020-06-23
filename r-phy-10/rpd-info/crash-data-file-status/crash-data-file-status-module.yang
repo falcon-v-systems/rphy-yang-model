@@ -35,24 +35,21 @@ module crash-data-file-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping CrashDataFileStatus-grouping {
+    grouping g-CrashDataFileStatus {
         tlv:id 20;
-        description
-            "Attribute of `Object` type.
-             TLV [100.20]: RpdInfo.CrashDataFileStatus";
-
+        description "TLV [100.20]: RpdInfo.CrashDataFileStatus";
         leaf Index {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.20.1]: RpdInfo.CrashDataFileStatus.Index";
+                "TLV [100.20.1]: RpdInfo.CrashDataFileStatus.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf Filename {
             tlv:id 2;
             type string;
-            description
-                "TLV [100.20.2]: RpdInfo.CrashDataFileStatus.Filename";
+            description "TLV [100.20.2]: RpdInfo.CrashDataFileStatus.Filename";
         }
 
         leaf FileStatus {
@@ -67,10 +64,9 @@ module crash-data-file-status-module {
                 enum uploadCancelled      { value  6; description ""; }
                 enum error                { value  7; description ""; }
             }
-            description
-                "TLV [100.20.3]: RpdInfo.CrashDataFileStatus.FileStatus";
+            description "TLV [100.20.3]: RpdInfo.CrashDataFileStatus.FileStatus";
         }
 
-    }  // CrashDataFileStatus-grouping
+    }  // g-CrashDataFileStatus grouping
 
 }

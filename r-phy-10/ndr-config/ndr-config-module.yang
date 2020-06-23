@@ -41,17 +41,15 @@ module ndr-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping NdrConfig-grouping {
+    grouping g-NdrConfig {
         tlv:id 95;
-        description
-            "Attribute of `Object` type.
-             TLV [95]: NdrConfig";
-
+        description "TLV [95]: NdrConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [95.None]: NdrConfig.Index";
+                "TLV [95.X]: NdrConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -63,41 +61,36 @@ module ndr-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [95.1]: NdrConfig.AdminState";
+            description "TLV [95.1]: NdrConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [95.2]: NdrConfig.CcapCoreOwner";
+            description "TLV [95.2]: NdrConfig.CcapCoreOwner";
         }
 
         leaf CenterFrequency {
             tlv:id 3;
             type uint32;
             units "Hz";
-            description
-                "TLV [95.3]: NdrConfig.CenterFrequency";
+            description "TLV [95.3]: NdrConfig.CenterFrequency";
         }
 
         leaf ChannelWidth {
             tlv:id 4;
             type uint32;
             units "Hz";
-            description
-                "TLV [95.4]: NdrConfig.ChannelWidth";
+            description "TLV [95.4]: NdrConfig.ChannelWidth";
         }
 
         leaf TargetRxPowerAdjust {
             tlv:id 5;
             type int16;
             units "TenthdBmV";
-            description
-                "TLV [95.5]: NdrConfig.TargetRxPowerAdjust";
+            description "TLV [95.5]: NdrConfig.TargetRxPowerAdjust";
         }
 
-    }  // NdrConfig-grouping
+    }  // g-NdrConfig grouping
 
 }

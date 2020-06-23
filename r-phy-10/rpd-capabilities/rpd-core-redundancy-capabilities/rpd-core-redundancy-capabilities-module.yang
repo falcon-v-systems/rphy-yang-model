@@ -35,33 +35,35 @@ module rpd-core-redundancy-capabilities-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdCoreRedundancyCapabilities-grouping {
+    grouping g-RpdCoreRedundancyCapabilities {
         tlv:id 56;
         description
-            "Attribute of `Object` type.
-             TLV [50.56]: RpdCapabilities.RpdCoreRedundancyCapabilities";
-
+            "TLV [50.56]: RpdCapabilities.RpdCoreRedundancyCapabilities
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf HandoverToBackup {
             tlv:id 1;
             type boolean;
             description
-                "TLV [50.56.1]: RpdCapabilities.RpdCoreRedundancyCapabilities.HandoverToBackup";
+                "TLV [50.56.1]: RpdCapabilities.RpdCoreRedundancyCapabilities.HandoverToBackup
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ConnectionStatus {
             tlv:id 2;
             type boolean;
             description
-                "TLV [50.56.2]: RpdCapabilities.RpdCoreRedundancyCapabilities.ConnectionStatus";
+                "TLV [50.56.2]: RpdCapabilities.RpdCoreRedundancyCapabilities.ConnectionStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ReconnectFromCore {
             tlv:id 3;
             type boolean;
             description
-                "TLV [50.56.3]: RpdCapabilities.RpdCoreRedundancyCapabilities.ReconnectFromCore";
+                "TLV [50.56.3]: RpdCapabilities.RpdCoreRedundancyCapabilities.ReconnectFromCore
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // RpdCoreRedundancyCapabilities-grouping
+    }  // g-RpdCoreRedundancyCapabilities grouping
 
 }

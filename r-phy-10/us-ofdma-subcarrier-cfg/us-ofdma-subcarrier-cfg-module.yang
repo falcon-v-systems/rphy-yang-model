@@ -35,24 +35,23 @@ module us-ofdma-subcarrier-cfg-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaSubcarrierCfg-grouping {
+    grouping g-UsOfdmaSubcarrierCfg {
         tlv:id 70;
-        description
-            "Attribute of `Object` type.
-             TLV [70]: UsOfdmaSubcarrierCfg";
-
+        description "TLV [70]: UsOfdmaSubcarrierCfg";
         leaf StartingSubcarrierId {
             tlv:id 1;
             type uint16;
             description
-                "TLV [70.1]: UsOfdmaSubcarrierCfg.StartingSubcarrierId";
+                "TLV [70.1]: UsOfdmaSubcarrierCfg.StartingSubcarrierId
+                 non-defaults: [is_key: True, is_rcp_readonly: True]";
         }
 
         leaf NumConsecutiveSubcarriers {
             tlv:id 2;
             type uint16;
             description
-                "TLV [70.2]: UsOfdmaSubcarrierCfg.NumConsecutiveSubcarriers";
+                "TLV [70.2]: UsOfdmaSubcarrierCfg.NumConsecutiveSubcarriers
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf SubcarrierUsage {
@@ -65,9 +64,10 @@ module us-ofdma-subcarrier-cfg-module {
                 enum Unused       { value  4; description ""; }
             }
             description
-                "TLV [70.3]: UsOfdmaSubcarrierCfg.SubcarrierUsage";
+                "TLV [70.3]: UsOfdmaSubcarrierCfg.SubcarrierUsage
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // UsOfdmaSubcarrierCfg-grouping
+    }  // g-UsOfdmaSubcarrierCfg grouping
 
 }

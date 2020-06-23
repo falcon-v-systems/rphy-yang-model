@@ -35,17 +35,17 @@ module ndr-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping NdrPerf-grouping {
+    grouping g-NdrPerf {
         tlv:id 82;
         description
-            "Attribute of `Object` type.
-             TLV [82]: NdrPerf";
-
+            "TLV [82]: NdrPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [82.None]: NdrPerf.Index";
+                "TLV [82.X]: NdrPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf operStatusNdr {
@@ -56,9 +56,10 @@ module ndr-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [82.1]: NdrPerf.operStatusNdr";
+                "TLV [82.1]: NdrPerf.operStatusNdr
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // NdrPerf-grouping
+    }  // g-NdrPerf grouping
 
 }

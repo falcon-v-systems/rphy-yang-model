@@ -54,52 +54,43 @@ module ccap-core-identification-module {
 
     // --- definitions -----------------------------------
 
-    grouping CcapCoreIdentification-grouping {
+    grouping g-CcapCoreIdentification {
         tlv:id 60;
-        description
-            "Attribute of `Object` type.
-             TLV [60]: CcapCoreIdentification";
-
+        description "TLV [60]: CcapCoreIdentification";
         leaf Index {
             tlv:id 1;
             type uint8;
-            description
-                "TLV [60.1]: CcapCoreIdentification.Index";
+            description "TLV [60.1]: CcapCoreIdentification.Index";
         }
 
         leaf CoreId {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [60.2]: CcapCoreIdentification.CoreId";
+            description "TLV [60.2]: CcapCoreIdentification.CoreId";
         }
 
         leaf CoreIpAddress {
             tlv:id 3;
             type inet:ip-address;
-            description
-                "TLV [60.3]: CcapCoreIdentification.CoreIpAddress";
+            description "TLV [60.3]: CcapCoreIdentification.CoreIpAddress";
         }
 
         leaf IsPrincipal {
             tlv:id 4;
             type boolean;
-            description
-                "TLV [60.4]: CcapCoreIdentification.IsPrincipal";
+            description "TLV [60.4]: CcapCoreIdentification.IsPrincipal";
         }
 
         leaf CoreName {
             tlv:id 5;
             type string;
-            description
-                "TLV [60.5]: CcapCoreIdentification.CoreName";
+            description "TLV [60.5]: CcapCoreIdentification.CoreName";
         }
 
         leaf VendorId {
             tlv:id 6;
             type uint16;
-            description
-                "TLV [60.6]: CcapCoreIdentification.VendorId";
+            description "TLV [60.6]: CcapCoreIdentification.VendorId";
         }
 
         leaf CoreMode {
@@ -114,8 +105,7 @@ module ccap-core-identification-module {
                 enum ContactPending   { value  6; description ""; }
                 enum Reconnecting     { value  7; description ""; }
             }
-            description
-                "TLV [60.7]: CcapCoreIdentification.CoreMode";
+            description "TLV [60.7]: CcapCoreIdentification.CoreMode";
         }
 
         leaf InitialConfigurationComplete {
@@ -128,29 +118,25 @@ module ccap-core-identification-module {
         leaf MoveToOperational {
             tlv:id 9;
             type boolean;
-            description
-                "TLV [60.9]: CcapCoreIdentification.MoveToOperational";
+            description "TLV [60.9]: CcapCoreIdentification.MoveToOperational";
         }
 
         leaf CoreFunction {
             tlv:id 10;
             type uint16;
-            description
-                "TLV [60.10]: CcapCoreIdentification.CoreFunction";
+            description "TLV [60.10]: CcapCoreIdentification.CoreFunction";
         }
 
         leaf ResourceSetIndex {
             tlv:id 11;
             type uint8;
-            description
-                "TLV [60.11]: CcapCoreIdentification.ResourceSetIndex";
+            description "TLV [60.11]: CcapCoreIdentification.ResourceSetIndex";
         }
 
         leaf Deprecated {
             tlv:id 12;
             type uint16;
-            description
-                "TLV [60.12]: CcapCoreIdentification.Deprecated";
+            description "TLV [60.12]: CcapCoreIdentification.Deprecated";
         }
 
         leaf GcpBackupConnectionConfig {
@@ -161,11 +147,11 @@ module ccap-core-identification-module {
         }
 
         container CandidateBackupCoreTable {
-            uses "p-candidate-backup-core-table:CandidateBackupCoreTable-grouping";
-            description
-                "TLV [60.14]: CcapCoreIdentification.CandidateBackupCoreTable";
+            tlv:id 14;
+            description "TLV [60.14]: CcapCoreIdentification.CandidateBackupCoreTable";
+            uses "p-candidate-backup-core-table:g-CandidateBackupCoreTable";
         }
 
-    }  // CcapCoreIdentification-grouping
+    }  // g-CcapCoreIdentification grouping
 
 }

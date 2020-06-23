@@ -42,25 +42,25 @@ module pw-association-module {
 
     // --- definitions -----------------------------------
 
-    grouping PwAssociation-grouping {
+    grouping g-PwAssociation {
         tlv:id 11;
         description
-            "Attribute of `Object` type.
-             TLV [58.3.11]: StaticPwConfig.CommonStaticPwConfig.PwAssociation";
-
+            "TLV [58.3.11]: StaticPwConfig.CommonStaticPwConfig.PwAssociation";
         leaf Index {
             tlv:id 1;
             type uint8;
             description
-                "TLV [58.3.11.1]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.Index";
+                "TLV [58.3.11.1]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.Index
+                 non-defaults: [is_key: True]";
         }
 
         container ChannelSelector {
-            uses "p-channel-selector:ChannelSelector-grouping";
+            tlv:id 2;
             description
                 "TLV [58.3.11.2]: StaticPwConfig.CommonStaticPwConfig.PwAssociation.ChannelSelector";
+            uses "p-channel-selector:g-ChannelSelector";
         }
 
-    }  // PwAssociation-grouping
+    }  // g-PwAssociation grouping
 
 }

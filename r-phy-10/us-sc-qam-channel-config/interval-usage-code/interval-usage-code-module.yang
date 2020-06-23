@@ -35,31 +35,31 @@ module interval-usage-code-module {
 
     // --- definitions -----------------------------------
 
-    grouping IntervalUsageCode-grouping {
+    grouping g-IntervalUsageCode {
         tlv:id 10;
-        description
-            "Attribute of `Object` type.
-             TLV [65.10]: UsScQamChannelConfig.IntervalUsageCode";
-
+        description "TLV [65.10]: UsScQamChannelConfig.IntervalUsageCode";
         leaf Code {
             tlv:id 1;
             type uint8;
             description
-                "TLV [65.10.1]: UsScQamChannelConfig.IntervalUsageCode.Code";
+                "TLV [65.10.1]: UsScQamChannelConfig.IntervalUsageCode.Code
+                 non-defaults: [is_key: True]";
         }
 
         leaf DifferentialEncoding {
             tlv:id 2;
             type boolean;
             description
-                "TLV [65.10.2]: UsScQamChannelConfig.IntervalUsageCode.DifferentialEncoding";
+                "TLV [65.10.2]: UsScQamChannelConfig.IntervalUsageCode.DifferentialEncoding
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf FecErrorCorrectionT {
             tlv:id 3;
             type uint8;
             description
-                "TLV [65.10.3]: UsScQamChannelConfig.IntervalUsageCode.FecErrorCorrectionT";
+                "TLV [65.10.3]: UsScQamChannelConfig.IntervalUsageCode.FecErrorCorrectionT
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf FecCodewordLength {
@@ -67,7 +67,8 @@ module interval-usage-code-module {
             type uint8;
             units "bytes";
             description
-                "TLV [65.10.4]: UsScQamChannelConfig.IntervalUsageCode.FecCodewordLength";
+                "TLV [65.10.4]: UsScQamChannelConfig.IntervalUsageCode.FecCodewordLength
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf PreambleLen {
@@ -75,7 +76,8 @@ module interval-usage-code-module {
             type uint16;
             units "bits";
             description
-                "TLV [65.10.5]: UsScQamChannelConfig.IntervalUsageCode.PreambleLen";
+                "TLV [65.10.5]: UsScQamChannelConfig.IntervalUsageCode.PreambleLen
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf PreambleOffset {
@@ -83,7 +85,8 @@ module interval-usage-code-module {
             type uint16;
             units "bits";
             description
-                "TLV [65.10.6]: UsScQamChannelConfig.IntervalUsageCode.PreambleOffset";
+                "TLV [65.10.6]: UsScQamChannelConfig.IntervalUsageCode.PreambleOffset
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf PreambleModType {
@@ -94,49 +97,56 @@ module interval-usage-code-module {
                 enum QPSK1    { value  2; description ""; }
             }
             description
-                "TLV [65.10.7]: UsScQamChannelConfig.IntervalUsageCode.PreambleModType";
+                "TLV [65.10.7]: UsScQamChannelConfig.IntervalUsageCode.PreambleModType
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf Scrambler {
             tlv:id 8;
             type boolean;
             description
-                "TLV [65.10.8]: UsScQamChannelConfig.IntervalUsageCode.Scrambler";
+                "TLV [65.10.8]: UsScQamChannelConfig.IntervalUsageCode.Scrambler
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ScramblerSeed {
             tlv:id 9;
             type uint16;
             description
-                "TLV [65.10.9]: UsScQamChannelConfig.IntervalUsageCode.ScramblerSeed";
+                "TLV [65.10.9]: UsScQamChannelConfig.IntervalUsageCode.ScramblerSeed
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf MaxBurstSize {
             tlv:id 10;
             type uint8;
             description
-                "TLV [65.10.10]: UsScQamChannelConfig.IntervalUsageCode.MaxBurstSize";
+                "TLV [65.10.10]: UsScQamChannelConfig.IntervalUsageCode.MaxBurstSize
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf LastCodewordShortened {
             tlv:id 11;
             type boolean;
             description
-                "TLV [65.10.11]: UsScQamChannelConfig.IntervalUsageCode.LastCodewordShortened";
+                "TLV [65.10.11]: UsScQamChannelConfig.IntervalUsageCode.LastCodewordShortened
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ByteInterleaverDepth {
             tlv:id 12;
             type uint8;
             description
-                "TLV [65.10.12]: UsScQamChannelConfig.IntervalUsageCode.ByteInterleaverDepth";
+                "TLV [65.10.12]: UsScQamChannelConfig.IntervalUsageCode.ByteInterleaverDepth
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ByteInterleaverBlockSize {
             tlv:id 13;
             type uint16;
             description
-                "TLV [65.10.13]: UsScQamChannelConfig.IntervalUsageCode.ByteInterleaverBlockSize";
+                "TLV [65.10.13]: UsScQamChannelConfig.IntervalUsageCode.ByteInterleaverBlockSize
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ModulationType {
@@ -152,16 +162,18 @@ module interval-usage-code-module {
                 enum QAM128   { value  7; description ""; }
             }
             description
-                "TLV [65.10.14]: UsScQamChannelConfig.IntervalUsageCode.ModulationType";
+                "TLV [65.10.14]: UsScQamChannelConfig.IntervalUsageCode.ModulationType
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf GuardTime {
             tlv:id 15;
             type uint8;
             description
-                "TLV [65.10.15]: UsScQamChannelConfig.IntervalUsageCode.GuardTime";
+                "TLV [65.10.15]: UsScQamChannelConfig.IntervalUsageCode.GuardTime
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // IntervalUsageCode-grouping
+    }  // g-IntervalUsageCode grouping
 
 }

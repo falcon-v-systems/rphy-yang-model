@@ -35,17 +35,15 @@ module ipv6-interface-module {
 
     // --- definitions -----------------------------------
 
-    grouping Ipv6Interface-grouping {
+    grouping g-Ipv6Interface {
         tlv:id 13;
-        description
-            "Attribute of `Object` type.
-             TLV [100.13]: RpdInfo.Ipv6Interface";
-
+        description "TLV [100.13]: RpdInfo.Ipv6Interface";
         leaf EnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.13.1]: RpdInfo.Ipv6Interface.EnetPortIndex";
+                "TLV [100.13.1]: RpdInfo.Ipv6Interface.EnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf EnableStatus {
@@ -55,33 +53,29 @@ module ipv6-interface-module {
                 enum up       { value  1; description ""; }
                 enum down     { value  2; description ""; }
             }
-            description
-                "TLV [100.13.3]: RpdInfo.Ipv6Interface.EnableStatus";
+            description "TLV [100.13.3]: RpdInfo.Ipv6Interface.EnableStatus";
         }
 
         leaf RetransmitTime {
             tlv:id 4;
             type uint32;
             units "milliseconds";
-            description
-                "TLV [100.13.4]: RpdInfo.Ipv6Interface.RetransmitTime";
+            description "TLV [100.13.4]: RpdInfo.Ipv6Interface.RetransmitTime";
         }
 
         leaf InterfaceIdentifier {
             tlv:id 5;
             type binary;
-            description
-                "TLV [100.13.5]: RpdInfo.Ipv6Interface.InterfaceIdentifier";
+            description "TLV [100.13.5]: RpdInfo.Ipv6Interface.InterfaceIdentifier";
         }
 
         leaf ReachableTime {
             tlv:id 6;
             type uint32;
             units "milliseconds";
-            description
-                "TLV [100.13.6]: RpdInfo.Ipv6Interface.ReachableTime";
+            description "TLV [100.13.6]: RpdInfo.Ipv6Interface.ReachableTime";
         }
 
-    }  // Ipv6Interface-grouping
+    }  // g-Ipv6Interface grouping
 
 }

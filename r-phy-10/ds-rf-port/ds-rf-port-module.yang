@@ -42,17 +42,15 @@ module ds-rf-port-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsRfPort-grouping {
+    grouping g-DsRfPort {
         tlv:id 61;
-        description
-            "Attribute of `Object` type.
-             TLV [61]: DsRfPort";
-
+        description "TLV [61]: DsRfPort";
         leaf PortIndex {
             // no tlv:id given
             type uint16;
             description
-                "TLV [61.None]: DsRfPort.PortIndex";
+                "TLV [61.X]: DsRfPort.PortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -64,47 +62,43 @@ module ds-rf-port-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [61.2]: DsRfPort.AdminState";
+            description "TLV [61.2]: DsRfPort.AdminState";
         }
 
         leaf BasePower {
             tlv:id 3;
             type int16;
             units "TenthdBmV";
-            description
-                "TLV [61.3]: DsRfPort.BasePower";
+            description "TLV [61.3]: DsRfPort.BasePower";
         }
 
         leaf RfMute {
             tlv:id 4;
             type boolean;
-            description
-                "TLV [61.4]: DsRfPort.RfMute";
+            description "TLV [61.4]: DsRfPort.RfMute";
         }
 
         leaf TiltValue {
             tlv:id 5;
             type int16;
             units "TenthdB";
-            description
-                "TLV [61.5]: DsRfPort.TiltValue";
+            description "TLV [61.5]: DsRfPort.TiltValue";
         }
 
         leaf TiltMaximumFrequency {
             tlv:id 6;
             type uint32;
             units "Hz";
-            description
-                "TLV [61.6]: DsRfPort.TiltMaximumFrequency";
+            description "TLV [61.6]: DsRfPort.TiltMaximumFrequency";
         }
 
-        container DedicatedToneConfig {
-            uses "p-dedicated-tone-config:DedicatedToneConfig-grouping";
-            description
-                "TLV [61.7]: DsRfPort.DedicatedToneConfig";
+        list DedicatedToneConfig {
+            tlv:id 7;
+            key ToneIndex;
+            description "TLV [61.7]: DsRfPort.DedicatedToneConfig";
+            uses "p-dedicated-tone-config:g-DedicatedToneConfig";
         }
 
-    }  // DsRfPort-grouping
+    }  // g-DsRfPort grouping
 
 }

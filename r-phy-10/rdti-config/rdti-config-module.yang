@@ -48,12 +48,9 @@ module rdti-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping RdtiConfig-grouping {
+    grouping g-RdtiConfig {
         tlv:id 97;
-        description
-            "Attribute of `Object` type.
-             TLV [97]: RdtiConfig";
-
+        description "TLV [97]: RdtiConfig";
         leaf RpdRdtiMode {
             tlv:id 1;
             tlv:repr uint8;
@@ -62,58 +59,52 @@ module rdti-config-module {
                 enum RpdNodeSlave     { value  2; description ""; }
                 enum RpdNodeMaster    { value  3; description ""; }
             }
-            description
-                "TLV [97.1]: RdtiConfig.RpdRdtiMode";
+            description "TLV [97.1]: RdtiConfig.RpdRdtiMode";
         }
 
         leaf RpdPtpDefDsDomainNumber {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [97.2]: RdtiConfig.RpdPtpDefDsDomainNumber";
+            description "TLV [97.2]: RdtiConfig.RpdPtpDefDsDomainNumber";
         }
 
         leaf RpdPtpDefDsPriority1 {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [97.3]: RdtiConfig.RpdPtpDefDsPriority1";
+            description "TLV [97.3]: RdtiConfig.RpdPtpDefDsPriority1";
         }
 
         leaf RpdPtpDefDsPriority2 {
             tlv:id 4;
             type uint8;
-            description
-                "TLV [97.4]: RdtiConfig.RpdPtpDefDsPriority2";
+            description "TLV [97.4]: RdtiConfig.RpdPtpDefDsPriority2";
         }
 
         leaf RpdPtpDefDsLocalPriority {
             tlv:id 5;
             type uint8;
-            description
-                "TLV [97.5]: RdtiConfig.RpdPtpDefDsLocalPriority";
+            description "TLV [97.5]: RdtiConfig.RpdPtpDefDsLocalPriority";
         }
 
         leaf RpdPtpProfileIdentifier {
             tlv:id 6;
             type yang:mac-address;
-            description
-                "TLV [97.6]: RdtiConfig.RpdPtpProfileIdentifier";
+            description "TLV [97.6]: RdtiConfig.RpdPtpProfileIdentifier";
         }
 
         leaf RpdPtpProfileVersion {
             tlv:id 7;
             type binary;
-            description
-                "TLV [97.7]: RdtiConfig.RpdPtpProfileVersion";
+            description "TLV [97.7]: RdtiConfig.RpdPtpProfileVersion";
         }
 
-        container RpdPtpPortConfig {
-            uses "p-rpd-ptp-port-config:RpdPtpPortConfig-grouping";
-            description
-                "TLV [97.8]: RdtiConfig.RpdPtpPortConfig";
+        list RpdPtpPortConfig {
+            tlv:id 8;
+            key RpdEnetPortIndex RpdPtpPortIndex;
+            description "TLV [97.8]: RdtiConfig.RpdPtpPortConfig";
+            uses "p-rpd-ptp-port-config:g-RpdPtpPortConfig";
         }
 
-    }  // RdtiConfig-grouping
+    }  // g-RdtiConfig grouping
 
 }

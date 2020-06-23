@@ -41,12 +41,9 @@ module ip-default-router-module {
 
     // --- definitions -----------------------------------
 
-    grouping IpDefaultRouter-grouping {
+    grouping g-IpDefaultRouter {
         tlv:id 17;
-        description
-            "Attribute of `Object` type.
-             TLV [100.17]: RpdInfo.IpDefaultRouter";
-
+        description "TLV [100.17]: RpdInfo.IpDefaultRouter";
         leaf AddrType {
             tlv:id 1;
             tlv:repr int32;
@@ -59,28 +56,30 @@ module ip-default-router-module {
                 enum dns      { value 16; description ""; }
             }
             description
-                "TLV [100.17.1]: RpdInfo.IpDefaultRouter.AddrType";
+                "TLV [100.17.1]: RpdInfo.IpDefaultRouter.AddrType
+                 non-defaults: [is_key: True]";
         }
 
         leaf IpAddress {
             tlv:id 2;
             type inet:ip-address;
             description
-                "TLV [100.17.2]: RpdInfo.IpDefaultRouter.IpAddress";
+                "TLV [100.17.2]: RpdInfo.IpDefaultRouter.IpAddress
+                 non-defaults: [is_key: True]";
         }
 
         leaf EnetPortIndex {
             tlv:id 3;
             type uint8;
             description
-                "TLV [100.17.3]: RpdInfo.IpDefaultRouter.EnetPortIndex";
+                "TLV [100.17.3]: RpdInfo.IpDefaultRouter.EnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf Lifetime {
             tlv:id 4;
             type uint16;
-            description
-                "TLV [100.17.4]: RpdInfo.IpDefaultRouter.Lifetime";
+            description "TLV [100.17.4]: RpdInfo.IpDefaultRouter.Lifetime";
         }
 
         leaf Preference {
@@ -92,10 +91,9 @@ module ip-default-router-module {
                 enum medium       { value  0; description ""; }
                 enum high         { value  1; description ""; }
             }
-            description
-                "TLV [100.17.5]: RpdInfo.IpDefaultRouter.Preference";
+            description "TLV [100.17.5]: RpdInfo.IpDefaultRouter.Preference";
         }
 
-    }  // IpDefaultRouter-grouping
+    }  // g-IpDefaultRouter grouping
 
 }

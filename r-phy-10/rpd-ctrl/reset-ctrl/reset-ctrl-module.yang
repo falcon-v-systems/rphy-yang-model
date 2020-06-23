@@ -35,12 +35,9 @@ module reset-ctrl-module {
 
     // --- definitions -----------------------------------
 
-    grouping ResetCtrl-grouping {
+    grouping g-ResetCtrl {
         tlv:id 1;
-        description
-            "Attribute of `Object` type.
-             TLV [40.1]: RpdCtrl.ResetCtrl";
-
+        description "TLV [40.1]: RpdCtrl.ResetCtrl";
         leaf Reset {
             tlv:id 1;
             tlv:repr uint8;
@@ -50,10 +47,9 @@ module reset-ctrl-module {
                 enum nvReset          { value  3; description ""; }
                 enum factoryReset     { value  4; description ""; }
             }
-            description
-                "TLV [40.1.1]: RpdCtrl.ResetCtrl.Reset";
+            description "TLV [40.1.1]: RpdCtrl.ResetCtrl.Reset";
         }
 
-    }  // ResetCtrl-grouping
+    }  // g-ResetCtrl grouping
 
 }

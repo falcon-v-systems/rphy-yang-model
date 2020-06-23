@@ -35,18 +35,18 @@ module ds-oob551l-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOob551lPerf-grouping {
+    grouping g-DsOob551lPerf {
         tlv:id 74;
         description
-            "Attribute of `Object` type.
-             TLV [74]: DsOob551lPerf";
-
+            "TLV [74]: DsOob551lPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf outDiscards {
             tlv:id 1;
             type uint64;
             units "packets";
             description
-                "TLV [74.1]: DsOob551lPerf.outDiscards";
+                "TLV [74.1]: DsOob551lPerf.outDiscards
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outErrors {
@@ -54,7 +54,8 @@ module ds-oob551l-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [74.2]: DsOob551lPerf.outErrors";
+                "TLV [74.2]: DsOob551lPerf.outErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outPackets {
@@ -62,14 +63,16 @@ module ds-oob551l-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [74.3]: DsOob551lPerf.outPackets";
+                "TLV [74.3]: DsOob551lPerf.outPackets
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 4;
             type binary;
             description
-                "TLV [74.4]: DsOob551lPerf.discontinuityTime";
+                "TLV [74.4]: DsOob551lPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf operStatusDsOob551 {
@@ -80,9 +83,10 @@ module ds-oob551l-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [74.5]: DsOob551lPerf.operStatusDsOob551";
+                "TLV [74.5]: DsOob551lPerf.operStatusDsOob551
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // DsOob551lPerf-grouping
+    }  // g-DsOob551lPerf grouping
 
 }

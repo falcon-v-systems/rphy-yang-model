@@ -35,12 +35,9 @@ module us-sc-chan-hi-iuc-stats-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsScChanHiIucStats-grouping {
+    grouping g-UsScChanHiIucStats {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [78.2]: UsScQamChannelPerf.UsScChanHiIucStats";
-
+        description "TLV [78.2]: UsScQamChannelPerf.UsScChanHiIucStats";
         leaf UsIuc {
             tlv:id 1;
             tlv:repr uint8;
@@ -52,59 +49,65 @@ module us-sc-chan-hi-iuc-stats-module {
                 enum 10   { value 10; description ""; }
                 enum 11   { value 11; description ""; }
             }
-            description
-                "TLV [78.2.1]: UsScQamChannelPerf.UsScChanHiIucStats.UsIuc";
+            description "TLV [78.2.1]: UsScQamChannelPerf.UsScChanHiIucStats.UsIuc";
         }
 
         leaf ScheduledGrants {
             tlv:id 2;
             type uint64;
             description
-                "TLV [78.2.2]: UsScQamChannelPerf.UsScChanHiIucStats.ScheduledGrants";
+                "TLV [78.2.2]: UsScQamChannelPerf.UsScChanHiIucStats.ScheduledGrants
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NoEnergyBursts {
             tlv:id 3;
             type uint64;
             description
-                "TLV [78.2.3]: UsScQamChannelPerf.UsScChanHiIucStats.NoEnergyBursts";
+                "TLV [78.2.3]: UsScQamChannelPerf.UsScChanHiIucStats.NoEnergyBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NoPreambleBursts {
             tlv:id 4;
             type uint64;
             description
-                "TLV [78.2.4]: UsScQamChannelPerf.UsScChanHiIucStats.NoPreambleBursts";
+                "TLV [78.2.4]: UsScQamChannelPerf.UsScChanHiIucStats.NoPreambleBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ErrorBursts {
             tlv:id 5;
             type uint64;
             description
-                "TLV [78.2.5]: UsScQamChannelPerf.UsScChanHiIucStats.ErrorBursts";
+                "TLV [78.2.5]: UsScQamChannelPerf.UsScChanHiIucStats.ErrorBursts
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf GoodFecCw {
             tlv:id 6;
             type uint64;
             description
-                "TLV [78.2.6]: UsScQamChannelPerf.UsScChanHiIucStats.GoodFecCw";
+                "TLV [78.2.6]: UsScQamChannelPerf.UsScChanHiIucStats.GoodFecCw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf CorrectedFecCw {
             tlv:id 7;
             type uint64;
             description
-                "TLV [78.2.7]: UsScQamChannelPerf.UsScChanHiIucStats.CorrectedFecCw";
+                "TLV [78.2.7]: UsScQamChannelPerf.UsScChanHiIucStats.CorrectedFecCw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf UncorrectFecCw {
             tlv:id 8;
             type uint64;
             description
-                "TLV [78.2.8]: UsScQamChannelPerf.UsScChanHiIucStats.UncorrectFecCw";
+                "TLV [78.2.8]: UsScQamChannelPerf.UsScChanHiIucStats.UncorrectFecCw
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // UsScChanHiIucStats-grouping
+    }  // g-UsScChanHiIucStats grouping
 
 }

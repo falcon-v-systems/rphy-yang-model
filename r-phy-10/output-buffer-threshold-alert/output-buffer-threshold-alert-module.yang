@@ -35,12 +35,9 @@ module output-buffer-threshold-alert-module {
 
     // --- definitions -----------------------------------
 
-    grouping OutputBufferThresholdAlert-grouping {
+    grouping g-OutputBufferThresholdAlert {
         tlv:id 84;
-        description
-            "Attribute of `Object` type.
-             TLV [84]: OutputBufferThresholdAlert";
-
+        description "TLV [84]: OutputBufferThresholdAlert";
         leaf BufferDepthMonAlertEnable {
             tlv:id 1;
             type boolean;
@@ -58,30 +55,30 @@ module output-buffer-threshold-alert-module {
                 enum thresholdExceeded    { value  4; description ""; }
             }
             description
-                "TLV [84.2]: OutputBufferThresholdAlert.BufferDepthMonAlertStatus";
+                "TLV [84.2]: OutputBufferThresholdAlert.BufferDepthMonAlertStatus
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf AlertThreshold {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [84.3]: OutputBufferThresholdAlert.AlertThreshold";
+            description "TLV [84.3]: OutputBufferThresholdAlert.AlertThreshold";
         }
 
         leaf SmoothingFactorN {
             tlv:id 4;
             type uint16;
-            description
-                "TLV [84.4]: OutputBufferThresholdAlert.SmoothingFactorN";
+            description "TLV [84.4]: OutputBufferThresholdAlert.SmoothingFactorN";
         }
 
         leaf LastAlertTimestamp {
             tlv:id 5;
             type uint32;
             description
-                "TLV [84.5]: OutputBufferThresholdAlert.LastAlertTimestamp";
+                "TLV [84.5]: OutputBufferThresholdAlert.LastAlertTimestamp
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // OutputBufferThresholdAlert-grouping
+    }  // g-OutputBufferThresholdAlert grouping
 
 }

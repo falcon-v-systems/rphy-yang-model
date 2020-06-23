@@ -47,40 +47,33 @@ module fwd-static-pw-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping FwdStaticPwConfig-grouping {
+    grouping g-FwdStaticPwConfig {
         tlv:id 1;
-        description
-            "Attribute of `Object` type.
-             TLV [58.1]: StaticPwConfig.FwdStaticPwConfig";
-
+        description "TLV [58.1]: StaticPwConfig.FwdStaticPwConfig";
         leaf Index {
             tlv:id 1;
             type uint16;
-            description
-                "TLV [58.1.1]: StaticPwConfig.FwdStaticPwConfig.Index";
+            description "TLV [58.1.1]: StaticPwConfig.FwdStaticPwConfig.Index";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [58.1.2]: StaticPwConfig.FwdStaticPwConfig.CcapCoreOwner";
+            description "TLV [58.1.2]: StaticPwConfig.FwdStaticPwConfig.CcapCoreOwner";
         }
 
         leaf GroupAddress {
             tlv:id 3;
             type inet:ip-address;
-            description
-                "TLV [58.1.3]: StaticPwConfig.FwdStaticPwConfig.GroupAddress";
+            description "TLV [58.1.3]: StaticPwConfig.FwdStaticPwConfig.GroupAddress";
         }
 
         leaf SourceAddress {
             tlv:id 4;
             type inet:ip-address;
-            description
-                "TLV [58.1.4]: StaticPwConfig.FwdStaticPwConfig.SourceAddress";
+            description "TLV [58.1.4]: StaticPwConfig.FwdStaticPwConfig.SourceAddress";
         }
 
-    }  // FwdStaticPwConfig-grouping
+    }  // g-FwdStaticPwConfig grouping
 
 }

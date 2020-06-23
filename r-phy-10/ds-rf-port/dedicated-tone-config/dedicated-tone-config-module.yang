@@ -35,50 +35,44 @@ module dedicated-tone-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping DedicatedToneConfig-grouping {
+    grouping g-DedicatedToneConfig {
         tlv:id 7;
-        description
-            "Attribute of `Object` type.
-             TLV [61.7]: DsRfPort.DedicatedToneConfig";
-
+        description "TLV [61.7]: DsRfPort.DedicatedToneConfig";
         leaf ToneIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [61.7.1]: DsRfPort.DedicatedToneConfig.ToneIndex";
+                "TLV [61.7.1]: DsRfPort.DedicatedToneConfig.ToneIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf ToneFrequency {
             tlv:id 2;
             type uint32;
             units "Hz";
-            description
-                "TLV [61.7.2]: DsRfPort.DedicatedToneConfig.ToneFrequency";
+            description "TLV [61.7.2]: DsRfPort.DedicatedToneConfig.ToneFrequency";
         }
 
         leaf TonePowerAdjust {
             tlv:id 3;
             type int16;
             units "TenthdB";
-            description
-                "TLV [61.7.3]: DsRfPort.DedicatedToneConfig.TonePowerAdjust";
+            description "TLV [61.7.3]: DsRfPort.DedicatedToneConfig.TonePowerAdjust";
         }
 
         leaf RfMute {
             tlv:id 4;
             type boolean;
-            description
-                "TLV [61.7.4]: DsRfPort.DedicatedToneConfig.RfMute";
+            description "TLV [61.7.4]: DsRfPort.DedicatedToneConfig.RfMute";
         }
 
         leaf FrequencyFraction {
             tlv:id 5;
             type uint8;
             units "TenthHz";
-            description
-                "TLV [61.7.5]: DsRfPort.DedicatedToneConfig.FrequencyFraction";
+            description "TLV [61.7.5]: DsRfPort.DedicatedToneConfig.FrequencyFraction";
         }
 
-    }  // DedicatedToneConfig-grouping
+    }  // g-DedicatedToneConfig grouping
 
 }

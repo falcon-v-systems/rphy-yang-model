@@ -35,12 +35,11 @@ module docs-if3-module {
 
     // --- definitions -----------------------------------
 
-    grouping DocsIf3-grouping {
+    grouping g-DocsIf3 {
         tlv:id 102;
         description
-            "Attribute of `Object` type.
-             TLV [102]: DocsIf3";
-
-    }  // DocsIf3-grouping
+            "TLV [102]: DocsIf3
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+    }  // g-DocsIf3 grouping
 
 }

@@ -35,12 +35,9 @@ module query-iuc-code-module {
 
     // --- definitions -----------------------------------
 
-    grouping QueryIucCode-grouping {
+    grouping g-QueryIucCode {
         tlv:id 3;
-        description
-            "Attribute of `Object` type.
-             TLV [150.3]: UsScQamProfileQuery.QueryIucCode";
-
+        description "TLV [150.3]: UsScQamProfileQuery.QueryIucCode";
         leaf QueryScQamCode {
             tlv:id 1;
             type uint8;
@@ -76,6 +73,6 @@ module query-iuc-code-module {
                 "TLV [150.3.5]: UsScQamProfileQuery.QueryIucCode.QueryScQamGuardTime";
         }
 
-    }  // QueryIucCode-grouping
+    }  // g-QueryIucCode grouping
 
 }

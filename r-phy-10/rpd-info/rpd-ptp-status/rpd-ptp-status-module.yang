@@ -63,36 +63,35 @@ module rpd-ptp-status-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdPtpStatus-grouping {
+    grouping g-RpdPtpStatus {
         tlv:id 24;
-        description
-            "Attribute of `Object` type.
-             TLV [100.24]: RpdInfo.RpdPtpStatus";
-
+        description "TLV [100.24]: RpdInfo.RpdPtpStatus";
         container PtpCurrentDataset {
-            uses "p-ptp-current-dataset:PtpCurrentDataset-grouping";
-            description
-                "TLV [100.24.1]: RpdInfo.RpdPtpStatus.PtpCurrentDataset";
+            tlv:id 1;
+            description "TLV [100.24.1]: RpdInfo.RpdPtpStatus.PtpCurrentDataset";
+            uses "p-ptp-current-dataset:g-PtpCurrentDataset";
         }
 
         container PtpClockStatus {
-            uses "p-ptp-clock-status:PtpClockStatus-grouping";
-            description
-                "TLV [100.24.2]: RpdInfo.RpdPtpStatus.PtpClockStatus";
+            tlv:id 2;
+            description "TLV [100.24.2]: RpdInfo.RpdPtpStatus.PtpClockStatus";
+            uses "p-ptp-clock-status:g-PtpClockStatus";
         }
 
-        container PtpPortDataset {
-            uses "p-ptp-port-dataset:PtpPortDataset-grouping";
-            description
-                "TLV [100.24.3]: RpdInfo.RpdPtpStatus.PtpPortDataset";
+        list PtpPortDataset {
+            tlv:id 3;
+            key PortNumber;
+            description "TLV [100.24.3]: RpdInfo.RpdPtpStatus.PtpPortDataset";
+            uses "p-ptp-port-dataset:g-PtpPortDataset";
         }
 
-        container RpdPtpPortStatus {
-            uses "p-rpd-ptp-port-status:RpdPtpPortStatus-grouping";
-            description
-                "TLV [100.24.4]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus";
+        list RpdPtpPortStatus {
+            tlv:id 4;
+            key RpdEnetPortIndex RpdPtpPortIndex;
+            description "TLV [100.24.4]: RpdInfo.RpdPtpStatus.RpdPtpPortStatus";
+            uses "p-rpd-ptp-port-status:g-RpdPtpPortStatus";
         }
 
-    }  // RpdPtpStatus-grouping
+    }  // g-RpdPtpStatus grouping
 
 }

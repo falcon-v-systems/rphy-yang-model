@@ -35,17 +35,15 @@ module ds-ofdm-subcarrier-modulation-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmSubcarrierModulation-grouping {
+    grouping g-DsOfdmSubcarrierModulation {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [64.2]: DsOfdmProfile.DsOfdmSubcarrierModulation";
-
+        description "TLV [64.2]: DsOfdmProfile.DsOfdmSubcarrierModulation";
         leaf StartSubcarrierId {
             tlv:id 1;
             type uint16;
             description
-                "TLV [64.2.1]: DsOfdmProfile.DsOfdmSubcarrierModulation.StartSubcarrierId";
+                "TLV [64.2.1]: DsOfdmProfile.DsOfdmSubcarrierModulation.StartSubcarrierId
+                 non-defaults: [is_key: True]";
         }
 
         leaf EndSubcarrierId {
@@ -76,6 +74,6 @@ module ds-ofdm-subcarrier-modulation-module {
                 "TLV [64.2.3]: DsOfdmProfile.DsOfdmSubcarrierModulation.Modulation";
         }
 
-    }  // DsOfdmSubcarrierModulation-grouping
+    }  // g-DsOfdmSubcarrierModulation grouping
 
 }

@@ -35,33 +35,27 @@ module uepi-control-module {
 
     // --- definitions -----------------------------------
 
-    grouping UepiControl-grouping {
+    grouping g-UepiControl {
         tlv:id 4;
-        description
-            "Attribute of `Object` type.
-             TLV [15.4]: RpdGlobal.UepiControl";
-
+        description "TLV [15.4]: RpdGlobal.UepiControl";
         leaf ScQamUseRngPw {
             tlv:id 1;
             type boolean;
-            description
-                "TLV [15.4.1]: RpdGlobal.UepiControl.ScQamUseRngPw";
+            description "TLV [15.4.1]: RpdGlobal.UepiControl.ScQamUseRngPw";
         }
 
         leaf OfdmaMaxNumPayloadUnits {
             tlv:id 2;
             type uint8;
-            description
-                "TLV [15.4.2]: RpdGlobal.UepiControl.OfdmaMaxNumPayloadUnits";
+            description "TLV [15.4.2]: RpdGlobal.UepiControl.OfdmaMaxNumPayloadUnits";
         }
 
         leaf OfdmaMaxNumTrailerUnits {
             tlv:id 3;
             type uint8;
-            description
-                "TLV [15.4.3]: RpdGlobal.UepiControl.OfdmaMaxNumTrailerUnits";
+            description "TLV [15.4.3]: RpdGlobal.UepiControl.OfdmaMaxNumTrailerUnits";
         }
 
-    }  // UepiControl-grouping
+    }  // g-UepiControl grouping
 
 }

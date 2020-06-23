@@ -35,31 +35,33 @@ module response-iuc-code-module {
 
     // --- definitions -----------------------------------
 
-    grouping ResponseIucCode-grouping {
+    grouping g-ResponseIucCode {
         tlv:id 2;
         description
-            "Attribute of `Object` type.
-             TLV [151.2]: UsScQamProfileResponse.ResponseIucCode";
-
+            "TLV [151.2]: UsScQamProfileResponse.ResponseIucCode
+             non-defaults: [is_rcp_readonly: True]";
         leaf ResponseScQamCode {
             tlv:id 1;
             type uint8;
             description
-                "TLV [151.2.1]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamCode";
+                "TLV [151.2.1]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamCode
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseScQamPreambleLen {
             tlv:id 2;
             type uint16;
             description
-                "TLV [151.2.2]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleLen";
+                "TLV [151.2.2]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleLen
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseScQamPreambleOffset {
             tlv:id 3;
             type uint16;
             description
-                "TLV [151.2.3]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleOffset";
+                "TLV [151.2.3]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleOffset
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseScQamPreambleModType {
@@ -70,23 +72,26 @@ module response-iuc-code-module {
                 enum QPSK1    { value  2; description ""; }
             }
             description
-                "TLV [151.2.4]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleModType";
+                "TLV [151.2.4]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamPreambleModType
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseScQamScramblerSeed {
             tlv:id 5;
             type uint16;
             description
-                "TLV [151.2.5]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamScramblerSeed";
+                "TLV [151.2.5]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamScramblerSeed
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf ResponseScQamGuardTime {
             tlv:id 6;
             type uint8;
             description
-                "TLV [151.2.6]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamGuardTime";
+                "TLV [151.2.6]: UsScQamProfileResponse.ResponseIucCode.ResponseScQamGuardTime
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // ResponseIucCode-grouping
+    }  // g-ResponseIucCode grouping
 
 }

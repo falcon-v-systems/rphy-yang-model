@@ -35,12 +35,11 @@ module docs-if31-module {
 
     // --- definitions -----------------------------------
 
-    grouping DocsIf31-grouping {
+    grouping g-DocsIf31 {
         tlv:id 101;
         description
-            "Attribute of `Object` type.
-             TLV [101]: DocsIf31";
-
-    }  // DocsIf31-grouping
+            "TLV [101]: DocsIf31
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+    }  // g-DocsIf31 grouping
 
 }

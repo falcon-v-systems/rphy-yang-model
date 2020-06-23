@@ -35,17 +35,17 @@ module lcce-channel-reachability-module {
 
     // --- definitions -----------------------------------
 
-    grouping LcceChannelReachability-grouping {
+    grouping g-LcceChannelReachability {
         tlv:id 20;
         description
-            "Attribute of `Object` type.
-             TLV [50.20]: RpdCapabilities.LcceChannelReachability";
-
+            "TLV [50.20]: RpdCapabilities.LcceChannelReachability
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf EnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [50.20.1]: RpdCapabilities.LcceChannelReachability.EnetPortIndex";
+                "TLV [50.20.1]: RpdCapabilities.LcceChannelReachability.EnetPortIndex
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf ChannelType {
@@ -63,30 +63,34 @@ module lcce-channel-reachability-module {
                 enum UsScte55d1   { value  9; description ""; }
             }
             description
-                "TLV [50.20.2]: RpdCapabilities.LcceChannelReachability.ChannelType";
+                "TLV [50.20.2]: RpdCapabilities.LcceChannelReachability.ChannelType
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf RfPortIndex {
             tlv:id 3;
             type uint8;
             description
-                "TLV [50.20.3]: RpdCapabilities.LcceChannelReachability.RfPortIndex";
+                "TLV [50.20.3]: RpdCapabilities.LcceChannelReachability.RfPortIndex
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf StartChannelIndex {
             tlv:id 4;
             type uint8;
             description
-                "TLV [50.20.4]: RpdCapabilities.LcceChannelReachability.StartChannelIndex";
+                "TLV [50.20.4]: RpdCapabilities.LcceChannelReachability.StartChannelIndex
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf EndChannelIndex {
             tlv:id 5;
             type uint8;
             description
-                "TLV [50.20.5]: RpdCapabilities.LcceChannelReachability.EndChannelIndex";
+                "TLV [50.20.5]: RpdCapabilities.LcceChannelReachability.EndChannelIndex
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // LcceChannelReachability-grouping
+    }  // g-LcceChannelReachability grouping
 
 }

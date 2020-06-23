@@ -35,12 +35,9 @@ module enet-port-module {
 
     // --- definitions -----------------------------------
 
-    grouping EnetPort-grouping {
+    grouping g-EnetPort {
         tlv:id 18;
-        description
-            "Attribute of `Object` type.
-             TLV [18]: EnetPort";
-
-    }  // EnetPort-grouping
+        description "TLV [18]: EnetPort";
+    }  // g-EnetPort grouping
 
 }

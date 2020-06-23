@@ -35,12 +35,9 @@ module us-ofdma-data-iuc-module {
 
     // --- definitions -----------------------------------
 
-    grouping UsOfdmaDataIuc-grouping {
+    grouping g-UsOfdmaDataIuc {
         tlv:id 69;
-        description
-            "Attribute of `Object` type.
-             TLV [69]: UsOfdmaDataIuc";
-
+        description "TLV [69]: UsOfdmaDataIuc";
         leaf DataIuc {
             tlv:id 1;
             tlv:repr uint8;
@@ -54,35 +51,40 @@ module us-ofdma-data-iuc-module {
                 enum   13 { value 13; description ""; }
             }
             description
-                "TLV [69.1]: UsOfdmaDataIuc.DataIuc";
+                "TLV [69.1]: UsOfdmaDataIuc.DataIuc
+                 non-defaults: [is_key: True]";
         }
 
         leaf StartMinislot {
             tlv:id 2;
             type uint8;
             description
-                "TLV [69.2]: UsOfdmaDataIuc.StartMinislot";
+                "TLV [69.2]: UsOfdmaDataIuc.StartMinislot
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf FirstSubcarrierId {
             tlv:id 3;
             type uint16;
             description
-                "TLV [69.3]: UsOfdmaDataIuc.FirstSubcarrierId";
+                "TLV [69.3]: UsOfdmaDataIuc.FirstSubcarrierId
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NumConsecutiveMinislots {
             tlv:id 4;
             type uint8;
             description
-                "TLV [69.4]: UsOfdmaDataIuc.NumConsecutiveMinislots";
+                "TLV [69.4]: UsOfdmaDataIuc.NumConsecutiveMinislots
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf MinislotPilotPattern {
             tlv:id 5;
             type uint8;
             description
-                "TLV [69.5]: UsOfdmaDataIuc.MinislotPilotPattern";
+                "TLV [69.5]: UsOfdmaDataIuc.MinislotPilotPattern
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf DataSymbolModulation {
@@ -104,16 +106,18 @@ module us-ofdma-data-iuc-module {
                 enum qam4096      { value 13; description ""; }
             }
             description
-                "TLV [69.6]: UsOfdmaDataIuc.DataSymbolModulation";
+                "TLV [69.6]: UsOfdmaDataIuc.DataSymbolModulation
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf OfdmaProfile {
             // no tlv:id given
             type binary;
             description
-                "TLV [69.None]: UsOfdmaDataIuc.OfdmaProfile";
+                "TLV [69.X]: UsOfdmaDataIuc.OfdmaProfile
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-    }  // UsOfdmaDataIuc-grouping
+    }  // g-UsOfdmaDataIuc grouping
 
 }

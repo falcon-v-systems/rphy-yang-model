@@ -41,17 +41,15 @@ module ndf-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping NdfConfig-grouping {
+    grouping g-NdfConfig {
         tlv:id 94;
-        description
-            "Attribute of `Object` type.
-             TLV [94]: NdfConfig";
-
+        description "TLV [94]: NdfConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [94.None]: NdfConfig.Index";
+                "TLV [94.X]: NdfConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -63,48 +61,42 @@ module ndf-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [94.1]: NdfConfig.AdminState";
+            description "TLV [94.1]: NdfConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [94.2]: NdfConfig.CcapCoreOwner";
+            description "TLV [94.2]: NdfConfig.CcapCoreOwner";
         }
 
         leaf RfMute {
             tlv:id 3;
             type boolean;
-            description
-                "TLV [94.3]: NdfConfig.RfMute";
+            description "TLV [94.3]: NdfConfig.RfMute";
         }
 
         leaf CenterFrequency {
             tlv:id 4;
             type uint32;
             units "Hz";
-            description
-                "TLV [94.4]: NdfConfig.CenterFrequency";
+            description "TLV [94.4]: NdfConfig.CenterFrequency";
         }
 
         leaf ChannelWidth {
             tlv:id 5;
             type uint32;
             units "Hz";
-            description
-                "TLV [94.5]: NdfConfig.ChannelWidth";
+            description "TLV [94.5]: NdfConfig.ChannelWidth";
         }
 
         leaf PowerAdjust {
             tlv:id 6;
             type int16;
             units "TenthdB";
-            description
-                "TLV [94.6]: NdfConfig.PowerAdjust";
+            description "TLV [94.6]: NdfConfig.PowerAdjust";
         }
 
-    }  // NdfConfig-grouping
+    }  // g-NdfConfig grouping
 
 }

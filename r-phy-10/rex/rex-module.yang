@@ -35,12 +35,9 @@ module rex-module {
 
     // --- definitions -----------------------------------
 
-    grouping REX-grouping {
+    grouping g-REX {
         tlv:id 2;
-        description
-            "Attribute of `Object` type.
-             TLV [2]: REX";
-
-    }  // REX-grouping
+        description "TLV [2]: REX";
+    }  // g-REX grouping
 
 }

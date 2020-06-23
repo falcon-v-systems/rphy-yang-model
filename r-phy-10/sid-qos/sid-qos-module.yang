@@ -35,24 +35,21 @@ module sid-qos-module {
 
     // --- definitions -----------------------------------
 
-    grouping SidQos-grouping {
+    grouping g-SidQos {
         tlv:id 96;
-        description
-            "Attribute of `Object` type.
-             TLV [96]: SidQos";
-
+        description "TLV [96]: SidQos";
         leaf StartSid {
             tlv:id 1;
             type uint16;
             description
-                "TLV [96.1]: SidQos.StartSid";
+                "TLV [96.1]: SidQos.StartSid
+                 non-defaults: [is_key: True]";
         }
 
         leaf NumSids {
             tlv:id 2;
             type uint16;
-            description
-                "TLV [96.2]: SidQos.NumSids";
+            description "TLV [96.2]: SidQos.NumSids";
         }
 
         leaf SidSfType {
@@ -65,24 +62,21 @@ module sid-qos-module {
                 enum SegmentHeaderOn      { value  3; description ""; }
                 enum SegmentHeaderOff     { value  4; description ""; }
             }
-            description
-                "TLV [96.3]: SidQos.SidSfType";
+            description "TLV [96.3]: SidQos.SidSfType";
         }
 
         leaf SidUepiFlowId {
             tlv:id 4;
             type uint8;
-            description
-                "TLV [96.4]: SidQos.SidUepiFlowId";
+            description "TLV [96.4]: SidQos.SidUepiFlowId";
         }
 
         leaf SidFlowTag {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [96.5]: SidQos.SidFlowTag";
+            description "TLV [96.5]: SidQos.SidFlowTag";
         }
 
-    }  // SidQos-grouping
+    }  // g-SidQos grouping
 
 }

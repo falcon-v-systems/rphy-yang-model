@@ -35,17 +35,15 @@ module host-resources-storage-module {
 
     // --- definitions -----------------------------------
 
-    grouping HostResourcesStorage-grouping {
+    grouping g-HostResourcesStorage {
         tlv:id 22;
-        description
-            "Attribute of `Object` type.
-             TLV [100.22]: RpdInfo.HostResourcesStorage";
-
+        description "TLV [100.22]: RpdInfo.HostResourcesStorage";
         leaf Index {
             tlv:id 1;
             type uint32;
             description
-                "TLV [100.22.1]: RpdInfo.HostResourcesStorage.Index";
+                "TLV [100.22.1]: RpdInfo.HostResourcesStorage.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf Type {
@@ -63,15 +61,13 @@ module host-resources-storage-module {
                 enum flashMemory      { value  9; description ""; }
                 enum networkDisk      { value 10; description ""; }
             }
-            description
-                "TLV [100.22.2]: RpdInfo.HostResourcesStorage.Type";
+            description "TLV [100.22.2]: RpdInfo.HostResourcesStorage.Type";
         }
 
         leaf AllocationUnits {
             tlv:id 3;
             type uint32;
-            description
-                "TLV [100.22.3]: RpdInfo.HostResourcesStorage.AllocationUnits";
+            description "TLV [100.22.3]: RpdInfo.HostResourcesStorage.AllocationUnits";
         }
 
         leaf AllocationFailures {
@@ -84,24 +80,21 @@ module host-resources-storage-module {
         leaf Size {
             tlv:id 5;
             type uint32;
-            description
-                "TLV [100.22.5]: RpdInfo.HostResourcesStorage.Size";
+            description "TLV [100.22.5]: RpdInfo.HostResourcesStorage.Size";
         }
 
         leaf Used {
             tlv:id 6;
             type uint32;
-            description
-                "TLV [100.22.6]: RpdInfo.HostResourcesStorage.Used";
+            description "TLV [100.22.6]: RpdInfo.HostResourcesStorage.Used";
         }
 
         leaf Descr {
             tlv:id 7;
             type string;
-            description
-                "TLV [100.22.7]: RpdInfo.HostResourcesStorage.Descr";
+            description "TLV [100.22.7]: RpdInfo.HostResourcesStorage.Descr";
         }
 
-    }  // HostResourcesStorage-grouping
+    }  // g-HostResourcesStorage grouping
 
 }

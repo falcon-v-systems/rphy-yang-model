@@ -41,17 +41,13 @@ module ssd-module {
 
     // --- definitions -----------------------------------
 
-    grouping Ssd-grouping {
+    grouping g-Ssd {
         tlv:id 90;
-        description
-            "Attribute of `Object` type.
-             TLV [90]: Ssd";
-
+        description "TLV [90]: Ssd";
         leaf SsdServerAddress {
             tlv:id 1;
             type inet:ip-address;
-            description
-                "TLV [90.1]: Ssd.SsdServerAddress";
+            description "TLV [90.1]: Ssd.SsdServerAddress";
         }
 
         leaf SsdTransport {
@@ -61,15 +57,13 @@ module ssd-module {
                 enum TFTP     { value  1; description ""; }
                 enum HTTP     { value  2; description ""; }
             }
-            description
-                "TLV [90.2]: Ssd.SsdTransport";
+            description "TLV [90.2]: Ssd.SsdTransport";
         }
 
         leaf SsdFilename {
             tlv:id 3;
             type string;
-            description
-                "TLV [90.3]: Ssd.SsdFilename";
+            description "TLV [90.3]: Ssd.SsdFilename";
         }
 
         leaf SsdStatus {
@@ -84,8 +78,7 @@ module ssd-module {
                 enum CodeFileVerified     { value  6; description ""; }
                 enum CodeFileRejected     { value  7; description ""; }
             }
-            description
-                "TLV [90.4]: Ssd.SsdStatus";
+            description "TLV [90.4]: Ssd.SsdStatus";
         }
 
         leaf SsdControl {
@@ -96,31 +89,27 @@ module ssd-module {
                 enum StartSsu     { value  2; description ""; }
                 enum AbortSsu     { value  3; description ""; }
             }
-            description
-                "TLV [90.5]: Ssd.SsdControl";
+            description "TLV [90.5]: Ssd.SsdControl";
         }
 
         leaf SsdManufCvcChain {
             tlv:id 6;
             type binary;
-            description
-                "TLV [90.6]: Ssd.SsdManufCvcChain";
+            description "TLV [90.6]: Ssd.SsdManufCvcChain";
         }
 
         leaf SsdCosignerCvcChain {
             tlv:id 7;
             type binary;
-            description
-                "TLV [90.7]: Ssd.SsdCosignerCvcChain";
+            description "TLV [90.7]: Ssd.SsdCosignerCvcChain";
         }
 
         leaf SwImageIndex {
             tlv:id 8;
             type uint8;
-            description
-                "TLV [90.8]: Ssd.SwImageIndex";
+            description "TLV [90.8]: Ssd.SwImageIndex";
         }
 
-    }  // Ssd-grouping
+    }  // g-Ssd grouping
 
 }

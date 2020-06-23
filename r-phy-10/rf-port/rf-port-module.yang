@@ -35,12 +35,9 @@ module rf-port-module {
 
     // --- definitions -----------------------------------
 
-    grouping RfPort-grouping {
+    grouping g-RfPort {
         tlv:id 17;
-        description
-            "Attribute of `Object` type.
-             TLV [17]: RfPort";
-
-    }  // RfPort-grouping
+        description "TLV [17]: RfPort";
+    }  // g-RfPort grouping
 
 }

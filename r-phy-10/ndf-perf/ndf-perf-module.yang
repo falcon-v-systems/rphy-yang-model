@@ -35,17 +35,17 @@ module ndf-perf-module {
 
     // --- definitions -----------------------------------
 
-    grouping NdfPerf-grouping {
+    grouping g-NdfPerf {
         tlv:id 76;
         description
-            "Attribute of `Object` type.
-             TLV [76]: NdfPerf";
-
+            "TLV [76]: NdfPerf
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [76.None]: NdfPerf.Index";
+                "TLV [76.X]: NdfPerf.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf outDiscards {
@@ -53,7 +53,8 @@ module ndf-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [76.1]: NdfPerf.outDiscards";
+                "TLV [76.1]: NdfPerf.outDiscards
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outErrors {
@@ -61,7 +62,8 @@ module ndf-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [76.2]: NdfPerf.outErrors";
+                "TLV [76.2]: NdfPerf.outErrors
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf outPackets {
@@ -69,14 +71,16 @@ module ndf-perf-module {
             type uint64;
             units "packets";
             description
-                "TLV [76.3]: NdfPerf.outPackets";
+                "TLV [76.3]: NdfPerf.outPackets
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf discontinuityTime {
             tlv:id 4;
             type binary;
             description
-                "TLV [76.4]: NdfPerf.discontinuityTime";
+                "TLV [76.4]: NdfPerf.discontinuityTime
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf operStatusNdf {
@@ -87,9 +91,10 @@ module ndf-perf-module {
                 enum down     { value  2; description ""; }
             }
             description
-                "TLV [76.5]: NdfPerf.operStatusNdf";
+                "TLV [76.5]: NdfPerf.operStatusNdf
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // NdfPerf-grouping
+    }  // g-NdfPerf grouping
 
 }

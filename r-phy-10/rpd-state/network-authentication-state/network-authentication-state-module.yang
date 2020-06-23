@@ -35,17 +35,17 @@ module network-authentication-state-module {
 
     // --- definitions -----------------------------------
 
-    grouping NetworkAuthenticationState-grouping {
+    grouping g-NetworkAuthenticationState {
         tlv:id 2;
         description
-            "Attribute of `Object` type.
-             TLV [87.2]: RpdState.NetworkAuthenticationState";
-
+            "TLV [87.2]: RpdState.NetworkAuthenticationState
+             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         leaf NetworkAuthenticationPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [87.2.1]: RpdState.NetworkAuthenticationState.NetworkAuthenticationPortIndex";
+                "TLV [87.2.1]: RpdState.NetworkAuthenticationState.NetworkAuthenticationPortIndex
+                 non-defaults: [is_key: True, is_rcp_readonly: True, is_readonly: True]";
         }
 
         leaf NetworkAuthenticationRpdState {
@@ -59,9 +59,10 @@ module network-authentication-state-module {
                 enum OperationalNotAuthenticate   { value  5; description ""; }
             }
             description
-                "TLV [87.2.2]: RpdState.NetworkAuthenticationState.NetworkAuthenticationRpdState";
+                "TLV [87.2.2]: RpdState.NetworkAuthenticationState.NetworkAuthenticationRpdState
+                 non-defaults: [is_rcp_readonly: True, is_readonly: True]";
         }
 
-    }  // NetworkAuthenticationState-grouping
+    }  // g-NetworkAuthenticationState grouping
 
 }

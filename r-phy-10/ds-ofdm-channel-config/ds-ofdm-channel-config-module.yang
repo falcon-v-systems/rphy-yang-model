@@ -48,17 +48,15 @@ module ds-ofdm-channel-config-module {
 
     // --- definitions -----------------------------------
 
-    grouping DsOfdmChannelConfig-grouping {
+    grouping g-DsOfdmChannelConfig {
         tlv:id 63;
-        description
-            "Attribute of `Object` type.
-             TLV [63]: DsOfdmChannelConfig";
-
+        description "TLV [63]: DsOfdmChannelConfig";
         leaf Index {
             // no tlv:id given
             type uint16;
             description
-                "TLV [63.None]: DsOfdmChannelConfig.Index";
+                "TLV [63.X]: DsOfdmChannelConfig.Index
+                 non-defaults: [is_key: True]";
         }
 
         leaf AdminState {
@@ -70,22 +68,19 @@ module ds-ofdm-channel-config-module {
                 enum down     { value  3; description ""; }
                 enum testing  { value  4; description ""; }
             }
-            description
-                "TLV [63.1]: DsOfdmChannelConfig.AdminState";
+            description "TLV [63.1]: DsOfdmChannelConfig.AdminState";
         }
 
         leaf CcapCoreOwner {
             tlv:id 2;
             type yang:mac-address;
-            description
-                "TLV [63.2]: DsOfdmChannelConfig.CcapCoreOwner";
+            description "TLV [63.2]: DsOfdmChannelConfig.CcapCoreOwner";
         }
 
         leaf RfMute {
             tlv:id 3;
             type boolean;
-            description
-                "TLV [63.3]: DsOfdmChannelConfig.RfMute";
+            description "TLV [63.3]: DsOfdmChannelConfig.RfMute";
         }
 
         leaf SubcarrierZeroFreq {
@@ -93,28 +88,32 @@ module ds-ofdm-channel-config-module {
             type uint32;
             units "Hz";
             description
-                "TLV [63.4]: DsOfdmChannelConfig.SubcarrierZeroFreq";
+                "TLV [63.4]: DsOfdmChannelConfig.SubcarrierZeroFreq
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf FirstActiveSubcarrier {
             tlv:id 5;
             type uint16;
             description
-                "TLV [63.5]: DsOfdmChannelConfig.FirstActiveSubcarrier";
+                "TLV [63.5]: DsOfdmChannelConfig.FirstActiveSubcarrier
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf LastActiveSubcarrier {
             tlv:id 6;
             type uint16;
             description
-                "TLV [63.6]: DsOfdmChannelConfig.LastActiveSubcarrier";
+                "TLV [63.6]: DsOfdmChannelConfig.LastActiveSubcarrier
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf NumActiveSubcarriers {
             tlv:id 7;
             type uint16;
             description
-                "TLV [63.7]: DsOfdmChannelConfig.NumActiveSubcarriers";
+                "TLV [63.7]: DsOfdmChannelConfig.NumActiveSubcarriers
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf CyclicPrefix {
@@ -128,7 +127,8 @@ module ds-ofdm-channel-config-module {
                 enum 1024     { value  5; description ""; }
             }
             description
-                "TLV [63.8]: DsOfdmChannelConfig.CyclicPrefix";
+                "TLV [63.8]: DsOfdmChannelConfig.CyclicPrefix
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf RollOffPeriod {
@@ -142,7 +142,8 @@ module ds-ofdm-channel-config-module {
                 enum 256  { value  5; description ""; }
             }
             description
-                "TLV [63.9]: DsOfdmChannelConfig.RollOffPeriod";
+                "TLV [63.9]: DsOfdmChannelConfig.RollOffPeriod
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf PlcFreq {
@@ -150,14 +151,16 @@ module ds-ofdm-channel-config-module {
             type uint32;
             units "Hz";
             description
-                "TLV [63.10]: DsOfdmChannelConfig.PlcFreq";
+                "TLV [63.10]: DsOfdmChannelConfig.PlcFreq
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf TimeInterleaverDepth {
             tlv:id 11;
             type uint8;
             description
-                "TLV [63.11]: DsOfdmChannelConfig.TimeInterleaverDepth";
+                "TLV [63.11]: DsOfdmChannelConfig.TimeInterleaverDepth
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
         leaf SubcarrierSpacing {
@@ -168,23 +171,24 @@ module ds-ofdm-channel-config-module {
                 enum 50_KHz   { value  2; description ""; }
             }
             description
-                "TLV [63.12]: DsOfdmChannelConfig.SubcarrierSpacing";
+                "TLV [63.12]: DsOfdmChannelConfig.SubcarrierSpacing
+                 non-defaults: [is_rcp_readonly: True]";
         }
 
-        container DsOfdmSubcarrierType {
-            uses "p-ds-ofdm-subcarrier-type:DsOfdmSubcarrierType-grouping";
-            description
-                "TLV [63.13]: DsOfdmChannelConfig.DsOfdmSubcarrierType";
+        list DsOfdmSubcarrierType {
+            tlv:id 13;
+            key StartSubcarrierId;
+            description "TLV [63.13]: DsOfdmChannelConfig.DsOfdmSubcarrierType";
+            uses "p-ds-ofdm-subcarrier-type:g-DsOfdmSubcarrierType";
         }
 
         leaf PowerAdjust {
             tlv:id 14;
             type int16;
             units "TenthdB";
-            description
-                "TLV [63.14]: DsOfdmChannelConfig.PowerAdjust";
+            description "TLV [63.14]: DsOfdmChannelConfig.PowerAdjust";
         }
 
-    }  // DsOfdmChannelConfig-grouping
+    }  // g-DsOfdmChannelConfig grouping
 
 }

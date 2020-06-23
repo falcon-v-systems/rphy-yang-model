@@ -41,38 +41,33 @@ module ext-sw-image-support-module {
 
     // --- definitions -----------------------------------
 
-    grouping ExtSwImageSupport-grouping {
+    grouping g-ExtSwImageSupport {
         tlv:id 25;
-        description
-            "Attribute of `Object` type.
-             TLV [100.25]: RpdInfo.ExtSwImageSupport";
-
+        description "TLV [100.25]: RpdInfo.ExtSwImageSupport";
         leaf SwImageIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.25.1]: RpdInfo.ExtSwImageSupport.SwImageIndex";
+                "TLV [100.25.1]: RpdInfo.ExtSwImageSupport.SwImageIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf SwImageLastUpdate {
             tlv:id 2;
             type binary;
-            description
-                "TLV [100.25.2]: RpdInfo.ExtSwImageSupport.SwImageLastUpdate";
+            description "TLV [100.25.2]: RpdInfo.ExtSwImageSupport.SwImageLastUpdate";
         }
 
         leaf SwImageName {
             tlv:id 3;
             type string;
-            description
-                "TLV [100.25.3]: RpdInfo.ExtSwImageSupport.SwImageName";
+            description "TLV [100.25.3]: RpdInfo.ExtSwImageSupport.SwImageName";
         }
 
         leaf SwImageDescr {
             tlv:id 4;
             type string;
-            description
-                "TLV [100.25.4]: RpdInfo.ExtSwImageSupport.SwImageDescr";
+            description "TLV [100.25.4]: RpdInfo.ExtSwImageSupport.SwImageDescr";
         }
 
         leaf SwImageServerAddress {
@@ -82,6 +77,6 @@ module ext-sw-image-support-module {
                 "TLV [100.25.5]: RpdInfo.ExtSwImageSupport.SwImageServerAddress";
         }
 
-    }  // ExtSwImageSupport-grouping
+    }  // g-ExtSwImageSupport grouping
 
 }

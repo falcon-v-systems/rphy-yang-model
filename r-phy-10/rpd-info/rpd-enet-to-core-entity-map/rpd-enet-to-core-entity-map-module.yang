@@ -35,26 +35,23 @@ module rpd-enet-to-core-entity-map-module {
 
     // --- definitions -----------------------------------
 
-    grouping RpdEnetToCoreEntityMap-grouping {
+    grouping g-RpdEnetToCoreEntityMap {
         tlv:id 10;
-        description
-            "Attribute of `Object` type.
-             TLV [100.10]: RpdInfo.RpdEnetToCoreEntityMap";
-
+        description "TLV [100.10]: RpdInfo.RpdEnetToCoreEntityMap";
         leaf EnetPortIndex {
             tlv:id 1;
             type uint8;
             description
-                "TLV [100.10.1]: RpdInfo.RpdEnetToCoreEntityMap.EnetPortIndex";
+                "TLV [100.10.1]: RpdInfo.RpdEnetToCoreEntityMap.EnetPortIndex
+                 non-defaults: [is_key: True]";
         }
 
         leaf EntityIndex {
             tlv:id 2;
             type uint32;
-            description
-                "TLV [100.10.2]: RpdInfo.RpdEnetToCoreEntityMap.EntityIndex";
+            description "TLV [100.10.2]: RpdInfo.RpdEnetToCoreEntityMap.EntityIndex";
         }
 
-    }  // RpdEnetToCoreEntityMap-grouping
+    }  // g-RpdEnetToCoreEntityMap grouping
 
 }
