@@ -58,7 +58,7 @@ module rpd-global-module {
         description
             "Initial revision.";
         reference
-            "VCCAP-3162";
+            "https://specification-search.cablelabs.com/CM-SP-R-PHY";
     }
 
     // --- definitions -----------------------------------
