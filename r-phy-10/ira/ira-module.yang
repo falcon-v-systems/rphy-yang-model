@@ -8,10 +8,21 @@ module ira-module {
 
     // --- imports ---------------------------------------
 
-    import tlv-ext {
+    import ccap-core-identification-module {
+        prefix "p-ccap-core-identification";
+        /*  File path: ira/ccap-core-identification/ccap-core-identification-module.yang
+            https://github.com/falcon-v-systems/rphy-yang-model/blob/master/r-phy-10/ira/ccap-core-identification/ccap-core-identification-module.yang */
+    }
+
+    import rpd-capabilities-module {
+        prefix "p-rpd-capabilities";
+        /*  File path: ira/rpd-capabilities/rpd-capabilities-module.yang
+            https://github.com/falcon-v-systems/rphy-yang-model/blob/master/r-phy-10/ira/rpd-capabilities/rpd-capabilities-module.yang */
+    }
+
+    import tlv-extension {
         prefix "tlv";
-        description 
-            "Falcon's Yang extension for TLV attributes.";
+        /*  Falcon's Yang extension for TLV attributes. */
     }
 
     // --- meta ------------------------------------------
@@ -24,13 +35,14 @@ module ira-module {
          Krzemowa 6, 81-577 Gdynia, POLAND";
 
     description
-        "PoC focused on YANG adaptation";
+        "Automatically translated yang data model definition of RCP (R-PHY Control Protocol)";
 
-    revision 2020-06-13 {
+    revision 2020-07-02 {
         description
-            "Initial revision.";
+            "Second revision. Files tree is already shaped. Seems there may be still some work needed.";
         reference
-            "https://specification-search.cablelabs.com/CM-SP-R-PHY";
+            "https://specification-search.cablelabs.com/CM-SP-R-PHY
+             https://specification-search.cablelabs.com/CM-SP-R-OSSI";
     }
 
     // --- definitions -----------------------------------
@@ -38,19 +50,96 @@ module ira-module {
     grouping g-IRA {
         tlv:id 1;
         description "TLV [1]: IRA";
+
         list Sequence {
             tlv:id 9;
-            key SequenceNumber;
+            key "SequenceNumber";
             description
                 "TLV [9]: Sequence
-                 non-defaults: [no_ext_def: True]
                  No external definition.";
+
             leaf SequenceNumber {
                 tlv:id 10;
                 type uint16;
                 description "TLV [10]: SequenceNumber";
             }
 
+            leaf Operation {
+                tlv:id 11;
+                tlv:repr uint8;
+                type enumeration {
+                    enum Read                   { value  1; description ""; }
+                    enum Write                  { value  2; description ""; }
+                    enum Delete                 { value  3; description ""; }
+                    enum ReadResponse           { value  4; description ""; }
+                    enum WriteResponse          { value  5; description ""; }
+                    enum DeleteResponse         { value  6; description ""; }
+                    enum AllocateWrite          { value  7; description ""; }
+                    enum AllocateWriteResponse  { value  8; description ""; }
+                }
+                description "TLV [11]: Operation";
+            }
+
+            leaf ResponseCode {
+                tlv:id 19;
+                tlv:repr uint8;
+                type enumeration {
+                    enum NoError                { value  0; description ""; }
+                    enum GeneralError           { value  1; description ""; }
+                    enum ResponseTooBig         { value  2; description ""; }
+                    enum AttributeNotFound      { value  3; description ""; }
+                    enum BadIndex               { value  4; description ""; }
+                    enum WriteToReadOnly        { value  5; description ""; }
+                    enum InconsistentValue      { value  6; description ""; }
+                    enum WrongLength            { value  7; description ""; }
+                    enum WrongValue             { value  8; description ""; }
+                    enum ResourceUnavailable    { value  9; description ""; }
+                    enum AuthorizationFailure   { value 10; description ""; }
+                    enum AttributeMissing       { value 11; description ""; }
+                    enum AllocationFailure      { value 12; description ""; }
+                    enum AllocationNoOwner      { value 13; description ""; }
+                    enum ErrorProcessingUCD     { value 14; description ""; }
+                    enum ErrorProcessingOCD     { value 15; description ""; }
+                    enum ErrorProcessingDPD     { value 16; description ""; }
+                }
+                description "TLV [19]: ResponseCode";
+            }
+
+            leaf ErrorMessage {
+                tlv:id 20;
+                type string;
+                description "TLV [20]: ErrorMessage";
+            }
+
+            leaf ReadCount {
+                tlv:id 26;
+                type uint16;
+                description "TLV [26]: ReadCount";
+            }
+
+            choice ira-topic {
+                case RpdCapabilities {
+                    container RpdCapabilities {
+                        tlv:id 50;
+                        description
+                            "TLV [50]: RpdCapabilities
+                             non-defaults: [is_rcp_readonly: True, is_readonly: True]";
+                        uses "p-rpd-capabilities:g-RpdCapabilities";
+                    }
+                }
+
+                case CcapCoreIdentification {
+                    container CcapCoreIdentification {
+                        tlv:id 60;
+                        description "TLV [60]: CcapCoreIdentification";
+                        uses "p-ccap-core-identification:g-CcapCoreIdentification";
+                    }
+                }
+
+                description 
+                    "The choice statement defines a set of alternatives,
+                     only one of which may exist at any one time.";
+            }
         }  // Sequence list
 
     }  // g-IRA grouping

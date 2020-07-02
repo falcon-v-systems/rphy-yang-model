@@ -8,10 +8,15 @@ module ntf-module {
 
     // --- imports ---------------------------------------
 
-    import tlv-ext {
+    import general-notification-module {
+        prefix "p-general-notification";
+        /*  File path: ntf/general-notification/general-notification-module.yang
+            https://github.com/falcon-v-systems/rphy-yang-model/blob/master/r-phy-10/ntf/general-notification/general-notification-module.yang */
+    }
+
+    import tlv-extension {
         prefix "tlv";
-        description 
-            "Falcon's Yang extension for TLV attributes.";
+        /*  Falcon's Yang extension for TLV attributes. */
     }
 
     // --- meta ------------------------------------------
@@ -24,13 +29,14 @@ module ntf-module {
          Krzemowa 6, 81-577 Gdynia, POLAND";
 
     description
-        "PoC focused on YANG adaptation";
+        "Automatically translated yang data model definition of RCP (R-PHY Control Protocol)";
 
-    revision 2020-06-13 {
+    revision 2020-07-02 {
         description
-            "Initial revision.";
+            "Second revision. Files tree is already shaped. Seems there may be still some work needed.";
         reference
-            "https://specification-search.cablelabs.com/CM-SP-R-PHY";
+            "https://specification-search.cablelabs.com/CM-SP-R-PHY
+             https://specification-search.cablelabs.com/CM-SP-R-OSSI";
     }
 
     // --- definitions -----------------------------------
@@ -38,6 +44,50 @@ module ntf-module {
     grouping g-NTF {
         tlv:id 3;
         description "TLV [3]: NTF";
+
+        list Sequence {
+            tlv:id 9;
+            key "SequenceNumber";
+            description
+                "TLV [9]: Sequence
+                 No external definition.";
+
+            leaf SequenceNumber {
+                tlv:id 10;
+                type uint16;
+                description "TLV [10]: SequenceNumber";
+            }
+
+            leaf Operation {
+                tlv:id 11;
+                tlv:repr uint8;
+                type enumeration {
+                    enum Write  { value  2; description ""; }
+                }
+                description "TLV [11]: Operation";
+            }
+
+            leaf ErrorMessage {
+                tlv:id 20;
+                type string;
+                description "TLV [20]: ErrorMessage";
+            }
+
+            choice ntf-topic {
+                case GeneralNotification {
+                    container GeneralNotification {
+                        tlv:id 86;
+                        description "TLV [86]: GeneralNotification";
+                        uses "p-general-notification:g-GeneralNotification";
+                    }
+                }
+
+                description 
+                    "The choice statement defines a set of alternatives,
+                     only one of which may exist at any one time.";
+            }
+        }  // Sequence list
+
     }  // g-NTF grouping
 
 }

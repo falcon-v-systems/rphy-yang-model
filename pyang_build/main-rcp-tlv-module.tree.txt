@@ -1,0 +1,1195 @@
+module: main-rcp-tlv-module
+  +--rw IRA
+  |  +--rw Sequence* [SequenceNumber]
+  |     +--rw SequenceNumber                  uint16
+  |     +--rw Operation?                      enumeration
+  |     +--rw ResponseCode?                   enumeration
+  |     +--rw ErrorMessage?                   string
+  |     +--rw ReadCount?                      uint16
+  |     +--rw (ira-topic)?
+  |        +--:(RpdCapabilities)
+  |        |  +--rw RpdCapabilities
+  |        |     +--rw NumBdirPorts?                            uint16
+  |        |     +--rw NumDsRfPorts?                            uint16
+  |        |     +--rw NumUsRfPorts?                            uint16
+  |        |     +--rw NumTenGeNsPorts?                         uint16
+  |        |     +--rw NumOneGeNsPorts?                         uint16
+  |        |     +--rw NumDsScQamChannels?                      uint16
+  |        |     +--rw NumDsOfdmChannels?                       uint16
+  |        |     +--rw NumUsScQamChannels?                      uint16
+  |        |     +--rw NumUsOfdmaChannels?                      uint16
+  |        |     +--rw NumDsOob55d1Channels?                    enumeration
+  |        |     +--rw NumUsOob55d1Channels?                    uint16
+  |        |     +--rw NumOob55d2Modules?                       uint16
+  |        |     +--rw NumUsOob55d2Demodulators?                uint16
+  |        |     +--rw NumNdfChannels?                          uint16
+  |        |     +--rw NumNdrChannels?                          uint16
+  |        |     +--rw SupportsUdpEncap?                        boolean
+  |        |     +--rw NumDsPspFlows?                           uint8
+  |        |     +--rw NumUsPspFlows?                           uint8
+  |        |     +--rw RpdIdentification
+  |        |     |  +--rw VendorName?                     string
+  |        |     |  +--rw VendorId?                       uint16
+  |        |     |  +--rw ModelNumber?                    string
+  |        |     |  +--rw DeviceMacAddress?               yang:mac-address
+  |        |     |  +--rw CurrentSwVersion?               string
+  |        |     |  +--rw BootRomVersion?                 string
+  |        |     |  +--rw DeviceDescription?              string
+  |        |     |  +--rw DeviceAlias?                    string
+  |        |     |  +--rw SerialNumber?                   string
+  |        |     |  +--rw UsBurstReceiverVendorId?        uint16
+  |        |     |  +--rw UsBurstReceiverModelNumber?     string
+  |        |     |  +--rw UsBurstReceiverDriverVersion?   string
+  |        |     |  +--rw UsBurstReceiverSerialNumber?    string
+  |        |     |  +--rw RpdRcpProtocolVersion?          string
+  |        |     |  +--rw RpdRcpSchemaVersion?            string
+  |        |     |  +--rw HwRevision?                     string
+  |        |     |  +--rw AssetId?                        string
+  |        |     |  +--rw VspSelector?                    string
+  |        |     |  +--rw CurrentSwImageLastUpdate?       binary
+  |        |     |  +--rw CurrentSwImageName?             string
+  |        |     |  +--rw CurrentSwImageServer?           inet:ip-address
+  |        |     |  +--rw CurrentSwImageIndex?            uint8
+  |        |     +--rw LcceChannelReachability* [EnetPortIndex ChannelType RfPortIndex]
+  |        |     |  +--rw EnetPortIndex        uint8
+  |        |     |  +--rw ChannelType          enumeration
+  |        |     |  +--rw RfPortIndex          uint8
+  |        |     |  +--rw StartChannelIndex?   uint8
+  |        |     |  +--rw EndChannelIndex?     uint8
+  |        |     +--rw PilotToneCapabilities
+  |        |     |  +--rw NumCwToneGens?       uint8
+  |        |     |  +--rw LowestCwToneFreq?    uint32
+  |        |     |  +--rw HighestCwToneFreq?   uint32
+  |        |     |  +--rw MaxPowerDedCwTone?   uint16
+  |        |     |  +--rw QamAsPilot?          boolean
+  |        |     |  +--rw MinPowerDedCwTone?   int16
+  |        |     |  +--rw MaxPowerQamCwTone?   uint16
+  |        |     |  +--rw MinPowerQamCwTone?   int16
+  |        |     +--rw AllocDsChanResources* [DsPortIndex]
+  |        |     |  +--rw DsPortIndex                   uint8
+  |        |     |  +--rw AllocatedDsOfdmChannels?      uint16
+  |        |     |  +--rw AllocatedDsScQamChannels?     uint16
+  |        |     |  +--rw AllocatedDsOob55d1Channels?   uint16
+  |        |     |  +--rw Deprecated?                   uint16
+  |        |     |  +--rw AllocatedNdfChannels?         uint16
+  |        |     +--rw AllocUsChanResources* [UsPortIndex]
+  |        |     |  +--rw UsPortIndex                   uint8
+  |        |     |  +--rw AllocatedUsOfdmaChannels?     uint16
+  |        |     |  +--rw AllocatedUsScQamChannels?     uint16
+  |        |     |  +--rw AllocatedUsOob55d1Channels?   uint16
+  |        |     |  +--rw Deprecated?                   uint16
+  |        |     |  +--rw AllocatedNdrChannels?         uint16
+  |        |     +--rw DeviceLocation
+  |        |     |  +--rw DeviceLocationDescription?   string
+  |        |     |  +--rw GeoLocationLatitude?         string
+  |        |     |  +--rw GeoLocationLongitude?        string
+  |        |     +--rw NumAsyncVideoChannels?                   uint8
+  |        |     +--rw SupportsFlowTags?                        boolean
+  |        |     +--rw SupportsFrequencyTilt?                   boolean
+  |        |     +--rw MaxTiltValue?                            uint16
+  |        |     +--rw BufferDepthMonitorAlertSupport?          uint8
+  |        |     +--rw BufferDepthConfigurationSupport?         uint8
+  |        |     +--rw RpdUcdProcessingTime?                    uint16
+  |        |     +--rw RpdUcdChangeNullGrantTime?               uint16
+  |        |     +--rw SupportMultiSectionTimingMerReporting?   enumeration
+  |        |     +--rw RdtiCapabilities
+  |        |     |  +--rw NumPtpPortsPerEnetPort?   uint8
+  |        |     +--rw MaxDsPspSegCount?                        uint8
+  |        |     +--rw DirectDsFlowQueueMapping?                uint8
+  |        |     +--rw DsSchedulerPhbIdList?                    binary
+  |        |     +--rw RpdPendingEvRepQueueSize?                uint16
+  |        |     +--rw RpdLocalEventLogSize?                    uint32
+  |        |     +--rw SupportsOpticalNodeRf?                   enumeration
+  |        |     +--rw MaxDsFrequency?                          uint32
+  |        |     +--rw MinDsFrequency?                          uint32
+  |        |     +--rw MaxBasePower?                            uint16
+  |        |     +--rw MinTiltValue?                            int16
+  |        |     +--rw MinPowerAdjustScQam?                     int16
+  |        |     +--rw MaxPowerAdjustScQam?                     uint16
+  |        |     +--rw MinPowerAdjustOfdm?                      int16
+  |        |     +--rw MaxPowerAdjustOfdm?                      uint16
+  |        |     +--rw UsPowerCapabilities
+  |        |     |  +--rw MinBaseUsPowerTargetLevel?     int16
+  |        |     |  +--rw MaxBaseUsPowerTargetLevel?     int16
+  |        |     |  +--rw MinTargetRxPowerAdjustScqam?   int16
+  |        |     |  +--rw MaxTargetRxPowerAdjustScqam?   int16
+  |        |     |  +--rw MinTargetRxPowerAdjustOfdma?   int16
+  |        |     |  +--rw MaxTargetRxPowerAdjustOfdma?   int16
+  |        |     |  +--rw MinTargetRxPowerAdjustNdr?     int16
+  |        |     |  +--rw MaxTargetRxPowerAdjustNdr?     int16
+  |        |     +--rw StaticPwCapabilities
+  |        |     |  +--rw MaxFwdStaticPws?        uint16
+  |        |     |  +--rw MaxRetStaticPws?        uint16
+  |        |     |  +--rw SupportsMptDepiPw?      boolean
+  |        |     |  +--rw SupportsMpt55d1RetPw?   boolean
+  |        |     |  +--rw SupportsPspNdfPw?       boolean
+  |        |     |  +--rw SupportsPspNdrPw?       boolean
+  |        |     +--rw DsCapabilities
+  |        |     |  +--rw DsScqamInterleverSupport?        uint32
+  |        |     |  +--rw DsMaxDocsisScQamChannels?        uint16
+  |        |     |  +--rw DsMaxMultipleScQamPspSessions?   uint16
+  |        |     +--rw GcpCapabilities
+  |        |     |  +--rw GcpKaResponseTime?   uint16
+  |        |     +--rw SwImageCapabilities
+  |        |     |  +--rw NumSwImages?           uint8
+  |        |     |  +--rw ImageUpgradeability?   uint8
+  |        |     +--rw OfdmConfigurationCapabilities
+  |        |     |  +--rw RequiresOfdmaImDurationConfig?   boolean
+  |        |     +--rw ResetCapabilities
+  |        |     |  +--rw SoftResetSupported?      boolean
+  |        |     |  +--rw NvResetSupported?        boolean
+  |        |     |  +--rw FactoryResetSupported?   boolean
+  |        |     +--rw RpdCoreRedundancyCapabilities
+  |        |     |  +--rw HandoverToBackup?    boolean
+  |        |     |  +--rw ConnectionStatus?    boolean
+  |        |     |  +--rw ReconnectFromCore?   boolean
+  |        |     +--rw FdxCapabilities
+  |        |     |  +--rw SupportFdx?            boolean
+  |        |     |  +--rw SupportZblInsertion?   boolean
+  |        |     |  +--rw ZblInsMsgLeadTime?     uint16
+  |        |     +--rw UsProfileQuerySupported?                 boolean
+  |        |     +--rw SpectrumCaptureCapabilities
+  |        |        +--rw NumSacs?           uint8
+  |        |        +--rw SacCapabilities
+  |        |           +--rw SacIndex?                        uint8
+  |        |           +--rw SacDescription?                  string
+  |        |           +--rw MaxCaptureSpan?                  uint32
+  |        |           +--rw MinimumCaptureFrequency?         uint32
+  |        |           +--rw MaximumCaptureFrequency?         uint32
+  |        |           +--rw SupportedTriggerModes?           uint32
+  |        |           +--rw SupportedOutputFormats?          uint32
+  |        |           +--rw SupportedWindowFormats?          uint32
+  |        |           +--rw SupportsAveraging?               boolean
+  |        |           +--rw SupportedAggregationMethods?     uint32
+  |        |           +--rw SupportsSpectrumQualification?   boolean
+  |        |           +--rw MaxNumBins?                      uint16
+  |        |           +--rw MinNumBins?                      uint16
+  |        |           +--rw MinRepeatPeriod?                 uint32
+  |        |           +--rw SupportedTrigChanTypes?          uint8
+  |        |           +--rw PwType?                          enumeration
+  |        |           +--rw LowestCapturePort?               uint8
+  |        |           +--rw HighestCapturePort?              uint8
+  |        |           +--rw SupportsScanningCapture?         boolean
+  |        |           +--rw MinScanningRepeatPeriod?         uint32
+  |        +--:(CcapCoreIdentification)
+  |           +--rw CcapCoreIdentification
+  |              +--rw Index?                          uint8
+  |              +--rw CoreId?                         yang:mac-address
+  |              +--rw CoreIpAddress?                  inet:ip-address
+  |              +--rw IsPrincipal?                    boolean
+  |              +--rw CoreName?                       string
+  |              +--rw VendorId?                       uint16
+  |              +--rw CoreMode?                       enumeration
+  |              +--rw InitialConfigurationComplete?   boolean
+  |              +--rw MoveToOperational?              boolean
+  |              +--rw CoreFunction?                   uint16
+  |              +--rw ResourceSetIndex?               uint8
+  |              +--rw Deprecated?                     uint16
+  |              +--rw GcpBackupConnectionConfig?      uint16
+  |              +--rw CandidateBackupCoreTable
+  |                 +--rw Index?                 uint8
+  |                 +--rw BackupCoreIpAddress?   inet:ip-address
+  +--rw REX
+  |  +--rw Sequence* [SequenceNumber]
+  |     +--rw SequenceNumber                        uint16
+  |     +--rw Operation?                            enumeration
+  |     +--rw ResponseCode?                         enumeration
+  |     +--rw ErrorMessage?                         string
+  |     +--rw ReadCount?                            uint16
+  |     +--rw (rex-topic)?
+  |        +--:(EnetPortIndex)
+  |        |  +--rw EnetPortIndex?                  uint8
+  |        +--:(RpdGlobal)
+  |        |  +--rw RpdGlobal
+  |        |     +--rw EvCfg
+  |        |     |  +--rw EvControl* [EvPriority]
+  |        |     |  |  +--rw EvPriority     enumeration
+  |        |     |  |  +--rw EvReporting?   enumeration
+  |        |     |  +--rw EvThrottleAdminStatus?   enumeration
+  |        |     |  +--rw EvThrottleThreshold?     uint32
+  |        |     |  +--rw EvThrottleInterval?      uint32
+  |        |     |  +--rw NotifyEnable?            boolean
+  |        |     +--rw GcpConnVerification
+  |        |     |  +--rw CoreId?                   binary
+  |        |     |  +--rw MaxGcpIdleTime?           uint16
+  |        |     |  +--rw GcpRecoveryAction?        enumeration
+  |        |     |  +--rw GcpRecoveryActionRetry?   uint8
+  |        |     |  +--rw GcpRecoveryActionDelay?   uint16
+  |        |     |  +--rw GcpReconnectTimeout?      uint16
+  |        |     |  +--rw GcpHandoverTimeout?       uint16
+  |        |     +--rw IpConfig
+  |        |     |  +--rw IpStackControl?   enumeration
+  |        |     +--rw UepiControl
+  |        |     |  +--rw ScQamUseRngPw?             boolean
+  |        |     |  +--rw OfdmaMaxNumPayloadUnits?   uint8
+  |        |     |  +--rw OfdmaMaxNumTrailerUnits?   uint8
+  |        |     +--rw GcpDscp?               uint8
+  |        +--:(RfChannel)
+  |        |  +--rw RfChannel
+  |        |     +--rw RfChannelSelector
+  |        |     |  +--rw RfPortIndex?          uint8
+  |        |     |  +--rw RfChannelType?        enumeration
+  |        |     |  +--rw RfChannelIndex?       uint8
+  |        |     |  +--rw Oob55d2ModuleIndex?   uint8
+  |        |     |  +--rw Oob55d2DemodIndex?    uint8
+  |        |     +--rw DocsisMsg?                    binary
+  |        |     +--rw (channel-topic)?
+  |        |        +--:(DsScQamChannelConfig)
+  |        |        |  +--rw DsScQamChannelConfig* [Index]
+  |        |        |     +--rw Index                         uint16
+  |        |        |     +--rw AdminState?                   enumeration
+  |        |        |     +--rw CcapCoreOwner?                yang:mac-address
+  |        |        |     +--rw RfMute?                       boolean
+  |        |        |     +--rw TSID?                         uint16
+  |        |        |     +--rw CenterFrequency?              uint32
+  |        |        |     +--rw OperationalMode?              enumeration
+  |        |        |     +--rw Modulation?                   enumeration
+  |        |        |     +--rw InterleaverDepth?             enumeration
+  |        |        |     +--rw Annex?                        enumeration
+  |        |        |     +--rw SyncInterval?                 uint8
+  |        |        |     +--rw SyncMacAddress?               yang:mac-address
+  |        |        |     +--rw SymbolFrequencyDenominator?   uint16
+  |        |        |     +--rw SymbolFrequencyNumerator?     uint16
+  |        |        |     +--rw SymbolRateOverride?           uint32
+  |        |        |     +--rw SpectrumInversionEnabled?     boolean
+  |        |        |     +--rw PowerAdjust?                  int16
+  |        |        +--:(DsOfdmChannelConfig)
+  |        |        |  +--rw DsOfdmChannelConfig* [Index]
+  |        |        |     +--rw Index                    uint16
+  |        |        |     +--rw AdminState?              enumeration
+  |        |        |     +--rw CcapCoreOwner?           yang:mac-address
+  |        |        |     +--rw RfMute?                  boolean
+  |        |        |     +--rw SubcarrierZeroFreq?      uint32
+  |        |        |     +--rw FirstActiveSubcarrier?   uint16
+  |        |        |     +--rw LastActiveSubcarrier?    uint16
+  |        |        |     +--rw NumActiveSubcarriers?    uint16
+  |        |        |     +--rw CyclicPrefix?            enumeration
+  |        |        |     +--rw RollOffPeriod?           enumeration
+  |        |        |     +--rw PlcFreq?                 uint32
+  |        |        |     +--rw TimeInterleaverDepth?    uint8
+  |        |        |     +--rw SubcarrierSpacing?       enumeration
+  |        |        |     +--rw DsOfdmSubcarrierType* [StartSubcarrierId]
+  |        |        |     |  +--rw StartSubcarrierId    uint16
+  |        |        |     |  +--rw EndSubcarrierId?     uint16
+  |        |        |     |  +--rw SubcarrierUsage?     enumeration
+  |        |        |     +--rw PowerAdjust?             int16
+  |        |        +--:(UsScQamChannelConfig)
+  |        |        |  +--rw UsScQamChannelConfig* [Index]
+  |        |        |     +--rw Index                       uint16
+  |        |        |     +--rw AdminState?                 enumeration
+  |        |        |     +--rw CcapCoreOwner?              yang:mac-address
+  |        |        |     +--rw ChannelType?                enumeration
+  |        |        |     +--rw CenterFrequency?            uint32
+  |        |        |     +--rw Width?                      enumeration
+  |        |        |     +--rw SlotSize?                   enumeration
+  |        |        |     +--rw StartingMinislot?           uint32
+  |        |        |     +--rw PreambleString?             binary
+  |        |        |     +--rw TargetRxPowerAdjust?        int16
+  |        |        |     +--rw IntervalUsageCode* [Code]
+  |        |        |     |  +--rw Code                        uint8
+  |        |        |     |  +--rw DifferentialEncoding?       boolean
+  |        |        |     |  +--rw FecErrorCorrectionT?        uint8
+  |        |        |     |  +--rw FecCodewordLength?          uint8
+  |        |        |     |  +--rw PreambleLen?                uint16
+  |        |        |     |  +--rw PreambleOffset?             uint16
+  |        |        |     |  +--rw PreambleModType?            enumeration
+  |        |        |     |  +--rw Scrambler?                  boolean
+  |        |        |     |  +--rw ScramblerSeed?              uint16
+  |        |        |     |  +--rw MaxBurstSize?               uint8
+  |        |        |     |  +--rw LastCodewordShortened?      boolean
+  |        |        |     |  +--rw ByteInterleaverDepth?       uint8
+  |        |        |     |  +--rw ByteInterleaverBlockSize?   uint16
+  |        |        |     |  +--rw ModulationType?             enumeration
+  |        |        |     |  +--rw GuardTime?                  uint8
+  |        |        |     +--rw EqualizationCoeffEnable?    boolean
+  |        |        |     +--rw IngressNoiseCancelEnable?   boolean
+  |        |        |     +--rw UsChanId?                   uint8
+  |        |        |     +--rw ConfigChangeCount?          uint8
+  |        |        |     +--rw DsChanId?                   uint8
+  |        |        +--:(UsOfdmaChannelConfig)
+  |        |        |  +--rw UsOfdmaChannelConfig* [Index]
+  |        |        |     +--rw Index                          uint16
+  |        |        |     +--rw AdminState?                    enumeration
+  |        |        |     +--rw CcapCoreOwner?                 yang:mac-address
+  |        |        |     +--rw SubcarrierZeroFreq?            uint32
+  |        |        |     +--rw FirstActiveSubcarrierNum?      uint16
+  |        |        |     +--rw LastActiveSubcarrierNum?       uint16
+  |        |        |     +--rw RollOffPeriod?                 enumeration
+  |        |        |     +--rw CyclicPrefix?                  enumeration
+  |        |        |     +--rw SubcarrierSpacing?             enumeration
+  |        |        |     +--rw NumSymbolsPerFrame?            uint8
+  |        |        |     +--rw NumActiveSubcarriers?          uint16
+  |        |        |     +--rw StartingMinislot?              uint32
+  |        |        |     +--rw PreambleString?                binary
+  |        |        |     +--rw TargetRxPowerAdjust?           uint16
+  |        |        |     +--rw EnableFlowTags?                boolean
+  |        |        |     +--rw ScramblerSeed?                 uint32
+  |        |        |     +--rw ConfigMultiSectionTimingMer?   binary
+  |        |        |     +--rw BwReqAggrControlOfdma
+  |        |        |     |  +--rw MaxReqBlockEnqTimeout?   uint16
+  |        |        |     |  +--rw MaxReqBlockEnqNumber?    uint8
+  |        |        |     +--rw UsChanId?                      uint8
+  |        |        |     +--rw ConfigChangeCount?             uint8
+  |        |        |     +--rw DsChanId?                      uint8
+  |        |        |     +--rw BroadcastImRegionDuration?     uint8
+  |        |        |     +--rw UnicastImRegionDuration?       uint8
+  |        |        +--:(DsScQamChannelPerf)
+  |        |        |  +--rw DsScQamChannelPerf* [Index]
+  |        |        |     +--rw Index                uint16
+  |        |        |     +--rw outDiscards?         uint64
+  |        |        |     +--rw outErrors?           uint64
+  |        |        |     +--rw outPackets?          uint64
+  |        |        |     +--rw discontinuityTime?   binary
+  |        |        |     +--rw operStatusDsScQam?   enumeration
+  |        |        +--:(DsOfdmChannelPerf)
+  |        |        |  +--rw DsOfdmChannelPerf* [Index]
+  |        |        |     +--rw Index                    uint16
+  |        |        |     +--rw outDiscards?             uint64
+  |        |        |     +--rw outErrors?               uint64
+  |        |        |     +--rw DsOfdmProfilePerf
+  |        |        |     |  +--rw ProfileIndex?   uint8
+  |        |        |     |  +--rw outCodewords?   uint64
+  |        |        |     +--rw outPackets?              uint64
+  |        |        |     +--rw discontinuityTime?       binary
+  |        |        |     +--rw DsOfdmPlcPerf
+  |        |        |     |  +--rw outDiscards?         uint64
+  |        |        |     |  +--rw outErrors?           uint64
+  |        |        |     |  +--rw outPackets?          uint64
+  |        |        |     |  +--rw discontinuityTime?   binary
+  |        |        |     +--rw operStatusDsOfdm?        enumeration
+  |        |        |     +--rw PlcFrameTimeAlignment?   uint64
+  |        |        +--:(DsOob551Perf)
+  |        |        |  +--rw DsOob551Perf
+  |        |        |     +--rw outDiscards?          uint64
+  |        |        |     +--rw outErrors?            uint64
+  |        |        |     +--rw outPackets?           uint64
+  |        |        |     +--rw discontinuityTime?    binary
+  |        |        |     +--rw operStatusDsOob551?   enumeration
+  |        |        +--:(DsOob552Perf)
+  |        |        |  +--rw DsOob552Perf
+  |        |        |     +--rw outDiscards?          uint64
+  |        |        |     +--rw outErrors?            uint64
+  |        |        |     +--rw outPackets?           uint64
+  |        |        |     +--rw discontinuityTime?    binary
+  |        |        |     +--rw operStatusDsOob552?   enumeration
+  |        |        +--:(NdfPerf)
+  |        |        |  +--rw NdfPerf* [Index]
+  |        |        |     +--rw Index                uint16
+  |        |        |     +--rw outDiscards?         uint64
+  |        |        |     +--rw outErrors?           uint64
+  |        |        |     +--rw outPackets?          uint64
+  |        |        |     +--rw discontinuityTime?   binary
+  |        |        |     +--rw operStatusNdf?       enumeration
+  |        |        +--:(UsScQamChannelPerf)
+  |        |        |  +--rw UsScQamChannelPerf* [Index]
+  |        |        |     +--rw Index                    uint16
+  |        |        |     +--rw UsScChanLowIucStats
+  |        |        |     |  +--rw UsIuc?                    enumeration
+  |        |        |     |  +--rw UnicastOpportunities?     uint64
+  |        |        |     |  +--rw UnicastOpCollisions?      uint64
+  |        |        |     |  +--rw UnicastOpNoEnergy?        uint64
+  |        |        |     |  +--rw UnicastOpErrors?          uint64
+  |        |        |     |  +--rw MulticastOpportunities?   uint64
+  |        |        |     |  +--rw McastOpCollisions?        uint64
+  |        |        |     |  +--rw McastOpNoEnergy?          uint64
+  |        |        |     |  +--rw McastOpErrors?            uint64
+  |        |        |     |  +--rw GoodFecCw?                uint64
+  |        |        |     |  +--rw CorrectedFecCw?           uint64
+  |        |        |     |  +--rw UncorrectFecCw?           uint64
+  |        |        |     +--rw UsScChanHiIucStats
+  |        |        |     |  +--rw UsIuc?              enumeration
+  |        |        |     |  +--rw ScheduledGrants?    uint64
+  |        |        |     |  +--rw NoEnergyBursts?     uint64
+  |        |        |     |  +--rw NoPreambleBursts?   uint64
+  |        |        |     |  +--rw ErrorBursts?        uint64
+  |        |        |     |  +--rw GoodFecCw?          uint64
+  |        |        |     |  +--rw CorrectedFecCw?     uint64
+  |        |        |     |  +--rw UncorrectFecCw?     uint64
+  |        |        |     +--rw HcsErrors?               uint64
+  |        |        |     +--rw LateMaps?                uint64
+  |        |        |     +--rw IllegalMaps?             uint64
+  |        |        |     +--rw DiscardedRequests?       uint64
+  |        |        |     +--rw ChannelSnr?              uint16
+  |        |        |     +--rw discontinuityTime?       binary
+  |        |        |     +--rw operStatusUsScQam?       enumeration
+  |        |        |     +--rw UcdRefreshStatusScqam
+  |        |        |        +--rw UcdRefreshRequestScqam?   boolean
+  |        |        |        +--rw UcdRefreshReasonScqam?    string
+  |        |        +--:(UsOfdmaChannelPerf)
+  |        |        |  +--rw UsOfdmaChannelPerf* [Index]
+  |        |        |     +--rw Index                     uint16
+  |        |        |     +--rw UsOfdmaChanLowIucStats
+  |        |        |     |  +--rw UsIuc?                    enumeration
+  |        |        |     |  +--rw UnicastOpportunities?     uint64
+  |        |        |     |  +--rw UnicastOpCollisions?      uint64
+  |        |        |     |  +--rw UnicastOpNoEnergy?        uint64
+  |        |        |     |  +--rw UnicastOpErrors?          uint64
+  |        |        |     |  +--rw MulticastOpportunities?   uint64
+  |        |        |     |  +--rw McastOpCollisions?        uint64
+  |        |        |     |  +--rw McastOpNoEnergy?          uint64
+  |        |        |     |  +--rw McastOpErrors?            uint64
+  |        |        |     |  +--rw NumPredecodePass?         uint64
+  |        |        |     |  +--rw NumPostdecodePass?        uint64
+  |        |        |     |  +--rw NumPostdecodeFail?        uint64
+  |        |        |     +--rw UsOfdmaHiIucStats
+  |        |        |     |  +--rw UsIuc?               enumeration
+  |        |        |     |  +--rw ScheduledGrants?     uint64
+  |        |        |     |  +--rw NoEnergyBursts?      uint64
+  |        |        |     |  +--rw NoPreambleBursts?    uint64
+  |        |        |     |  +--rw ErrorBursts?         uint64
+  |        |        |     |  +--rw NumPredecodePass?    uint64
+  |        |        |     |  +--rw NumPostdecodePass?   uint64
+  |        |        |     |  +--rw NumPostdecodeFail?   uint64
+  |        |        |     |  +--rw AverageMer?          uint16
+  |        |        |     +--rw HcsErrors?                uint64
+  |        |        |     +--rw LateMaps?                 uint64
+  |        |        |     +--rw IllegalMaps?              uint64
+  |        |        |     +--rw DiscardedRequests?        uint64
+  |        |        |     +--rw ProbeGrants?              uint64
+  |        |        |     +--rw discontinuityTime?        binary
+  |        |        |     +--rw operStatusUsScQam?        enumeration
+  |        |        |     +--rw UcdRefreshStatusOfdma
+  |        |        |        +--rw UcdRefreshRequestOfdma?   boolean
+  |        |        |        +--rw UcdRefreshReasonOfdma?    string
+  |        |        +--:(UsOob551Perf)
+  |        |        |  +--rw UsOob551Perf
+  |        |        |     +--rw operStatusUsOob551?   enumeration
+  |        |        +--:(UsOob552Perf)
+  |        |        |  +--rw UsOob552Perf
+  |        |        |     +--rw operStatusUsOob552?   enumeration
+  |        |        +--:(NdrPerf)
+  |        |           +--rw NdrPerf* [Index]
+  |        |              +--rw Index            uint16
+  |        |              +--rw operStatusNdr?   enumeration
+  |        +--:(RfPort)
+  |        |  +--rw RfPort
+  |        |     +--rw RfPortSelector
+  |        |     |  +--rw RfPortIndex2?   uint8
+  |        |     |  +--rw RfPortType?     enumeration
+  |        |     +--rw (port-topic)?
+  |        |        +--:(DsRfPort)
+  |        |        |  +--rw DsRfPort* [PortIndex]
+  |        |        |     +--rw PortIndex               uint16
+  |        |        |     +--rw AdminState?             enumeration
+  |        |        |     +--rw BasePower?              int16
+  |        |        |     +--rw RfMute?                 boolean
+  |        |        |     +--rw TiltValue?              int16
+  |        |        |     +--rw TiltMaximumFrequency?   uint32
+  |        |        |     +--rw DedicatedToneConfig* [ToneIndex]
+  |        |        |        +--rw ToneIndex            uint8
+  |        |        |        +--rw ToneFrequency?       uint32
+  |        |        |        +--rw TonePowerAdjust?     int16
+  |        |        |        +--rw RfMute?              boolean
+  |        |        |        +--rw FrequencyFraction?   uint8
+  |        |        +--:(DsRfPortPerf)
+  |        |        |  +--rw DsRfPortPerf* [PortIndex]
+  |        |        |     +--rw PortIndex             uint16
+  |        |        |     +--rw operStatusDsRfPort?   enumeration
+  |        |        +--:(UsRfPortPerf)
+  |        |        |  +--rw UsRfPortPerf* [PortIndex]
+  |        |        |     +--rw PortIndex             uint16
+  |        |        |     +--rw operStatusUsRfPort?   enumeration
+  |        |        +--:(UsRfPort)
+  |        |           +--rw UsRfPort* [PortIndex]
+  |        |              +--rw PortIndex            uint16
+  |        |              +--rw AdminState?          enumeration
+  |        |              +--rw BwReqAggrControl
+  |        |              |  +--rw MaxReqBlockEnqTimeout?   uint16
+  |        |              |  +--rw MaxReqBlockEnqNumber?    uint8
+  |        |              +--rw BaseTargetRxPower?   int16
+  |        +--:(EnetPort)
+  |        |  +--rw EnetPort
+  |        +--:(VendorSpecificExtension)
+  |        |  +--rw VendorSpecificExtension
+  |        |     +--rw VendorId?   uint16
+  |        +--:(DocsisTimestamp32)
+  |        |  +--rw DocsisTimestamp32?              uint32
+  |        +--:(DocsisTimestamp64)
+  |        |  +--rw DocsisTimestamp64?              uint64
+  |        +--:(RpdRedirect)
+  |        |  +--rw RpdRedirect
+  |        |     +--rw RedirectIpAddress?   inet:ip-address
+  |        +--:(RpdCtrl)
+  |        |  +--rw RpdCtrl
+  |        |     +--rw ResetCtrl
+  |        |     |  +--rw Reset?   enumeration
+  |        |     +--rw LogCtrl
+  |        |     |  +--rw ResetLog?   enumeration
+  |        |     +--rw CrashDataFileCtrl
+  |        |     |  +--rw Index?         uint8
+  |        |     |  +--rw FileControl?   enumeration
+  |        |     +--rw CrashDataServerCtrl
+  |        |     |  +--rw DestIpAddress?   inet:ip-address
+  |        |     |  +--rw DestPath?        string
+  |        |     |  +--rw Protocol?        enumeration
+  |        |     +--rw RebootDisableCtrl
+  |        |        +--rw RebootDisable?    boolean
+  |        |        +--rw DisableTimeout?   uint32
+  |        +--:(UsSpectrumCapture)
+  |        |  +--rw UsSpectrumCapture
+  |        |     +--rw UscSacIndex?   uint8
+  |        |     +--rw UscCommand?    enumeration
+  |        |     +--rw UscStatus?     enumeration
+  |        |     +--rw UscConfig
+  |        |        +--rw ScCfgTrigChannelType?     enumeration
+  |        |        +--rw ScCfgTrigChannelIndex?    uint8
+  |        |        +--rw ScCfgTrigMode?            enumeration
+  |        |        +--rw ScCfgTrigMinislotCount?   uint32
+  |        |        +--rw ScCfgTrigSid?             uint16
+  |        |        +--rw ScCfgTrigTimestamp?       uint64
+  |        |        +--rw ScCfgTrigIuc?             enumeration
+  |        |        +--rw ScCfgCenterFreq?          uint32
+  |        |        +--rw ScCfgSpan?                uint32
+  |        |        +--rw ScCfgNumBins?             uint16
+  |        |        +--rw ScCfgAveraging?           uint8
+  |        |        +--rw ScCfgQualifyCenterFreq?   uint32
+  |        |        +--rw ScCfgQualifyBw?           uint32
+  |        |        +--rw ScCfgQualifyThreshold?    int8
+  |        |        +--rw ScCfgWindow?              enumeration
+  |        |        +--rw ScCfgOutputFormat?        enumeration
+  |        |        +--rw ScCfgRepeatPeriod?        uint32
+  |        |        +--rw ScCfgRunDuration?         uint32
+  |        |        +--rw ScCfgTriggerCount?        uint32
+  |        |        +--rw ScCfgAggregationMode?     enumeration
+  |        |        +--rw ScCfgAggregationPeriod?   uint32
+  |        |        +--rw ScCfgPortStart?           uint8
+  |        |        +--rw ScCfgPortEnd?             uint8
+  |        +--:(RpdPtpClockStatus)
+  |        |  +--rw RpdPtpClockStatus?              uint8
+  |        +--:(RpdConfigurationDone)
+  |        |  +--rw RpdConfigurationDone?           uint8
+  |        +--:(StaticPwConfig)
+  |        |  +--rw StaticPwConfig
+  |        |     +--rw FwdStaticPwConfig
+  |        |     |  +--rw Index?           uint16
+  |        |     |  +--rw CcapCoreOwner?   yang:mac-address
+  |        |     |  +--rw GroupAddress?    inet:ip-address
+  |        |     |  +--rw SourceAddress?   inet:ip-address
+  |        |     +--rw RetStaticPwConfig
+  |        |     |  +--rw Index?           uint16
+  |        |     |  +--rw CcapCoreOwner?   yang:mac-address
+  |        |     |  +--rw DestAddress?     inet:ip-address
+  |        |     |  +--rw MtuSize?         uint16
+  |        |     |  +--rw UsPhbId?         uint8
+  |        |     +--rw CommonStaticPwConfig* [SessionId]
+  |        |        +--rw Direction?                  enumeration
+  |        |        +--rw Index?                      uint16
+  |        |        +--rw PwType?                     enumeration
+  |        |        +--rw DepiPwSubtype?              enumeration
+  |        |        +--rw L2SublayerType?             enumeration
+  |        |        +--rw DepiL2SublayerSubtype?      enumeration
+  |        |        +--rw SessionId                   uint32
+  |        |        +--rw CircuitStatus?              uint16
+  |        |        +--rw RpdEnetPortIndex?           uint8
+  |        |        +--rw PwAssociation* [Index]
+  |        |        |  +--rw Index              uint8
+  |        |        |  +--rw ChannelSelector
+  |        |        |     +--rw RfPortIndex?    uint8
+  |        |        |     +--rw ChannelType?    enumeration
+  |        |        |     +--rw ChannelIndex?   uint8
+  |        |        +--rw EnableStatusNotification?   boolean
+  |        +--:(StaticPwStatus)
+  |        |  +--rw StaticPwStatus
+  |        |     +--rw CommonStaticPwStatus
+  |        |        +--rw Direction?          enumeration
+  |        |        +--rw Index?              uint16
+  |        |        +--rw RpdCircuitStatus?   uint16
+  |        +--:(DsOfdmProfile)
+  |        |  +--rw DsOfdmProfile* [ProfileId]
+  |        |     +--rw ProfileId                     uint8
+  |        |     +--rw DsOfdmSubcarrierModulation* [StartSubcarrierId]
+  |        |        +--rw StartSubcarrierId    uint16
+  |        |        +--rw EndSubcarrierId?     uint16
+  |        |        +--rw Modulation?          enumeration
+  |        +--:(UsOfdmaInitialRangingIuc)
+  |        |  +--rw UsOfdmaInitialRangingIuc
+  |        |     +--rw NumSubcarriers?   uint16
+  |        |     +--rw Guardband?        uint16
+  |        +--:(UsOfdmaFineRangingIuc)
+  |        |  +--rw UsOfdmaFineRangingIuc
+  |        |     +--rw NumSubcarriers?   uint16
+  |        |     +--rw Guardband?        uint16
+  |        +--:(UsOfdmaDataIuc)
+  |        |  +--rw UsOfdmaDataIuc* [DataIuc]
+  |        |     +--rw DataIuc                    enumeration
+  |        |     +--rw StartMinislot?             uint8
+  |        |     +--rw FirstSubcarrierId?         uint16
+  |        |     +--rw NumConsecutiveMinislots?   uint8
+  |        |     +--rw MinislotPilotPattern?      uint8
+  |        |     +--rw DataSymbolModulation?      enumeration
+  |        +--:(UsOfdmaSubcarrierCfg)
+  |        |  +--rw UsOfdmaSubcarrierCfg* [StartingSubcarrierId]
+  |        |     +--rw StartingSubcarrierId         uint16
+  |        |     +--rw NumConsecutiveSubcarriers?   uint16
+  |        |     +--rw SubcarrierUsage?             enumeration
+  |        +--:(OutputBufferOccupancyHistory)
+  |        |  +--rw OutputBufferOccupancyHistory
+  |        |     +--rw MaximumBufferDepth?       uint32
+  |        |     +--rw BufferDepth?              uint32
+  |        |     +--rw EnableMonitor?            boolean
+  |        |     +--rw NormalizationFactor?      uint32
+  |        |     +--rw FirstSampleTimestamp?     uint32
+  |        |     +--rw SampledBufferOccupancy?   binary
+  |        +--:(OutputBufferThresholdAlert)
+  |        |  +--rw OutputBufferThresholdAlert
+  |        |     +--rw BufferDepthMonAlertEnable?   boolean
+  |        |     +--rw BufferDepthMonAlertStatus?   enumeration
+  |        |     +--rw AlertThreshold?              uint8
+  |        |     +--rw SmoothingFactorN?            uint16
+  |        |     +--rw LastAlertTimestamp?          uint32
+  |        +--:(EventNotification)
+  |        |  +--rw EventNotification
+  |        |     +--rw RpdEvLogIndex?       uint32
+  |        |     +--rw PendingOrLocalLog?   boolean
+  |        |     +--rw EvFirstTime?         binary
+  |        |     +--rw EvLastTime?          binary
+  |        |     +--rw EvCounts?            uint32
+  |        |     +--rw EvLevel?             enumeration
+  |        |     +--rw EvId?                uint32
+  |        |     +--rw EvString?            string
+  |        +--:(RpdState)
+  |        |  +--rw RpdState
+  |        |     +--rw TopLevelRPDState?               enumeration
+  |        |     +--rw NetworkAuthenticationState* [NetworkAuthenticationPortIndex]
+  |        |     |  +--rw NetworkAuthenticationPortIndex    uint8
+  |        |     |  +--rw NetworkAuthenticationRpdState?    enumeration
+  |        |     +--rw ConnectPrincipalCoreSubState?   enumeration
+  |        |     +--rw AuxCoreState* [AuxCoreIndex AuxCoreIp]
+  |        |     |  +--rw AuxCoreIndex       uint8
+  |        |     |  +--rw AuxCoreId?         yang:mac-address
+  |        |     |  +--rw AuxCoreIp          inet:ip-address
+  |        |     |  +--rw AuxCoreRPDState?   enumeration
+  |        |     +--rw LocalPtpSyncStatus?             boolean
+  |        +--:(MultiCore)
+  |        |  +--rw MultiCore
+  |        |     +--rw ConfiguredCoreTable
+  |        |     |  +--rw Index?              uint8
+  |        |     |  +--rw ConfiguredCoreIp?   inet:ip-address
+  |        |     +--rw ResourceSet* [ResourceSetIndex]
+  |        |     |  +--rw ResourceSetIndex    uint8
+  |        |     |  +--rw CcapCoreOwner?      yang:mac-address
+  |        |     |  +--rw DsRfPortStart?      uint32
+  |        |     |  +--rw DsRfPortEnd?        uint32
+  |        |     |  +--rw DsChanGroup
+  |        |     |  |  +--rw DsChanGroupIndex?   uint32
+  |        |     |  |  +--rw DsChanType?         enumeration
+  |        |     |  |  +--rw DsChanIndexStart?   uint32
+  |        |     |  |  +--rw DsChanIndexEnd?     uint32
+  |        |     |  +--rw UsRfPortStart?      uint32
+  |        |     |  +--rw UsRfPortEnd?        uint32
+  |        |     |  +--rw UsChanGroup
+  |        |     |     +--rw UsChanGroupIndex?   int32
+  |        |     |     +--rw UsChanType?         enumeration
+  |        |     |     +--rw UsChanIndexStart?   uint32
+  |        |     |     +--rw UsChanIndexEnd?     uint32
+  |        |     +--rw PermitAuxSelfConfiguration?   boolean
+  |        |     +--rw DownChannelConstraintTable* [Index]
+  |        |     |  +--rw Index                 uint32
+  |        |     |  +--rw DownChanIndexStart?   uint32
+  |        |     |  +--rw DownChanIndexEnd?     uint32
+  |        |     |  +--rw LockParameters?       binary
+  |        |     +--rw ResourceAllocationCheck?      boolean
+  |        +--:(Ssd)
+  |        |  +--rw Ssd
+  |        |     +--rw SsdServerAddress?      inet:ip-address
+  |        |     +--rw SsdTransport?          enumeration
+  |        |     +--rw SsdFilename?           string
+  |        |     +--rw SsdStatus?             enumeration
+  |        |     +--rw SsdControl?            enumeration
+  |        |     +--rw SsdManufCvcChain?      binary
+  |        |     +--rw SsdCosignerCvcChain?   binary
+  |        |     +--rw SwImageIndex?          uint8
+  |        +--:(DsOob55d1)
+  |        |  +--rw DsOob55d1
+  |        |     +--rw AdminState?        enumeration
+  |        |     +--rw CcapCoreOwner?     yang:mac-address
+  |        |     +--rw RfMute?            boolean
+  |        |     +--rw Frequency?         uint32
+  |        |     +--rw PowerAdjust?       int16
+  |        |     +--rw SecondFrequency?   uint32
+  |        |     +--rw SfPowerAdjust?     int16
+  |        |     +--rw SfAdminState?      enumeration
+  |        |     +--rw SfRfMute?          boolean
+  |        +--:(UsOob55d1)
+  |        |  +--rw UsOob55d1* [Index]
+  |        |     +--rw Index                  uint16
+  |        |     +--rw AdminState?            enumeration
+  |        |     +--rw CcapCoreOwner?         yang:mac-address
+  |        |     +--rw Frequency?             uint32
+  |        |     +--rw VarpdDeviceId?         uint32
+  |        |     +--rw VarpdRfPortId?         uint8
+  |        |     +--rw VarpdDemodId?          uint8
+  |        |     +--rw TargetRxPowerAdjust?   int16
+  |        +--:(Oob55d2Config)
+  |        |  +--rw Oob55d2Config
+  |        |     +--rw DsCenterFrequency?   uint32
+  |        |     +--rw UsCenterFrequency?   uint32
+  |        |     +--rw CcapCoreOwner?       yang:mac-address
+  |        |     +--rw Oob55d2Module* [ModuleIndex]
+  |        |        +--rw ModuleIndex                           uint8
+  |        |        +--rw ModulatorId?                          uint8
+  |        |        +--rw ServiceChannelLastSlot?               uint16
+  |        |        +--rw DefaultRangingInterval?               uint8
+  |        |        +--rw DefaultRangingSlotConfiguration?      uint16
+  |        |        +--rw DefaultNonRangingSlotConfiguration?   uint16
+  |        |        +--rw Randomizer?                           enumeration
+  |        |        +--rw DsPowerAdjust?                        int16
+  |        |        +--rw DsPortAssociation?                    uint8
+  |        |        +--rw Oob55d2Demod* [DemodIndex]
+  |        |        |  +--rw DemodIndex           uint8
+  |        |        |  +--rw UpstreamGroupId?     uint8
+  |        |        |  +--rw MaxDhctDistance?     uint8
+  |        |        |  +--rw UsPortAssociation?   uint8
+  |        |        +--rw RfMute?                               boolean
+  |        +--:(NdfConfig)
+  |        |  +--rw NdfConfig* [Index]
+  |        |     +--rw Index              uint16
+  |        |     +--rw AdminState?        enumeration
+  |        |     +--rw CcapCoreOwner?     yang:mac-address
+  |        |     +--rw RfMute?            boolean
+  |        |     +--rw CenterFrequency?   uint32
+  |        |     +--rw ChannelWidth?      uint32
+  |        |     +--rw PowerAdjust?       int16
+  |        +--:(NdrConfig)
+  |        |  +--rw NdrConfig* [Index]
+  |        |     +--rw Index                  uint16
+  |        |     +--rw AdminState?            enumeration
+  |        |     +--rw CcapCoreOwner?         yang:mac-address
+  |        |     +--rw CenterFrequency?       uint32
+  |        |     +--rw ChannelWidth?          uint32
+  |        |     +--rw TargetRxPowerAdjust?   int16
+  |        +--:(SidQos)
+  |        |  +--rw SidQos* [StartSid]
+  |        |     +--rw StartSid         uint16
+  |        |     +--rw NumSids?         uint16
+  |        |     +--rw SidSfType?       enumeration
+  |        |     +--rw SidUepiFlowId?   uint8
+  |        |     +--rw SidFlowTag?      uint32
+  |        +--:(RdtiConfig)
+  |        |  +--rw RdtiConfig
+  |        |     +--rw RpdRdtiMode?                enumeration
+  |        |     +--rw RpdPtpDefDsDomainNumber?    uint8
+  |        |     +--rw RpdPtpDefDsPriority1?       uint8
+  |        |     +--rw RpdPtpDefDsPriority2?       uint8
+  |        |     +--rw RpdPtpDefDsLocalPriority?   uint8
+  |        |     +--rw RpdPtpProfileIdentifier?    yang:mac-address
+  |        |     +--rw RpdPtpProfileVersion?       binary
+  |        |     +--rw RpdPtpPortConfig* [RpdEnetPortIndex RpdPtpPortIndex]
+  |        |        +--rw RpdEnetPortIndex                             uint16
+  |        |        +--rw RpdPtpPortIndex                              uint16
+  |        |        +--rw RpdPtpPortAdminState?                        enumeration
+  |        |        +--rw RpdPtpPortClockSource?                       inet:ip-address
+  |        |        +--rw RpdPtpPortClockAlternateSource?              inet:ip-address
+  |        |        +--rw RpdPtpPortClockSelectAlternateSourceFirst?   boolean
+  |        |        +--rw RpdPtpPortTransportType?                     enumeration
+  |        |        +--rw RpdPtpPortTransportCos?                      uint8
+  |        |        +--rw RpdPtpPortTransportDscp?                     uint8
+  |        |        +--rw RpdPtpPortDsLocalPriority?                   uint8
+  |        |        +--rw RpdPtpPortDsLogSyncInterval?                 int8
+  |        |        +--rw RpdPtpPortDsLogAnnounceInterval?             int8
+  |        |        +--rw RpdPtpPortDsLogDelayReqInterval?             int8
+  |        |        +--rw RpdPtpPortDsAnnounceReceiptTimeout?          uint8
+  |        |        +--rw RpdPtpPortUnicastContractDuration?           uint16
+  |        |        +--rw RpdPtpPortClockSrcGw?                        inet:ip-address
+  |        |        +--rw RpdPtpPortClockAltSrcGw?                     inet:ip-address
+  |        +--:(Fft)
+  |        |  +--rw Fft
+  |        |     +--rw Sid?    uint16
+  |        |     +--rw Freq?   uint32
+  |        |     +--rw Iuc?    uint8
+  |        |     +--rw Size?   uint32
+  |        |     +--rw Mode?   uint16
+  |        +--:(RpdInfo)
+  |        |  +--rw RpdInfo
+  |        |     +--rw RpdSys
+  |        |     |  +--rw RpdSysUpTime?         uint32
+  |        |     |  +--rw NumCrashFilesAvail?   uint8
+  |        |     +--rw RpdL2tpSessionInfo* [SessionIpAddrType CcapLcceIpAddress RpdLcceIpAddr Direction L2tpSessionId]
+  |        |     |  +--rw SessionIpAddrType    enumeration
+  |        |     |  +--rw CcapLcceIpAddress    inet:ip-address
+  |        |     |  +--rw RpdLcceIpAddr        inet:ip-address
+  |        |     |  +--rw Direction            enumeration
+  |        |     |  +--rw L2tpSessionId        uint32
+  |        |     |  +--rw CoreId?              yang:mac-address
+  |        |     |  +--rw ConnCtrlId?          uint32
+  |        |     |  +--rw UdpPort?             uint16
+  |        |     |  +--rw Description?         string
+  |        |     |  +--rw SessionType?         enumeration
+  |        |     |  +--rw SessionSubType?      enumeration
+  |        |     |  +--rw MaxPayload?          uint32
+  |        |     |  +--rw PathPayload?         uint32
+  |        |     |  +--rw RpdIfMtu?            uint32
+  |        |     |  +--rw CoreIfMtu?           uint32
+  |        |     |  +--rw ErrorCode?           enumeration
+  |        |     |  +--rw CreationTime?        uint32
+  |        |     |  +--rw OperStatus?          uint8
+  |        |     |  +--rw LocalStatus?         enumeration
+  |        |     |  +--rw LastChange?          uint32
+  |        |     |  +--rw RpdSessionStats
+  |        |     |     +--rw OutOfSequencePackets?       uint32
+  |        |     |     +--rw InPackets?                  uint64
+  |        |     |     +--rw InDiscards?                 uint64
+  |        |     |     +--rw OutPackets?                 uint64
+  |        |     |     +--rw OutErrors?                  uint64
+  |        |     |     +--rw CounterDiscontinuityTime?   binary
+  |        |     +--rw DiagnosticStatus
+  |        |     |  +--rw ProbableCause?    string
+  |        |     |  +--rw AdditionalText?   string
+  |        |     |  +--rw SeverityLevel?    enumeration
+  |        |     +--rw DepiMcastSession* [IpAddrType GroupIpAddr SrcIpAddr L2tpSessionId]
+  |        |     |  +--rw IpAddrType        enumeration
+  |        |     |  +--rw GroupIpAddr       inet:ip-address
+  |        |     |  +--rw SrcIpAddr         inet:ip-address
+  |        |     |  +--rw RpdLcceIpAddr?    inet:ip-address
+  |        |     |  +--rw CcapLcceIpAddr?   inet:ip-address
+  |        |     |  +--rw L2tpSessionId     uint32
+  |        |     |  +--rw JoinTime?         binary
+  |        |     +--rw Entity* [EntityIndex]
+  |        |     |  +--rw EntityIndex     uint32
+  |        |     |  +--rw Descr?          string
+  |        |     |  +--rw VendorType?     string
+  |        |     |  +--rw ContainedIn?    uint32
+  |        |     |  +--rw Class?          enumeration
+  |        |     |  +--rw ParentRelPos?   uint32
+  |        |     |  +--rw Name?           string
+  |        |     |  +--rw HardwareRev?    string
+  |        |     |  +--rw FirmwareRev?    string
+  |        |     |  +--rw SoftwareRev?    string
+  |        |     |  +--rw SerialNum?      string
+  |        |     |  +--rw MfgName?        string
+  |        |     |  +--rw ModelName?      string
+  |        |     |  +--rw Alias?          string
+  |        |     |  +--rw AssetId?        string
+  |        |     |  +--rw IsFRU?          boolean
+  |        |     |  +--rw MfgDate?        binary
+  |        |     |  +--rw Uris?           binary
+  |        |     |  +--rw Uuid?           binary
+  |        |     +--rw Sensor* [EntityIndex]
+  |        |     |  +--rw EntityIndex        uint32
+  |        |     |  +--rw SensorType?        enumeration
+  |        |     |  +--rw Scale?             enumeration
+  |        |     |  +--rw Precision?         int8
+  |        |     |  +--rw Value?             int32
+  |        |     |  +--rw OperStatus?        enumeration
+  |        |     |  +--rw UnitsDisplay?      string
+  |        |     |  +--rw ValueTimeStamp?    uint32
+  |        |     |  +--rw ValueUpdateRate?   uint32
+  |        |     +--rw IfEnet* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex           uint8
+  |        |     |  +--rw Name?                   string
+  |        |     |  +--rw Descr?                  string
+  |        |     |  +--rw Type?                   uint16
+  |        |     |  +--rw Alias?                  string
+  |        |     |  +--rw Mtu?                    int32
+  |        |     |  +--rw PhysAddress?            yang:mac-address
+  |        |     |  +--rw AdminStatus?            enumeration
+  |        |     |  +--rw OperStatus?             enumeration
+  |        |     |  +--rw LastChange?             uint32
+  |        |     |  +--rw HighSpeed?              uint32
+  |        |     |  +--rw LinkUpDownTrapEnable?   boolean
+  |        |     |  +--rw PromiscuousMode?        boolean
+  |        |     |  +--rw ConnectorPresent?       boolean
+  |        |     +--rw IfEnetStats* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex               uint8
+  |        |     |  +--rw InOctets?                   uint64
+  |        |     |  +--rw InUnicastOctets?            uint64
+  |        |     |  +--rw InMulticastOctets?          uint64
+  |        |     |  +--rw InBroadcastOctets?          uint64
+  |        |     |  +--rw InFrames?                   uint64
+  |        |     |  +--rw InUnicastFrames?            uint64
+  |        |     |  +--rw InMulticastFrames?          uint64
+  |        |     |  +--rw InBroadcastFrames?          uint64
+  |        |     |  +--rw InDiscards?                 uint64
+  |        |     |  +--rw InErrors?                   uint64
+  |        |     |  +--rw InUnknownProtos?            uint64
+  |        |     |  +--rw OutOctets?                  uint64
+  |        |     |  +--rw OutFrames?                  uint64
+  |        |     |  +--rw OutUnicastFrames?           uint64
+  |        |     |  +--rw OutMulticastFrames?         uint64
+  |        |     |  +--rw OutBroadcastFrames?         uint64
+  |        |     |  +--rw OutDiscards?                uint64
+  |        |     |  +--rw OutErrors?                  uint64
+  |        |     |  +--rw CounterDiscontinuityTime?   binary
+  |        |     +--rw RpdEnetToCoreEntityMap* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex    uint8
+  |        |     |  +--rw EntityIndex?     uint32
+  |        |     +--rw IpInterfaceGrp
+  |        |     |  +--rw Ipv4InterfaceTableLastChange?   uint32
+  |        |     |  +--rw Ipv6InterfaceTableLastChange?   uint32
+  |        |     |  +--rw IpIfStatsTableLastChange?       uint32
+  |        |     |  +--rw Ipv4DefaultTTL?                 uint32
+  |        |     |  +--rw Ipv6DefaultHopLimit?            uint32
+  |        |     +--rw Ipv4Interface* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex     uint8
+  |        |     |  +--rw EnableStatus?     enumeration
+  |        |     |  +--rw RetransmitTime?   uint32
+  |        |     +--rw Ipv6Interface* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex          uint8
+  |        |     |  +--rw EnableStatus?          enumeration
+  |        |     |  +--rw RetransmitTime?        uint32
+  |        |     |  +--rw InterfaceIdentifier?   binary
+  |        |     |  +--rw ReachableTime?         uint32
+  |        |     +--rw IpIfStats* [IpVersion EnetPortIndex]
+  |        |     |  +--rw IpVersion            uint8
+  |        |     |  +--rw EnetPortIndex        uint8
+  |        |     |  +--rw InReceives?          uint64
+  |        |     |  +--rw InOctets?            uint64
+  |        |     |  +--rw InHdrErrors?         uint64
+  |        |     |  +--rw InNoRoutes?          uint64
+  |        |     |  +--rw InAddrErrors?        uint64
+  |        |     |  +--rw InUnknownProtos?     uint64
+  |        |     |  +--rw InTruncatedPkts?     uint64
+  |        |     |  +--rw InDiscards?          uint64
+  |        |     |  +--rw InDelivers?          uint64
+  |        |     |  +--rw OutRequests?         uint64
+  |        |     |  +--rw OutDiscards?         uint64
+  |        |     |  +--rw OutTransmits?        uint64
+  |        |     |  +--rw OutOctets?           uint64
+  |        |     |  +--rw InMcastPkts?         uint64
+  |        |     |  +--rw InMcastOctets?       uint64
+  |        |     |  +--rw OutMcastPkts?        uint64
+  |        |     |  +--rw OutMcastOctets?      uint64
+  |        |     |  +--rw DiscontinuityTime?   binary
+  |        |     |  +--rw RefreshRate?         uint32
+  |        |     +--rw IpAddress* [AddrType IpAddress]
+  |        |     |  +--rw AddrType         uint8
+  |        |     |  +--rw IpAddress        inet:ip-address
+  |        |     |  +--rw EnetPortIndex?   uint8
+  |        |     |  +--rw Type?            enumeration
+  |        |     |  +--rw PrefixLen?       uint16
+  |        |     |  +--rw Origin?          enumeration
+  |        |     |  +--rw Status?          enumeration
+  |        |     |  +--rw Created?         uint32
+  |        |     |  +--rw LastChanged?     uint32
+  |        |     +--rw IpNetToPhysical* [EnetPortIndex AddrType IpAddress]
+  |        |     |  +--rw EnetPortIndex    uint8
+  |        |     |  +--rw AddrType         enumeration
+  |        |     |  +--rw IpAddress        inet:ip-address
+  |        |     |  +--rw PhysAddress?     yang:mac-address
+  |        |     |  +--rw LastUpdated?     uint32
+  |        |     |  +--rw Type?            enumeration
+  |        |     |  +--rw State?           enumeration
+  |        |     +--rw IpDefaultRouter* [AddrType IpAddress EnetPortIndex]
+  |        |     |  +--rw AddrType         enumeration
+  |        |     |  +--rw IpAddress        inet:ip-address
+  |        |     |  +--rw EnetPortIndex    uint8
+  |        |     |  +--rw Lifetime?        uint16
+  |        |     |  +--rw Preference?      enumeration
+  |        |     +--rw SfpPlusStatus* [EnetPortIndex]
+  |        |     |  +--rw EnetPortIndex                  uint8
+  |        |     |  +--rw Status?                        enumeration
+  |        |     |  +--rw Identifier?                    enumeration
+  |        |     |  +--rw ExtendedIdentifier?            uint8
+  |        |     |  +--rw ConnectorType?                 enumeration
+  |        |     |  +--rw TransceiverComplianceCodes?    binary
+  |        |     |  +--rw TransceiverComplianceCode36?   uint8
+  |        |     |  +--rw Encoding?                      enumeration
+  |        |     |  +--rw BitRateNominal?                uint8
+  |        |     |  +--rw RateIdentifier?                enumeration
+  |        |     |  +--rw LengthKm?                      uint8
+  |        |     |  +--rw Length100M?                    uint8
+  |        |     |  +--rw Length50Mi10M?                 uint8
+  |        |     |  +--rw Length62Pt5Mi10M?              uint8
+  |        |     |  +--rw LengthCopperM?                 uint8
+  |        |     |  +--rw Length50MiOm3?                 uint8
+  |        |     |  +--rw VendorName?                    string
+  |        |     |  +--rw VendorOui?                     binary
+  |        |     |  +--rw VendorPartNum?                 string
+  |        |     |  +--rw VendorSerialNum?               string
+  |        |     |  +--rw VendorRev?                     string
+  |        |     |  +--rw LaserWavelength?               uint16
+  |        |     |  +--rw Options?                       enumeration
+  |        |     |  +--rw BitRateMax?                    uint8
+  |        |     |  +--rw BitRateMin?                    uint8
+  |        |     |  +--rw VendorDate?                    string
+  |        |     |  +--rw VendorSpecificLotCode?         string
+  |        |     |  +--rw DiagMonitorType?               enumeration
+  |        |     |  +--rw EnhancedOptions?               enumeration
+  |        |     |  +--rw Sff8472Compliance?             uint8
+  |        |     |  +--rw VendorSpecificData?            binary
+  |        |     |  +--rw MeasuredTxOutputPwr?           uint16
+  |        |     |  +--rw MeasuredRxInputPwr?            uint16
+  |        |     |  +--rw DigitalDiagA2Info?             binary
+  |        |     +--rw IcmpMsgStats* [IpVersion Type]
+  |        |     |  +--rw IpVersion    uint8
+  |        |     |  +--rw Type         uint8
+  |        |     |  +--rw InPkts?      uint64
+  |        |     |  +--rw OutPkts?     uint64
+  |        |     +--rw CrashDataFileStatus* [Index]
+  |        |     |  +--rw Index         uint8
+  |        |     |  +--rw Filename?     string
+  |        |     |  +--rw FileStatus?   enumeration
+  |        |     +--rw HostResourcesSystem
+  |        |     |  +--rw Date?   binary
+  |        |     +--rw HostResourcesStorage* [Index]
+  |        |     |  +--rw Index                 uint32
+  |        |     |  +--rw Type?                 enumeration
+  |        |     |  +--rw AllocationUnits?      uint32
+  |        |     |  +--rw AllocationFailures?   uint64
+  |        |     |  +--rw Size?                 uint32
+  |        |     |  +--rw Used?                 uint32
+  |        |     |  +--rw Descr?                string
+  |        |     +--rw HostResourcesSwRun* [Index]
+  |        |     |  +--rw Index      uint32
+  |        |     |  +--rw Type?      enumeration
+  |        |     |  +--rw Status?    enumeration
+  |        |     |  +--rw PerfCpu?   uint32
+  |        |     |  +--rw PerfMem?   uint32
+  |        |     |  +--rw Name?      string
+  |        |     +--rw RpdPtpStatus
+  |        |     |  +--rw PtpCurrentDataset
+  |        |     |  |  +--rw StepsRemoved?       uint32
+  |        |     |  |  +--rw OffsetFromMaster?   int64
+  |        |     |  |  +--rw MeanPathDelay?      uint32
+  |        |     |  +--rw PtpClockStatus
+  |        |     |  |  +--rw ClockState?                 enumeration
+  |        |     |  |  +--rw LastStateChange?            uint64
+  |        |     |  |  +--rw PacketsSent?                uint64
+  |        |     |  |  +--rw PacketsReceived?            uint64
+  |        |     |  |  +--rw CounterDiscontinuityTime?   binary
+  |        |     |  |  +--rw ExcessiveHoldover?          boolean
+  |        |     |  +--rw PtpPortDataset* [PortNumber]
+  |        |     |  |  +--rw PortNumber       uint16
+  |        |     |  |  +--rw PortState?       enumeration
+  |        |     |  |  +--rw MeanPathDelay?   int32
+  |        |     |  +--rw RpdPtpPortStatus* [RpdEnetPortIndex RpdPtpPortIndex]
+  |        |     |     +--rw RpdEnetPortIndex            uint8
+  |        |     |     +--rw RpdPtpPortIndex             uint8
+  |        |     |     +--rw PacketsSent?                uint64
+  |        |     |     +--rw PacketsReceived?            uint64
+  |        |     |     +--rw CounterDiscontinuityTime?   binary
+  |        |     |     +--rw PtpPortMasterClockStatus* [MasterPriority]
+  |        |     |        +--rw MasterPriority              uint8
+  |        |     |        +--rw PacketsSent?                uint64
+  |        |     |        +--rw PacketsReceived?            uint64
+  |        |     |        +--rw MasterClockId?              binary
+  |        |     |        +--rw MasterClockPortNumber?      uint16
+  |        |     |        +--rw TwoStepFlag?                boolean
+  |        |     |        +--rw IsBmc?                      boolean
+  |        |     |        +--rw IsMasterConnected?          boolean
+  |        |     |        +--rw StatusDomain?               uint32
+  |        |     |        +--rw FreqOffset?                 uint32
+  |        |     |        +--rw CounterDiscontinuityTime?   binary
+  |        |     |        +--rw GmClockIdentity?            binary
+  |        |     |        +--rw GmPriority1?                uint8
+  |        |     |        +--rw GmPriority2?                uint8
+  |        |     |        +--rw GmQualityClass?             uint8
+  |        |     |        +--rw GmQualityAccuracy?          uint8
+  |        |     |        +--rw GmQualityOffset?            uint16
+  |        |     |        +--rw GmStepsRemoved?             uint32
+  |        |     +--rw ExtSwImageSupport* [SwImageIndex]
+  |        |     |  +--rw SwImageIndex            uint8
+  |        |     |  +--rw SwImageLastUpdate?      binary
+  |        |     |  +--rw SwImageName?            string
+  |        |     |  +--rw SwImageDescr?           string
+  |        |     |  +--rw SwImageServerAddress?   inet:ip-address
+  |        |     +--rw RpdCert
+  |        |     |  +--rw DeviceCert?      binary
+  |        |     |  +--rw SigningCaCert?   binary
+  |        |     +--rw TrustAnchorCert* [Index]
+  |        |     |  +--rw Index     uint32
+  |        |     |  +--rw CaCert?   binary
+  |        |     +--rw RpdAaaServerAuth
+  |        |     |  +--rw Status?   enumeration
+  |        |     +--rw RpdCcapCoreAuth
+  |        |     |  +--rw Status?   enumeration
+  |        |     +--rw Ieee8021xPaeSupplicantStatus* [PortNumber]
+  |        |        +--rw PortNumber       uint32
+  |        |        +--rw Authenticated?   boolean
+  |        |        +--rw Failed?          boolean
+  |        |        +--rw RetryCount?      uint32
+  |        +--:(DocsIf31)
+  |        |  +--rw DocsIf31
+  |        +--:(DocsIf3)
+  |        |  +--rw DocsIf3
+  |        +--:(DocsIf)
+  |        |  +--rw DocsIf
+  |        +--:(RpdConnectionStatus)
+  |        |  +--rw RpdConnectionStatus* [Index]
+  |        |     +--rw Index                     uint8
+  |        |     +--rw CoreId?                   yang:mac-address
+  |        |     +--rw RpdGcpConnectionStatus?   enumeration
+  |        |     +--rw AuthenticationStatus?     enumeration
+  |        +--:(CoreGcpConnectionResponse)
+  |        |  +--rw CoreGcpConnectionResponse
+  |        |     +--rw CoreId?     yang:mac-address
+  |        |     +--rw Response?   enumeration
+  |        +--:(RpdBackupCoreStatusTable)
+  |        |  +--rw RpdBackupCoreStatusTable* [Index]
+  |        |     +--rw Index                     uint8
+  |        |     +--rw CoreId?                   yang:mac-address
+  |        |     +--rw RpdGcpBackupCoreStatus?   enumeration
+  |        +--:(GcpHandoverControl)
+  |        |  +--rw GcpHandoverControl
+  |        |     +--rw GcpHandoverControlAction?   enumeration
+  |        |     +--rw OosCore?                    yang:mac-address
+  |        |     +--rw NewActiveCore?              yang:mac-address
+  |        |     +--rw L2TPv3?                     enumeration
+  |        +--:(PnmUsHistogram)
+  |        |  +--rw PnmUsHistogram
+  |        |     +--rw UsHsgRpdStatus?      enumeration
+  |        |     +--rw UsHsgCommand?        enumeration
+  |        |     +--rw UsHsgRfPortId?       uint16
+  |        |     +--rw UsHsgTimeout?        uint16
+  |        |     +--rw UsHsgEvenSymmetry?   boolean
+  |        |     +--rw UsHsgStartTime?      uint64
+  |        |     +--rw UsHsgEndTime?        uint64
+  |        |     +--rw UsHsgDwellCounts?    binary
+  |        |     +--rw UsHsgHitCounts?      binary
+  |        +--:(UsScQamProfileQuery)
+  |        |  +--rw UsScQamProfileQuery
+  |        |     +--rw QueryScQamChannelType?   uint8
+  |        |     +--rw QueryScQamWidth?         uint32
+  |        |     +--rw QueryIucCode
+  |        |        +--rw QueryScQamCode?              uint8
+  |        |        +--rw QueryScQamPreambleLen?       uint16
+  |        |        +--rw QueryScQamPreambleModType?   uint8
+  |        |        +--rw QueryScQamModulationType?    uint8
+  |        |        +--rw QueryScQamGuardTime?         uint8
+  |        +--:(UsScQamProfileResponse)
+  |        |  +--rw UsScQamProfileResponse
+  |        |     +--rw ResponseScQamPreambleString?   binary
+  |        |     +--rw ResponseIucCode
+  |        |        +--rw ResponseScQamCode?              uint8
+  |        |        +--rw ResponseScQamPreambleLen?       uint16
+  |        |        +--rw ResponseScQamPreambleOffset?    uint16
+  |        |        +--rw ResponseScQamPreambleModType?   enumeration
+  |        |        +--rw ResponseScQamScramblerSeed?     uint16
+  |        |        +--rw ResponseScQamGuardTime?         uint8
+  |        +--:(UsOfdmaConfigQuery)
+  |        |  +--rw UsOfdmaConfigQuery
+  |        |     +--rw QueryOfdmaRollOffPeriod?       uint16
+  |        |     +--rw QueryOfdmaCyclicPrefix?        uint16
+  |        |     +--rw QueryOfdmaSubcarrierSpacing?   uint8
+  |        |     +--rw QueryNumSymbolsPerFrame?       uint8
+  |        |     +--rw QueryOfdmaScramblerSeed?       uint32
+  |        +--:(UsOfdmaConfigResponse)
+  |           +--rw UsOfdmaConfigResponse
+  |              +--rw ResponseOfdmaRollOffPeriod?    enumeration
+  |              +--rw ResponseOfdmaCyclicPrefix?     enumeration
+  |              +--rw ResponseOfdmaPreambleString?   binary
+  |              +--rw ResponseNumSymbolsPerFrame?    uint8
+  |              +--rw ResponseOfdmaScramblerSeed?    uint32
+  +--rw NTF
+     +--rw Sequence* [SequenceNumber]
+        +--rw SequenceNumber               uint16
+        +--rw Operation?                   enumeration
+        +--rw ErrorMessage?                string
+        +--rw (ntf-topic)?
+           +--:(GeneralNotification)
+              +--rw GeneralNotification
+                 +--rw NotificationType?             enumeration
+                 +--rw RpdRedirectResult?            enumeration
+                 +--rw RpdRedirectIpAddress?         inet:ip-address
+                 +--rw PtpRpdEnetPortIndex?          uint8
+                 +--rw PtpResult?                    enumeration
+                 +--rw AuxCoreResult?                enumeration
+                 +--rw AuxCoreIpAddress?             inet:ip-address
+                 +--rw AuxCoreFailureType?           enumeration
+                 +--rw SpecificTimeOut?              enumeration
+                 +--rw CoreTimedOutIpAddress?        inet:ip-address
+                 +--rw PtpRpdPtpPortIndex?           uint8
+                 +--rw PtpClockSource?               enumeration
+                 +--rw AuxCoreGcpConnectionStatus?   enumeration
+                 +--rw AuxCoreId?                    yang:mac-address
+                 +--rw SsdFailureType?               uint32
